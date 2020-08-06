@@ -992,3 +992,15 @@ td {
         font-family: Georgia, serif;
       }
     
+      .main {
+        background: #40c057;
+      }
+    
+      body {
+        background: #ffec99;
+      }
+    
+      a {
+        color: #4c6ef5;
+      }
+    
