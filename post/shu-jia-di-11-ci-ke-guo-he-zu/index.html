@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>暑假第11次课 过河卒 | houpingzeAKIOI</title>
-<link rel="shortcut icon" href="https://houpingze.github.io/favicon.ico?v=1596680804826">
+<link rel="shortcut icon" href="https://houpingze.github.io/favicon.ico?v=1596683055854">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="暑假第11次课 过河卒 | houpingzeAKIOI - Atom Feed" href="https://houpingze.github.io/atom.xml">
@@ -13,11 +13,13 @@
 
     <meta name="description" content="课前测：
 
+重点：
+数塔问题中，如果自上而下推导，目标是什么？
+答：         max{f[n][i]}, i∈[1,n];
 笔记：
-gugugu
-课后测：
-gugugu
-..." />
+递推（过河卒）
+f[i][j]表示从起点到点（i，j）的方案总数
+f[i][j]=f[i-1][j]..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -27,7 +29,7 @@ gugugu
       <div class="main-content">
         <div class="site-header">
   <a href="https://houpingze.github.io">
-  <img class="avatar" src="https://houpingze.github.io/images/avatar.png?v=1596680804826" alt="">
+  <img class="avatar" src="https://houpingze.github.io/images/avatar.png?v=1596683055854" alt="">
   </a>
   <h1 class="site-title">
     houpingzeAKIOI
@@ -92,18 +94,34 @@ gugugu
               
             </div>
             
+              <img class="post-feature-image" src="https://houpingze.github.io/post-images/shu-jia-di-11-ci-ke-guo-he-zu.png" alt="">
+            
             <div class="post-content-wrapper">
               <div class="post-content">
                 <p>课前测：<br>
-<img src="https://houpingze.github.io/post-images/1596680370312.png" alt="" loading="lazy"><br>
-笔记：<br>
-<s>gugugu</s></p>
+<img src="https://houpingze.github.io/post-images/1596680370312.png" alt="" loading="lazy"></p>
+<p>重点：<br>
+数塔问题中，如果自上而下推导，目标是什么？<br>
+答：         max{f[n][i]}, i∈[1,n];<br>
+笔记：</p>
+<h2 id="递推过河卒">递推（过河卒）</h2>
+<p>f[i][j]表示从起点到点（i，j）的方案总数<br>
+f[i][j]=f[i-1][j]+f[i][j-1];(如果（i，j)是马🐎的控制点，那么f[i][j]=0)<br>
+边界：f[1][1]=1;<br>
+解：f[m][n]</p>
 <p>课后测：<br>
 gugugu</p>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E9%80%92%E6%8E%A8%E8%BF%87%E6%B2%B3%E5%8D%92">递推（过河卒）</a></li>
+</ul>
+</li>
+</ul>
+
               </div>
             </div>
           </article>
