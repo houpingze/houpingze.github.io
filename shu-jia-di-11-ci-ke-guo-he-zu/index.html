@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>暑假第11次课 过河卒 | houpingzeAKIOI</title>
-<link rel="shortcut icon" href="https://houpingze.github.io/favicon.ico?v=1596685162625">
+<link rel="shortcut icon" href="https://houpingze.github.io/favicon.ico?v=1596686897505">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="暑假第11次课 过河卒 | houpingzeAKIOI - Atom Feed" href="https://houpingze.github.io/atom.xml">
@@ -29,7 +29,7 @@ f[i][j]=f[i-1][j]..." />
       <div class="main-content">
         <div class="site-header">
   <a href="https://houpingze.github.io">
-  <img class="avatar" src="https://houpingze.github.io/images/avatar.png?v=1596685162625" alt="">
+  <img class="avatar" src="https://houpingze.github.io/images/avatar.png?v=1596686897505" alt="">
   </a>
   <h1 class="site-title">
     houpingzeAKIOI
@@ -93,7 +93,7 @@ f[i][j]=f[i-1][j]..." />
                 2020-08-06
               </span>
               <span>
-                2 min read
+                4 min read
               </span>
               
             </div>
@@ -114,7 +114,7 @@ f[i][j]=f[i-1][j]+f[i][j-1];(如果（i，j)是马🐎的控制点，那么f[i][
 边界：f[1][1]=1;<br>
 解：f[m][n]</p>
 <h2 id="代码">代码</h2>
-<p>4391:</p>
+<h3 id="4391">4391:</h3>
 <pre><code class="language-cpp">#include&lt;iostream&gt;
 #include&lt;map&gt;
 typedef unsigned long long ull;
@@ -147,6 +147,61 @@ int main(){
 }
 
 </code></pre>
+<p>老师的方法：<br>
+定义一个方向数组，表示马走的方向，其他都一样</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,x,y;
+bool b[50][50];
+const int dir[8][2]={
+	{-1,-2},{-1,2},{1,-2},{1,2},
+	{2,-1},{2,1},{-2,-1},{-2,1}
+};
+int f[100][100];
+int main(){
+	cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;
+	b[x][y]=1;
+	for(int i=0;i&lt;8;i++){
+		int nx=x+dir[i][0],ny=y+dir[i][1];
+		if(nx&gt;=0&amp;&amp;ny&gt;=0) b[nx][ny]=1;
+	} 
+	f[0][0]=1;
+	for(int i=0;i&lt;=n;i++){
+		for(int j=0;j&lt;=m;j++){
+			if(i==0&amp;&amp;j==0||b[i][j]) continue;
+			if(i-1&gt;=0) f[i][j]=f[i-1][j];
+			if(j-1&gt;=0) f[i][j]+=f[i][j-1]; 
+		}
+	}
+//	if(b[0][0]) cout&lt;&lt;0;
+	cout&lt;&lt;f[n][m];
+}
+</code></pre>
+<h3 id="5100">5100:</h3>
+<p>f[i][j]表示从起点跳到点(i,j)的方案总数<br>
+f[i][j]=f[i-2][j-1]+f[i-1][j-2]<br>
+边界：f[0][0]=1<br>
+解：f[n][m]</p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;map&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,x,y;
+map&lt;ull , map&lt;ull,ull&gt; &gt;f,ju;
+int main(){
+	cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;
+	f[0][0]=1;
+	for(int i=1;i&lt;=n;i++){
+		for(int j=1;j&lt;=m;j++){
+			if(i!=x&amp;&amp;j!=y) f[i][j]=f[i-2][j-1]+f[i-1][j-2];
+		} 
+	}
+	cout&lt;&lt;f[n][m];
+}
+
+</code></pre>
 <p>课后测：<br>
 gugugu</p>
 
@@ -156,7 +211,12 @@ gugugu</p>
 <li>
 <ul>
 <li><a href="#%E9%80%92%E6%8E%A8%E8%BF%87%E6%B2%B3%E5%8D%92">递推（过河卒）</a></li>
-<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a>
+<ul>
+<li><a href="#4391">4391:</a></li>
+<li><a href="#5100">5100:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

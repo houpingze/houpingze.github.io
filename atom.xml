@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-08-06T03:53:51.092Z</updated>
+    <updated>2020-08-06T04:08:22.658Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -10,6 +10,116 @@
     <logo>https://houpingze.github.io/images/avatar.png</logo>
     <icon>https://houpingze.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
+    <entry>
+        <title type="html"><![CDATA[暑假第11次课 过河卒]]></title>
+        <id>https://houpingze.github.io/shu-jia-di-11-ci-ke-guo-he-zu/</id>
+        <link href="https://houpingze.github.io/shu-jia-di-11-ci-ke-guo-he-zu/">
+        </link>
+        <updated>2020-08-06T02:09:10.000Z</updated>
+        <content type="html"><![CDATA[<p>课前测：<br>
+<img src="https://houpingze.github.io/post-images/1596680370312.png" alt="" loading="lazy"></p>
+<p>重点：<br>
+数塔问题中，如果自上而下推导，目标是什么？<br>
+答：         max{f[n][i]}, i∈[1,n];<br>
+笔记：</p>
+<h2 id="递推过河卒">递推（过河卒）</h2>
+<p>f[i][j]表示从起点到点（i，j）的方案总数<br>
+f[i][j]=f[i-1][j]+f[i][j-1];(如果（i，j)是马🐎的控制点，那么f[i][j]=0)<br>
+边界：f[1][1]=1;<br>
+解：f[m][n]</p>
+<h2 id="代码">代码</h2>
+<h3 id="4391">4391:</h3>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;map&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,x,y;
+map&lt;int,map&lt;int,int&gt; &gt;ma,f;
+int main(){
+	cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;
+//	swap(x,y);
+	ma[x+2][y+1]=1;
+	ma[x+1][y+2]=1;
+	ma[x-1][y+2]=1;
+	ma[x-2][y+1]=1;
+	ma[x+2][y-1]=1;
+	ma[x+1][y-2]=1;
+	ma[x-1][y-2]=1;
+	ma[x-2][y-1]=1;
+	ma[x][y]=1;
+	f[0][0]=1;
+	for(int i=0;i&lt;=n;i++){
+		for(int j=0;j&lt;=m;j++){
+			if(i==0&amp;&amp;j==0) continue;
+			if(i==0) f[i][j]=f[i][j-1];
+			else if(j==0) f[i][j]=f[i-1][j];
+			else f[i][j]=f[i-1][j]+f[i][j-1];
+			f[i][j]*=(ma[i][j]==0);
+		}
+	}
+	cout&lt;&lt;f[n][m];
+}
+
+</code></pre>
+<p>老师的方法：<br>
+定义一个方向数组，表示马走的方向，其他都一样</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,x,y;
+bool b[50][50];
+const int dir[8][2]={
+	{-1,-2},{-1,2},{1,-2},{1,2},
+	{2,-1},{2,1},{-2,-1},{-2,1}
+};
+int f[100][100];
+int main(){
+	cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;
+	b[x][y]=1;
+	for(int i=0;i&lt;8;i++){
+		int nx=x+dir[i][0],ny=y+dir[i][1];
+		if(nx&gt;=0&amp;&amp;ny&gt;=0) b[nx][ny]=1;
+	} 
+	f[0][0]=1;
+	for(int i=0;i&lt;=n;i++){
+		for(int j=0;j&lt;=m;j++){
+			if(i==0&amp;&amp;j==0||b[i][j]) continue;
+			if(i-1&gt;=0) f[i][j]=f[i-1][j];
+			if(j-1&gt;=0) f[i][j]+=f[i][j-1]; 
+		}
+	}
+//	if(b[0][0]) cout&lt;&lt;0;
+	cout&lt;&lt;f[n][m];
+}
+</code></pre>
+<h3 id="5100">5100:</h3>
+<p>f[i][j]表示从起点跳到点(i,j)的方案总数<br>
+f[i][j]=f[i-2][j-1]+f[i-1][j-2]<br>
+边界：f[0][0]=1<br>
+解：f[n][m]</p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;map&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,x,y;
+map&lt;ull , map&lt;ull,ull&gt; &gt;f,ju;
+int main(){
+	cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;
+	f[0][0]=1;
+	for(int i=1;i&lt;=n;i++){
+		for(int j=1;j&lt;=m;j++){
+			if(i!=x&amp;&amp;j!=y) f[i][j]=f[i-2][j-1]+f[i-1][j-2];
+		} 
+	}
+	cout&lt;&lt;f[n][m];
+}
+
+</code></pre>
+<p>课后测：<br>
+gugugu</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[IAKIOI(测试)]]></title>
         <id>https://houpingze.github.io/iakioice-shi/</id>
