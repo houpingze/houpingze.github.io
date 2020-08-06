@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-08-06T04:08:22.658Z</updated>
+    <updated>2020-08-06T04:09:02.167Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -94,7 +94,7 @@ int main(){
 </code></pre>
 <h3 id="5100">5100:</h3>
 <p>f[i][j]表示从起点跳到点(i,j)的方案总数<br>
-f[i][j]=f[i-2][j-1]+f[i-1][j-2]<br>
+f[i][j]=f[i-2][j-1]+f[i-1]<a href="%E8%BD%A6%F0%9F%9A%97%E8%A6%86%E7%9B%96%E7%9A%84%E4%BD%8D%E7%BD%AE%E4%B8%BA0">j-2</a><br>
 边界：f[0][0]=1<br>
 解：f[n][m]</p>
 <p>代码：</p>
