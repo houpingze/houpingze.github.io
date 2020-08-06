@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://github.com/houpingze/houpingzeAKIOI</id>
+    <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-08-06T01:19:56.097Z</updated>
+    <updated>2020-08-06T01:55:44.557Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://github.com/houpingze/houpingzeAKIOI"/>
-    <link rel="self" href="https://github.com/houpingze/houpingzeAKIOI/atom.xml"/>
+    <link rel="alternate" href="https://houpingze.github.io"/>
+    <link rel="self" href="https://houpingze.github.io/atom.xml"/>
     <subtitle>温故而知新，可以AKIOI</subtitle>
-    <logo>https://github.com/houpingze/houpingzeAKIOI/images/avatar.png</logo>
-    <icon>https://github.com/houpingze/houpingzeAKIOI/favicon.ico</icon>
+    <logo>https://houpingze.github.io/images/avatar.png</logo>
+    <icon>https://houpingze.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
     <entry>
         <title type="html"><![CDATA[AK]]></title>
-        <id>https://github.com/houpingze/houpingzeAKIOI/post/ak/</id>
-        <link href="https://github.com/houpingze/houpingzeAKIOI/post/ak/">
+        <id>https://houpingze.github.io/post/ak/</id>
+        <link href="https://houpingze.github.io/post/ak/">
         </link>
         <updated>2020-08-05T13:49:19.000Z</updated>
         <content type="html"><![CDATA[<h1 id="iakioi">IAKIOI！</h1>
@@ -21,8 +21,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://github.com/houpingze/houpingzeAKIOI/post/hello-gridea/</id>
-        <link href="https://github.com/houpingze/houpingzeAKIOI/post/hello-gridea/">
+        <id>https://houpingze.github.io/post/hello-gridea/</id>
+        <link href="https://houpingze.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
