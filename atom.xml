@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-08-06T03:16:26.131Z</updated>
+    <updated>2020-08-06T03:17:34.845Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -26,8 +26,9 @@
 <p>f[i][j]表示从起点到点（i，j）的方案总数<br>
 f[i][j]=f[i-1][j]+f[i][j-1];(如果（i，j)是马🐎的控制点，那么f[i][j]=0)<br>
 边界：f[1][1]=1;<br>
-解：f[m][n]<br>
-4391:</p>
+解：f[m][n]</p>
+<h2 id="代码">代码</h2>
+<p>4391:</p>
 <pre><code class="language-cpp">#include&lt;iostream&gt;
 #include&lt;map&gt;
 typedef unsigned long long ull;
