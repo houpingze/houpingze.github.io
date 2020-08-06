@@ -2,17 +2,24 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AK | houpingzeAKIOI</title>
+<title>暑假第11次课 过河卒 | houpingzeAKIOI</title>
 <link rel="shortcut icon" href="https://houpingze.github.io/favicon.ico?v=1596684620847">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="AK | houpingzeAKIOI - Atom Feed" href="https://houpingze.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="暑假第11次课 过河卒 | houpingzeAKIOI - Atom Feed" href="https://houpingze.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="IAKIOI！
-" />
+    <meta name="description" content="课前测：
+
+重点：
+数塔问题中，如果自上而下推导，目标是什么？
+答：         max{f[n][i]}, i∈[1,n];
+笔记：
+递推（过河卒）
+f[i][j]表示从起点到点（i，j）的方案总数
+f[i][j]=f[i-1][j]..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -95,26 +102,79 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              AK
+              暑假第11次课 过河卒
             </h2>
             <div class="post-info">
               <span>
-                2020-08-05
+                2020-08-06
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
               
             </div>
             
+              <img class="post-feature-image" src="https://houpingze.github.io/post-images/shu-jia-di-11-ci-ke-guo-he-zu.png" alt="">
+            
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h1 id="iakioi">IAKIOI！</h1>
+                <p>课前测：<br>
+<img src="https://houpingze.github.io/post-images/1596680370312.png" alt="" loading="lazy"></p>
+<p>重点：<br>
+数塔问题中，如果自上而下推导，目标是什么？<br>
+答：         max{f[n][i]}, i∈[1,n];<br>
+笔记：</p>
+<h2 id="递推过河卒">递推（过河卒）</h2>
+<p>f[i][j]表示从起点到点（i，j）的方案总数<br>
+f[i][j]=f[i-1][j]+f[i][j-1];(如果（i，j)是马🐎的控制点，那么f[i][j]=0)<br>
+边界：f[1][1]=1;<br>
+解：f[m][n]</p>
+<h2 id="代码">代码</h2>
+<p>4391:</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;map&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,x,y;
+map&lt;int,map&lt;int,int&gt; &gt;ma,f;
+int main(){
+	cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;
+//	swap(x,y);
+	ma[x+2][y+1]=1;
+	ma[x+1][y+2]=1;
+	ma[x-1][y+2]=1;
+	ma[x-2][y+1]=1;
+	ma[x+2][y-1]=1;
+	ma[x+1][y-2]=1;
+	ma[x-1][y-2]=1;
+	ma[x-2][y-1]=1;
+	ma[x][y]=1;
+	f[0][0]=1;
+	for(int i=0;i&lt;=n;i++){
+		for(int j=0;j&lt;=m;j++){
+			if(i==0&amp;&amp;j==0) continue;
+			if(i==0) f[i][j]=f[i][j-1];
+			else if(j==0) f[i][j]=f[i-1][j];
+			else f[i][j]=f[i-1][j]+f[i][j-1];
+			f[i][j]*=(ma[i][j]==0);
+		}
+	}
+	cout&lt;&lt;f[n][m];
+}
+
+</code></pre>
+<p>课后测：<br>
+gugugu</p>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li><a href="#iakioi">IAKIOI！</a></li>
+<li>
+<ul>
+<li><a href="#%E9%80%92%E6%8E%A8%E8%BF%87%E6%B2%B3%E5%8D%92">递推（过河卒）</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
+</ul>
+</li>
 </ul>
 
               </div>
@@ -125,9 +185,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://houpingze.github.io/hello-gridea/">
+            <a href="https://houpingze.github.io/iakioice-shi/">
               <h3 class="post-title">
-                Hello Gridea
+                IAKIOI(测试)
               </h3>
             </a>
           </div>
