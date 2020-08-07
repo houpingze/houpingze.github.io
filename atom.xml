@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://ak-ioi.com</id>
+    <id>https://ak-ioi.luogu</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-08-07T02:16:57.124Z</updated>
+    <updated>2020-08-07T02:18:10.671Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://ak-ioi.com"/>
-    <link rel="self" href="https://ak-ioi.com/atom.xml"/>
+    <link rel="alternate" href="https://ak-ioi.luogu"/>
+    <link rel="self" href="https://ak-ioi.luogu/atom.xml"/>
     <subtitle>温故而知新，可以AKIOI
 hiahiahia</subtitle>
-    <logo>https://ak-ioi.com/images/avatar.png</logo>
-    <icon>https://ak-ioi.com/favicon.ico</icon>
+    <logo>https://ak-ioi.luogu/images/avatar.png</logo>
+    <icon>https://ak-ioi.luogu/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
     <entry>
         <title type="html"><![CDATA[这是什么情况]]></title>
-        <id>https://ak-ioi.com/zhe-shi-shi-me-qing-kuang/</id>
-        <link href="https://ak-ioi.com/zhe-shi-shi-me-qing-kuang/">
+        <id>https://ak-ioi.luogu/zhe-shi-shi-me-qing-kuang/</id>
+        <link href="https://ak-ioi.luogu/zhe-shi-shi-me-qing-kuang/">
         </link>
         <updated>2020-08-07T02:05:54.000Z</updated>
         <content type="html"><![CDATA[<p>QWQ</p>
@@ -22,12 +22,12 @@ hiahiahia</subtitle>
     </entry>
     <entry>
         <title type="html"><![CDATA[暑假第11次课 过河卒]]></title>
-        <id>https://ak-ioi.com/shu-jia-di-11-ci-ke-guo-he-zu/</id>
-        <link href="https://ak-ioi.com/shu-jia-di-11-ci-ke-guo-he-zu/">
+        <id>https://ak-ioi.luogu/shu-jia-di-11-ci-ke-guo-he-zu/</id>
+        <link href="https://ak-ioi.luogu/shu-jia-di-11-ci-ke-guo-he-zu/">
         </link>
         <updated>2020-08-06T02:09:10.000Z</updated>
         <content type="html"><![CDATA[<p>课前测：<br>
-<img src="https://ak-ioi.com/post-images/1596680370312.png" alt="" loading="lazy"></p>
+<img src="https://ak-ioi.luogu/post-images/1596680370312.png" alt="" loading="lazy"></p>
 <p>重点：<br>
 数塔问题中，如果自上而下推导，目标是什么？<br>
 答：         max{f[n][i]}, i∈[1,n];<br>
@@ -127,14 +127,14 @@ int main(){
 
 </code></pre>
 <p>课后测：<br>
-<img src="https://ak-ioi.com/post-images/1596687726558.png" alt="" loading="lazy"></p>
+<img src="https://ak-ioi.luogu/post-images/1596687726558.png" alt="" loading="lazy"></p>
 <p>重点：注意dir数组</p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[IAKIOI(测试)]]></title>
-        <id>https://ak-ioi.com/iakioice-shi/</id>
-        <link href="https://ak-ioi.com/iakioice-shi/">
+        <id>https://ak-ioi.luogu/iakioice-shi/</id>
+        <link href="https://ak-ioi.luogu/iakioice-shi/">
         </link>
         <updated>2020-08-06T02:04:15.000Z</updated>
         <content type="html"><![CDATA[<p>I AK IOI？</p>
@@ -142,8 +142,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[AK]]></title>
-        <id>https://ak-ioi.com/ak/</id>
-        <link href="https://ak-ioi.com/ak/">
+        <id>https://ak-ioi.luogu/ak/</id>
+        <link href="https://ak-ioi.luogu/ak/">
         </link>
         <updated>2020-08-05T13:49:19.000Z</updated>
         <content type="html"><![CDATA[<h1 id="iakioi">IAKIOI！</h1>
@@ -151,8 +151,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://ak-ioi.com/hello-gridea/</id>
-        <link href="https://ak-ioi.com/hello-gridea/">
+        <id>https://ak-ioi.luogu/hello-gridea/</id>
+        <link href="https://ak-ioi.luogu/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
