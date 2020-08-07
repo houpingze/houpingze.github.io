@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://hpzakioi.github.io</id>
+    <id>https://houpingzeAKIOI.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-08-07T03:32:00.156Z</updated>
+    <updated>2020-08-07T05:06:46.789Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://hpzakioi.github.io"/>
-    <link rel="self" href="https://hpzakioi.github.io/atom.xml"/>
+    <link rel="alternate" href="https://houpingzeAKIOI.github.io"/>
+    <link rel="self" href="https://houpingzeAKIOI.github.io/atom.xml"/>
     <subtitle>温故而知新，可以AKIOI
 hiahiahia</subtitle>
-    <logo>https://hpzakioi.github.io/images/avatar.png</logo>
-    <icon>https://hpzakioi.github.io/favicon.ico</icon>
+    <logo>https://houpingzeAKIOI.github.io/images/avatar.png</logo>
+    <icon>https://houpingzeAKIOI.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
     <entry>
         <title type="html"><![CDATA[这是什么情况]]></title>
-        <id>https://hpzakioi.github.io/zhe-shi-shi-me-qing-kuang/</id>
-        <link href="https://hpzakioi.github.io/zhe-shi-shi-me-qing-kuang/">
+        <id>https://houpingzeAKIOI.github.io/zhe-shi-shi-me-qing-kuang/</id>
+        <link href="https://houpingzeAKIOI.github.io/zhe-shi-shi-me-qing-kuang/">
         </link>
         <updated>2020-08-07T02:05:54.000Z</updated>
         <content type="html"><![CDATA[<p>QWQ</p>
@@ -22,12 +22,12 @@ hiahiahia</subtitle>
     </entry>
     <entry>
         <title type="html"><![CDATA[暑假第11次课 过河卒]]></title>
-        <id>https://hpzakioi.github.io/shu-jia-di-11-ci-ke-guo-he-zu/</id>
-        <link href="https://hpzakioi.github.io/shu-jia-di-11-ci-ke-guo-he-zu/">
+        <id>https://houpingzeAKIOI.github.io/shu-jia-di-11-ci-ke-guo-he-zu/</id>
+        <link href="https://houpingzeAKIOI.github.io/shu-jia-di-11-ci-ke-guo-he-zu/">
         </link>
         <updated>2020-08-06T02:09:10.000Z</updated>
         <content type="html"><![CDATA[<p>课前测：<br>
-<img src="https://hpzakioi.github.io/post-images/1596680370312.png" alt="" loading="lazy"></p>
+<img src="https://houpingzeAKIOI.github.io/post-images/1596680370312.png" alt="" loading="lazy"></p>
 <p>重点：<br>
 数塔问题中，如果自上而下推导，目标是什么？<br>
 答：         max{f[n][i]}, i∈[1,n];<br>
@@ -127,14 +127,14 @@ int main(){
 
 </code></pre>
 <p>课后测：<br>
-<img src="https://hpzakioi.github.io/post-images/1596687726558.png" alt="" loading="lazy"></p>
+<img src="https://houpingzeAKIOI.github.io/post-images/1596687726558.png" alt="" loading="lazy"></p>
 <p>重点：注意dir数组</p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[IAKIOI(测试)]]></title>
-        <id>https://hpzakioi.github.io/iakioice-shi/</id>
-        <link href="https://hpzakioi.github.io/iakioice-shi/">
+        <id>https://houpingzeAKIOI.github.io/iakioice-shi/</id>
+        <link href="https://houpingzeAKIOI.github.io/iakioice-shi/">
         </link>
         <updated>2020-08-06T02:04:15.000Z</updated>
         <content type="html"><![CDATA[<p>I AK IOI？</p>
@@ -142,8 +142,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[AK]]></title>
-        <id>https://hpzakioi.github.io/ak/</id>
-        <link href="https://hpzakioi.github.io/ak/">
+        <id>https://houpingzeAKIOI.github.io/ak/</id>
+        <link href="https://houpingzeAKIOI.github.io/ak/">
         </link>
         <updated>2020-08-05T13:49:19.000Z</updated>
         <content type="html"><![CDATA[<h1 id="iakioi">IAKIOI！</h1>
@@ -151,8 +151,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://hpzakioi.github.io/hello-gridea/</id>
-        <link href="https://hpzakioi.github.io/hello-gridea/">
+        <id>https://houpingzeAKIOI.github.io/hello-gridea/</id>
+        <link href="https://houpingzeAKIOI.github.io/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
