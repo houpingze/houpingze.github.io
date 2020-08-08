@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-08-08T03:17:13.366Z</updated>
+    <updated>2020-08-08T03:20:33.649Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -21,7 +21,6 @@ hiahiahia</subtitle>
 <p><img src="https://houpingze.github.io/post-images/1596855149009.png" alt="" loading="lazy"><br>
 f[i]表示i个椭圆最多可以把平面分成f[i]个地盘<br>
 <em><em>递推式：f[i]=f[i-1]+2</em>(i-1)(其中i-1表示前i-1个椭圆，2表示第i个椭圆会和每个椭圆相交2次，每相交一次会产生1个新的地盘)</em>*<br>
-<font color="red">f[i]=f[i-1]+2*(i-1)</font><br>
 边界：f[1]=2<br>
 解：f[n]<br>
 代码：</p>
@@ -45,6 +44,24 @@ int main(){
 递推式：f[i][j]=f[i-1][j]*j+f[i-1][j-1]<br>
 边界：f[1][1]=1;<br>
 解：f[n][m]</p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,f[100][100];
+int main(){
+	cin&gt;&gt;n&gt;&gt;m;
+	f[1][1]=1;
+	for(int i=1;i&lt;=n;i++){
+		for(int j=1;j&lt;=m;j++){
+			if(i==1&amp;&amp;j==1) continue;
+			f[i][j]=f[i-1][j]*j+f[i-1][j-1];
+		}
+	}
+	cout&lt;&lt;f[n][m];
+}
+
+</code></pre>
 ]]></content>
     </entry>
     <entry>

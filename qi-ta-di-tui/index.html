@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://houpingze.github.io/favicon.ico?v=1596856630048">
+<link rel="shortcut icon" href="https://houpingze.github.io/favicon.ico?v=1596856830918">
 <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
 
 
@@ -22,7 +22,8 @@
 
 f[i]表示i个椭圆最多可以把平面分成f[i]个地盘
 递推式：f[i]=f[i-1]+2(i-1)(其中i-1表示前i-1个椭圆，2表示第i个椭圆会和每个椭圆相交2次，每相交一次会产生1个新的地盘)*
-f[i]=f[i-1]+2..." />
+边界：f[1]=2
+解：f..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -32,7 +33,7 @@ f[i]=f[i-1]+2..." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://houpingze.github.io">
-        <img src="https://houpingze.github.io/images/avatar.png?v=1596856630048" class="site-logo">
+        <img src="https://houpingze.github.io/images/avatar.png?v=1596856830918" class="site-logo">
         <h1 class="site-title">houpingzeAKIOI</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -107,7 +108,6 @@ hiahiahia
 <p><img src="https://houpingze.github.io/post-images/1596855149009.png" alt="" loading="lazy"><br>
 f[i]表示i个椭圆最多可以把平面分成f[i]个地盘<br>
 <em><em>递推式：f[i]=f[i-1]+2</em>(i-1)(其中i-1表示前i-1个椭圆，2表示第i个椭圆会和每个椭圆相交2次，每相交一次会产生1个新的地盘)</em>*<br>
-<font color="red">f[i]=f[i-1]+2*(i-1)</font><br>
 边界：f[1]=2<br>
 解：f[n]<br>
 代码：</p>
@@ -131,6 +131,24 @@ int main(){
 递推式：f[i][j]=f[i-1][j]*j+f[i-1][j-1]<br>
 边界：f[1][1]=1;<br>
 解：f[n][m]</p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,f[100][100];
+int main(){
+	cin&gt;&gt;n&gt;&gt;m;
+	f[1][1]=1;
+	for(int i=1;i&lt;=n;i++){
+		for(int j=1;j&lt;=m;j++){
+			if(i==1&amp;&amp;j==1) continue;
+			f[i][j]=f[i-1][j]*j+f[i-1][j-1];
+		}
+	}
+	cout&lt;&lt;f[n][m];
+}
+
+</code></pre>
 
             </div>
             
