@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://houpingze.github.io/favicon.ico?v=1596940738591">
+<link rel="shortcut icon" href="https://houpingze.github.io/favicon.ico?v=1596942656840">
 <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
 
 
@@ -26,11 +26,8 @@
 利用数组进行运算
 输出结果
 
-
-代码：
-加
-#include&lt;iostream&gt;
-using namespa..." />
+代码如下：    a[0]=x.size();
+ for(int i=1;i&lt;=a[..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -40,7 +37,7 @@ using namespa..." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://houpingze.github.io">
-        <img src="https://houpingze.github.io/images/avatar.png?v=1596940738591" class="site-logo">
+        <img src="https://houpingze.github.io/images/avatar.png?v=1596942656840" class="site-logo">
         <h1 class="site-title">houpingzeAKIOI</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -118,26 +115,72 @@ hiahiahia
 <li>将string存入数组中，数字的低位放在数组的前面，高位放在数组后面</li>
 <li>利用数组进行运算</li>
 <li>输出结果</li>
-<li><img src="https://houpingze.github.io/post-images/1596940661406.png" alt="" loading="lazy"></li>
+<li><img src="https://houpingze.github.io/post-images/1596940661406.png" alt="" loading="lazy"><br>
+代码如下：<pre><code class="language-cpp">    a[0]=x.size();
+ for(int i=1;i&lt;=a[0];i++){
+ 	a[i]=x[a[0]-i]-'0';
+ } 
+ b[0]=y.size();
+ for(int i=1;i&lt;=b[0];i++){
+ 	b[i]=y[b[0]-i]-'0';
+ } 
+ 
+</code></pre>
+</li>
 </ol>
 <h2 id="代码">代码：</h2>
 <h3 id="加">加</h3>
 <pre><code class="language-cpp">#include&lt;iostream&gt;
 using namespace std;
-string a,b;
+string x,y;
 int a[10000],b[10000],c[100000];
 int main(){
-    cin&gt;&gt;a&gt;&gt;b;
-    /*
-    s1-&gt;a
-    */
-
+    cin&gt;&gt;x&gt;&gt;y;
+    /* s1-&gt;a */
+    /*低位放在下标少的*/
+    a[0]=x.size();
+    for(int i=1;i&lt;=a[0];i++){
+    	a[i]=x[a[0]-i]-'0';
+	} 
+    b[0]=y.size();
+    for(int i=1;i&lt;=b[0];i++){
+    	b[i]=y[b[0]-i]-'0';
+	} 
+	int l=max(a[0],b[0]),len=0;
+	for(int i=1;i&lt;=l;i++){
+		c[i]+=a[i]+b[i];
+		len=max(len,i);
+		if(c[i]&gt;=10){
+			c[i]-=10;
+			c[i+1]++;
+			len=i+1;
+		}
+	}
+	for(int i=len;i&gt;=1;i--) cout&lt;&lt;c[i];
     return 0;
 }
-
 </code></pre>
+<p>老师的代码（其实差不多）：<br>
+<img src="https://houpingze.github.io/post-images/1596941687551.png" alt="" loading="lazy"></p>
 <h3 id="减">减</h3>
-<pre><code class="language-cpp">
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+using namespace std;
+string x,y;
+int a[10000],b[10000],c[100000];
+int main(){
+    cin&gt;&gt;x&gt;&gt;y;
+    a[0]=x.size(),b[0]=y.size();
+    for(int i=1;i&lt;=a[0];i++) a[i]=x[a[0]-i]-'0'; 
+    for(int i=1;i&lt;=b[0];i++) b[i]=y[b[0]-i]-'0'; 
+	int l=max(a[0],b[0]),len=0;
+	for(int i=1;i&lt;=l;i++){
+		if(a[i]&lt;b[i]) a[i]+=10,a[i+1]--;
+		c[i]=a[i]-b[i]; 
+	}
+	while(l&gt;0&amp;&amp;c[l]==0) l--;
+	for(int i=l;i&gt;=1;i--) cout&lt;&lt;c[i];
+    return 0;
+}
 </code></pre>
 
             </div>
