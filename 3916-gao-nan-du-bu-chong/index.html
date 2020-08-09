@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>其他递推 | houpingzeAKIOI</title>
+<title>3916高难度补充 | houpingzeAKIOI</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,12 +18,12 @@
 
 
 
-    <meta name="description" content="4514
-
-f[i]表示i个椭圆最多可以把平面分成f[i]个地盘
-递推式：f[i]=f[i-1]+2(i-1)(其中i-1表示前i-1个椭圆，2表示第i个椭圆会和每个椭圆相交2次，每相交一次会产生1个新的地盘)*
-边界：f[1]=2
-解：f..." />
+    <meta name="description" content="😀😀😀😀😀😀😀
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+typedef unsigned long long ull;
+using namespace std;
+int..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -106,66 +106,44 @@ hiahiahia
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">其他递推</h2>
-            <div class="post-date">2020-08-08</div>
+            <h2 class="post-title">3916高难度补充</h2>
+            <div class="post-date">2020-08-09</div>
             
             <div class="post-content" v-pre>
-              <h2 id="4514">4514</h2>
-<p><img src="https://houpingze.github.io/post-images/1596855149009.png" alt="" loading="lazy"><br>
-f[i]表示i个椭圆最多可以把平面分成f[i]个地盘<br>
-<em><em>递推式：f[i]=f[i-1]+2</em>(i-1)(其中i-1表示前i-1个椭圆，2表示第i个椭圆会和每个椭圆相交2次，每相交一次会产生1个新的地盘)</em>*<br>
-边界：f[1]=2<br>
-解：f[n]<br>
-代码：</p>
+              <p><img src="https://houpingze.github.io/post-images/1596945482668.png" alt="" loading="lazy">😀😀😀😀😀😀😀</p>
 <pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
 typedef unsigned long long ull;
 using namespace std;
 int n,cnt,m;
+int a[15],f[100000];
 int main(){
+	for(int i=1;i&lt;=10;i++) cin&gt;&gt;a[i];
 	cin&gt;&gt;n;
-	int f[26];
-	f[1]=2;
+	/*
+	f[i]表示i公里的最优解 
+	*/ 
+    memset(f,0x7f,sizeof(f));
+	f[1]=a[1];
 	for(int i=2;i&lt;=n;i++){
-		f[i]=f[i-1]+2*(i-1);
-	} 
-	cout&lt;&lt;f[n];
-}
-</code></pre>
-<h2 id="4515">4515</h2>
-<p>小P最近搬进了新家，打算布置一番。现在小P有n本不同的书，想放进带有m个格子的书架上（m&lt;n）。要求每个格子至少有一本书。请你帮小P计算有多少种布置的方案。</p>
-<p>定义：f[i][j]表示前i本书放入j个格子的方案总数,（每个格子至少放1本书）<br>
-递推式：f[i][j]=f[i-1][j]*j+f[i-1][j-1]<br>
-边界：f[1][1]=1;<br>
-解：f[n][m]</p>
-<p>代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,f[100][100];
-int main(){
-	cin&gt;&gt;n&gt;&gt;m;
-	f[1][1]=1;
-	for(int i=1;i&lt;=n;i++){
-		for(int j=1;j&lt;=m;j++){
-			if(i==1&amp;&amp;j==1) continue;
-			f[i][j]=f[i-1][j]*j+f[i-1][j-1];
+		f[i]=f[i-1]+a[1];
+		for(int j=1;j&lt;=min(i,10);j++){
+	 		f[i]=min(f[i],a[j]+f[i-j]);
 		}
 	}
-	cout&lt;&lt;f[n][m];
+	cout&lt;&lt;f[n];
 }
 
 </code></pre>
-<p>课后测：<br>
-<img src="https://houpingze.github.io/post-images/1596860600158.png" alt="" loading="lazy"></p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://houpingze.github.io/111/">
+                <a href="https://houpingze.github.io/gao-jing-du/">
                   <h3 class="post-title">
-                    111
+                    高精度
                   </h3>
                 </a>
               </div>

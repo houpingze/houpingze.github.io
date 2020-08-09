@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-08-09T03:19:27.508Z</updated>
+    <updated>2020-08-09T04:02:03.753Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -11,6 +11,39 @@ hiahiahia</subtitle>
     <logo>https://houpingze.github.io/images/avatar.png</logo>
     <icon>https://houpingze.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
+    <entry>
+        <title type="html"><![CDATA[3916高难度补充]]></title>
+        <id>https://houpingze.github.io/3916-gao-nan-du-bu-chong/</id>
+        <link href="https://houpingze.github.io/3916-gao-nan-du-bu-chong/">
+        </link>
+        <updated>2020-08-09T03:57:08.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://houpingze.github.io/post-images/1596945482668.png" alt="" loading="lazy">😀😀😀😀😀😀😀</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+int a[15],f[100000];
+int main(){
+	for(int i=1;i&lt;=10;i++) cin&gt;&gt;a[i];
+	cin&gt;&gt;n;
+	/*
+	f[i]表示i公里的最优解 
+	*/ 
+    memset(f,0x7f,sizeof(f));
+	f[1]=a[1];
+	for(int i=2;i&lt;=n;i++){
+		f[i]=f[i-1]+a[1];
+		for(int j=1;j&lt;=min(i,10);j++){
+	 		f[i]=min(f[i],a[j]+f[i-j]);
+		}
+	}
+	cout&lt;&lt;f[n];
+}
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[高精度]]></title>
         <id>https://houpingze.github.io/gao-jing-du/</id>
