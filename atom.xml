@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-08-08T03:23:33.087Z</updated>
+    <updated>2020-08-09T01:58:50.732Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -11,6 +11,41 @@ hiahiahia</subtitle>
     <logo>https://houpingze.github.io/images/avatar.png</logo>
     <icon>https://houpingze.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
+    <entry>
+        <title type="html"><![CDATA[4507 补充]]></title>
+        <id>https://houpingze.github.io/4507-bu-chong/</id>
+        <link href="https://houpingze.github.io/4507-bu-chong/">
+        </link>
+        <updated>2020-08-08T03:41:36.000Z</updated>
+        <content type="html"><![CDATA[<p>1.填表法<br>
+2.刷表法</p>
+<h1 id="刷表法">刷表法</h1>
+<p>代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+using namespace std;
+int n,cnt,m,f[100][100],x,y;
+int dir[4][5]{{-2,1},{2,1},{-1,2},{1,2}};
+int main(){
+	cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;
+    swap(n,m);
+	f[0][0]=1;
+	for(int j=0;j&lt;=n;j++){
+		for(int i=0;i&lt;=m;i++){
+			if(i==x||j==y){
+				f[i][j]=0;
+				continue;
+			}
+			for(int k=0;k&lt;4;k++){
+				int nx=i+dir[k][0],ny=j+dir[k][1];
+				if(nx&gt;=0&amp;&amp;nx&lt;=m&amp;&amp;ny&gt;=0&amp;&amp;ny&lt;=n) f[nx][ny]+=f[i][j];
+			}
+		} 
+	}
+	cout&lt;&lt;f[m][n];
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[其他递推]]></title>
         <id>https://houpingze.github.io/qi-ta-di-tui/</id>
@@ -62,6 +97,8 @@ int main(){
 }
 
 </code></pre>
+<p>课后测：<br>
+<img src="https://houpingze.github.io/post-images/1596860600158.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
