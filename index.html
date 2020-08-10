@@ -1,304 +1,272 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" >
-
-<title>houpingzeAKIOI</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://houpingze.github.io/favicon.ico?v=1596945720807">
-<link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-
-
-    <meta name="description" content="温故而知新，可以AKIOI
-hiahiahia">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>houpingzeAKIOI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="media/css/index.css">
+    <link rel="stylesheet" href="media/live2d/css/live2d.css" />
     
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    
-  </head>
-  <body>
-    <div id="app" class="main">
+    <style>
+        #centerbg{
+            background-image: url();
+        }
+    </style>
+</head>
+<body class=" mdui-loaded">
+<header class="mdui-toolbar mdui-color-theme mdui-appbar-fixed mdui-appbar-scroll-toolbar-hide" style="z-index: 1000">
+    <a href="javascript:;" mdui-drawer="{target: '#left-drawer',overlay:true}" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+    <span class="mdui-typo-title">houpingzeAKIOI</span>
+    <div class="mdui-toolbar-spacer"></div>
+<!--    <a href="javascript:history.go(0);" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">more_vert</i></a>
+</header>
+<div class="meteor">
+    <div class="red" style="left:600px;"></div>
+    <div class="orange" style="left:700px;"></div>
+    <div class="yellow" style="left:900px;"></div>
+    <div class="green" style="left:1100px;"></div>
+    <div class="cyan" style="left:1260px;"></div>
+    <div class="blue" style="left:1400px;"></div>
+    <div class="purple" style="left:1500px;"></div>
+    <div class="red" style="left:0px;"></div>
+    <div class="orange" style="left:100px;"></div>
+    <div class="yellow" style="left:300px;"></div>
+    <div class="green" style="left:500px;"></div>
+    <div class="cyan" style="left:660px;"></div>
+    <div class="blue" style="left:800px;"></div>
+    <div class="purple" style="left:900px;"></div>
+    <div class="red" style="left:1200px;"></div>
+    <div class="orange" style="left:1300px;"></div>
+    <div class="yellow" style="left:1500px;"></div>
+    <div class="green" style="left:1700px;"></div>
+    <div class="cyan" style="left:1860px;"></div>
+    <div class="blue" style="left:2000px;"></div>
+    <div class="purple" style="left:2100px;"></div>
+</div>
+<div class="mdui-drawer mdui-color-white mdui-drawer-full-height mdui-drawer-close" id="left-drawer">
+    <ul class="mdui-list">
+        <li class="mdui-subheader">菜单</li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/" class="mdui-list-item-content">首页</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/archives" class="mdui-list-item-content">归档</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/tags" class="mdui-list-item-content">标签</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/post/about" class="mdui-list-item-content">关于</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="https://newcourse.codingtang.com/#/user/center" class="mdui-list-item-content">关于houpingze蒟蒻</a>
+        </li>
+        
+    </ul>
+</div>
 
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://houpingze.github.io">
-        <img src="https://houpingze.github.io/images/avatar.png?v=1596945720807" class="site-logo">
-        <h1 class="site-title">houpingzeAKIOI</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
+<div class="headertop filter-grid" style="height: auto">
+    <figure id="centerbg" class="centerbg" style="">
+        <div class="focusinfo">
+            <div class="header-tou">
+                <a href=">">
+                    <img src="/images/avatar.png">
+                </a>
+            </div>
+            <div class="header-info">
+                <p>温故而知新，可以AKIOI
+hiahiahia</p>
+            </div>
+            <div class="top-social">
+                
+                
+                
+                 
+                
+                
+                
+                
+
+            </div>
+        </div>
+    </figure>
+</div>
+<div class="mdui-container">
+    <div class="mdui-row mdui-row-gapless">
+        <div class="k-container">
+            <div class="head_card-offset"></div>
+            <div class="head_card-offset"></div>
+            
+    <div class="mdui-card">
+        <div class="mdui-card-media">
+            <img src="https://houpingze.github.io/media/img/bai.jpg"/>
+            <div class="mdui-card-media-covered">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">3916高难度补充</div>
+                    <div class="mdui-card-primary-subtitle"></div>
+                </div>
+                <div class="mdui-card-actions" style="float:right;">
+                    <a href="https://houpingze.github.io/3916-gao-nan-du-bu-chong/" class="mdui-btn mdui-ripple mdui-ripple-white">点击查看</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-      
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-        
-          <a href="https://newcourse.codingtang.com/#/user/center" class="site-nav">
-            关于houpingze蒟蒻
-          </a>
-        
-      
+    <div class="head_card-offset"></div>
+
+    <div class="mdui-card">
+        <div class="mdui-card-media">
+            <img src="https://houpingze.github.io/media/img/bai.jpg"/>
+            <div class="mdui-card-media-covered">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">高精度</div>
+                    <div class="mdui-card-primary-subtitle"></div>
+                </div>
+                <div class="mdui-card-actions" style="float:right;">
+                    <a href="https://houpingze.github.io/gao-jing-du/" class="mdui-btn mdui-ripple mdui-ripple-white">点击查看</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
+    <div class="head_card-offset"></div>
+
+    <div class="mdui-card">
+        <div class="mdui-card-media">
+            <img src="https://houpingze.github.io/media/img/bai.jpg"/>
+            <div class="mdui-card-media-covered">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">4507 补充</div>
+                    <div class="mdui-card-primary-subtitle"></div>
+                </div>
+                <div class="mdui-card-actions" style="float:right;">
+                    <a href="https://houpingze.github.io/4507-bu-chong/" class="mdui-btn mdui-ripple mdui-ripple-white">点击查看</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="site-description">
-      温故而知新，可以AKIOI
-hiahiahia
+    <div class="head_card-offset"></div>
+
+    <div class="mdui-card">
+        <div class="mdui-card-media">
+            <img src="https://houpingze.github.io/media/img/bai.jpg"/>
+            <div class="mdui-card-media-covered">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">其他递推</div>
+                    <div class="mdui-card-primary-subtitle"></div>
+                </div>
+                <div class="mdui-card-actions" style="float:right;">
+                    <a href="https://houpingze.github.io/qi-ta-di-tui/" class="mdui-btn mdui-ripple mdui-ripple-white">点击查看</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="site-footer">
-      <marquee><font size=+3 color=red>侯平仄大蒟蒻</font></marquee>
+    <div class="head_card-offset"></div>
+
+    <div class="mdui-card">
+        <div class="mdui-card-media">
+            <img src="https://houpingze.github.io/post-images/shu-jia-di-11-ci-ke-guo-he-zu.png"/>
+            <div class="mdui-card-media-covered">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">暑假第11次课 过河卒</div>
+                    <div class="mdui-card-primary-subtitle"></div>
+                </div>
+                <div class="mdui-card-actions" style="float:right;">
+                    <a href="https://houpingze.github.io/shu-jia-di-11-ci-ke-guo-he-zu/" class="mdui-btn mdui-ripple mdui-ripple-white">点击查看</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="head_card-offset"></div>
+
+    <div class="mdui-card">
+        <div class="mdui-card-media">
+            <img src="https://houpingze.github.io/post-images/hello-gridea.png"/>
+            <div class="mdui-card-media-covered">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">Hello Gridea</div>
+                    <div class="mdui-card-primary-subtitle"><p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+</div>
+                </div>
+                <div class="mdui-card-actions" style="float:right;">
+                    <a href="https://houpingze.github.io/hello-gridea/" class="mdui-btn mdui-ripple mdui-ripple-white">点击查看</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="head_card-offset"></div>
+
+
+        </div>
+    </div>
+    <div class="mdui-row">
+    </div>
+</div>
+<footer class="mdui-container footer ">
+    <div class="head_card-offset"></div>
+    <div class="mdui-row mdui-row-gapless">
+        <div class="k-container">
+            <img width="100%" src="/media/img/skirt.png">
+        </div>
+    </div>
+
+    <div class="site-info">
+        <marquee><font size=+3 color=red>侯平仄大蒟蒻</font></marquee>
 
 访问次数：
 
-<div align='center'><a href='https://www.hit-counts.com/'><img src='http://www.hit-counts.com/counter.php?t=MTQ1MDYzOA==' border='0' alt='logo creation'></a><BR><a href='https://www.glowgraphics.co.uk/'>logo creation</a></div> | <a class="rss" href="https://houpingze.github.io/atom.xml" target="_blank">RSS</a>
+<div align='center'><a href='https://www.hit-counts.com/'><img src='http://www.hit-counts.com/counter.php?t=MTQ1MDYzOA==' border='0' alt='logo creation'></a><BR><a href='https://www.glowgraphics.co.uk/'>logo creation</a></div>
+<span id="jinrishici-sentence">正在加载今日诗词....</span>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     </div>
-  </div>
-</div>
-
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://houpingze.github.io/3916-gao-nan-du-bu-chong/">
-                  <h2 class="post-title">3916高难度补充</h2>
-                </a>
-                <div class="post-date">
-                  2020-08-09
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://houpingze.github.io/gao-jing-du/">
-                  <h2 class="post-title">高精度</h2>
-                </a>
-                <div class="post-date">
-                  2020-08-09
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://houpingze.github.io/4507-bu-chong/">
-                  <h2 class="post-title">4507 补充</h2>
-                </a>
-                <div class="post-date">
-                  2020-08-08
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://houpingze.github.io/qi-ta-di-tui/">
-                  <h2 class="post-title">其他递推</h2>
-                </a>
-                <div class="post-date">
-                  2020-08-08
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://houpingze.github.io/111/">
-                  <h2 class="post-title">111</h2>
-                </a>
-                <div class="post-date">
-                  2020-08-07
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://houpingze.github.io/zhe-shi-shi-me-qing-kuang/">
-                  <h2 class="post-title">这是什么情况</h2>
-                </a>
-                <div class="post-date">
-                  2020-08-07
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://houpingze.github.io/shu-jia-di-11-ci-ke-guo-he-zu/">
-                  <h2 class="post-title">暑假第11次课 过河卒</h2>
-                </a>
-                <div class="post-date">
-                  2020-08-06
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://houpingze.github.io/shu-jia-di-11-ci-ke-guo-he-zu/">
-                  <div class="feature-container" style="background-image: url('https://houpingze.github.io/post-images/shu-jia-di-11-ci-ke-guo-he-zu.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://houpingze.github.io/iakioice-shi/">
-                  <h2 class="post-title">IAKIOI(测试)</h2>
-                </a>
-                <div class="post-date">
-                  2020-08-06
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://houpingze.github.io/ak/">
-                  <h2 class="post-title">AK</h2>
-                </a>
-                <div class="post-date">
-                  2020-08-05
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://houpingze.github.io/hello-gridea/">
-                  <h2 class="post-title">Hello Gridea</h2>
-                </a>
-                <div class="post-date">
-                  2018-12-12
-                </div>
-                <div class="post-abstract">
-                  <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-
-                </div>
-              </div>
-              
-                <a class="right" href="https://houpingze.github.io/hello-gridea/">
-                  <div class="feature-container" style="background-image: url('https://houpingze.github.io/post-images/hello-gridea.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
-
-          <div class="pagination-container">
-  
-  
-</div>
-
+</footer>
+<div id="landlord" style="left:5px;bottom:0px;">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+        <div class="live_talk_input_name_body">
+            <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
         </div>
-      </div>
+        <div class="live_talk_input_text_body">
+            <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+            <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+        </div>
     </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script type="application/javascript">
-
-AOS.init();
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="showInfoBtn"></div>
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="https://img.apa70.com/123.mp3" type="hidden">
+        <input name="live2dBGM" value="https://img.apa70.com/123.mp3" type="hidden">
+        <input id="duType" value="douqilai,l2d_caihong" type="hidden">
+    </div>
+</div>
+<div id="open_live2d">召唤伊斯特瓦尔</div>
+<script>
+    var message_Path = '/media/live2d/';//资源目录，如果目录不对请更改
+    var talkAPI = "";//如果有类似图灵机器人的聊天接口请填写接口路径
 </script>
+<!--<script src="/media/js/jquery-3.3.1.min.js"></script>-->
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/media/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="/media/live2d/js/message.js"></script>
 
-
-  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad()
-  </script>
-
-
-
-
-
-  </body>
+</body>
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script src="media/js/index.js"></script>
 </html>
