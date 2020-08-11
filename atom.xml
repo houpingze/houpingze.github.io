@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://akioi.github.io</id>
+    <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-08-11T02:41:29.526Z</updated>
+    <updated>2020-08-11T02:41:46.223Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://akioi.github.io"/>
-    <link rel="self" href="https://akioi.github.io/atom.xml"/>
+    <link rel="alternate" href="https://houpingze.github.io"/>
+    <link rel="self" href="https://houpingze.github.io/atom.xml"/>
     <subtitle>温故而知新，可以AKIOI
 hiahiahia</subtitle>
-    <logo>https://akioi.github.io/images/avatar.png</logo>
-    <icon>https://akioi.github.io/favicon.ico</icon>
+    <logo>https://houpingze.github.io/images/avatar.png</logo>
+    <icon>https://houpingze.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
     <entry>
         <title type="html"><![CDATA[3916高难度补充]]></title>
-        <id>https://akioi.github.io/3916-gao-nan-du-bu-chong/</id>
-        <link href="https://akioi.github.io/3916-gao-nan-du-bu-chong/">
+        <id>https://houpingze.github.io/3916-gao-nan-du-bu-chong/</id>
+        <link href="https://houpingze.github.io/3916-gao-nan-du-bu-chong/">
         </link>
         <updated>2020-08-09T03:57:08.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://akioi.github.io/post-images/1596945482668.png" alt="" loading="lazy">😀😀😀😀😀😀😀</p>
+        <content type="html"><![CDATA[<p><img src="https://houpingze.github.io/post-images/1596945482668.png" alt="" loading="lazy">😀😀😀😀😀😀😀</p>
 <pre><code class="language-cpp">#include&lt;iostream&gt;
 #include&lt;cstring&gt;
 typedef unsigned long long ull;
@@ -46,18 +46,18 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[高精度]]></title>
-        <id>https://akioi.github.io/gao-jing-du/</id>
-        <link href="https://akioi.github.io/gao-jing-du/">
+        <id>https://houpingze.github.io/gao-jing-du/</id>
+        <link href="https://houpingze.github.io/gao-jing-du/">
         </link>
         <updated>2020-08-09T02:22:21.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://akioi.github.io/post-images/1596939794090.png" alt="" loading="lazy"></figure>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1596939794090.png" alt="" loading="lazy"></figure>
 <h1 id="使用高精度的步骤">使用高精度的步骤：</h1>
 <ol>
 <li>利用string进行读入</li>
 <li>将string存入数组中，数字的低位放在数组的前面，高位放在数组后面</li>
 <li>利用数组进行运算</li>
 <li>输出结果</li>
-<li><img src="https://akioi.github.io/post-images/1596940661406.png" alt="" loading="lazy"><br>
+<li><img src="https://houpingze.github.io/post-images/1596940661406.png" alt="" loading="lazy"><br>
 代码如下：<pre><code class="language-cpp">    a[0]=x.size();
  for(int i=1;i&lt;=a[0];i++){
  	a[i]=x[a[0]-i]-'0';
@@ -103,7 +103,7 @@ int main(){
 }
 </code></pre>
 <p>老师的代码（其实差不多）：<br>
-<img src="https://akioi.github.io/post-images/1596941687551.png" alt="" loading="lazy"></p>
+<img src="https://houpingze.github.io/post-images/1596941687551.png" alt="" loading="lazy"></p>
 <h3 id="减">减</h3>
 <pre><code class="language-cpp">#include&lt;iostream&gt;
 using namespace std;
@@ -125,13 +125,13 @@ int main(){
 }
 </code></pre>
 <p>课后测：<br>
-<img src="https://akioi.github.io/post-images/1596946748131.png" alt="" loading="lazy"></p>
+<img src="https://houpingze.github.io/post-images/1596946748131.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[4507 补充]]></title>
-        <id>https://akioi.github.io/4507-bu-chong/</id>
-        <link href="https://akioi.github.io/4507-bu-chong/">
+        <id>https://houpingze.github.io/4507-bu-chong/</id>
+        <link href="https://houpingze.github.io/4507-bu-chong/">
         </link>
         <updated>2020-08-08T03:41:36.000Z</updated>
         <content type="html"><![CDATA[<p>1.填表法<br>
@@ -165,12 +165,12 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[其他递推]]></title>
-        <id>https://akioi.github.io/qi-ta-di-tui/</id>
-        <link href="https://akioi.github.io/qi-ta-di-tui/">
+        <id>https://houpingze.github.io/qi-ta-di-tui/</id>
+        <link href="https://houpingze.github.io/qi-ta-di-tui/">
         </link>
         <updated>2020-08-08T02:46:57.000Z</updated>
         <content type="html"><![CDATA[<h2 id="4514">4514</h2>
-<p><img src="https://akioi.github.io/post-images/1596855149009.png" alt="" loading="lazy"><br>
+<p><img src="https://houpingze.github.io/post-images/1596855149009.png" alt="" loading="lazy"><br>
 f[i]表示i个椭圆最多可以把平面分成f[i]个地盘<br>
 <em><em>递推式：f[i]=f[i-1]+2</em>(i-1)(其中i-1表示前i-1个椭圆，2表示第i个椭圆会和每个椭圆相交2次，每相交一次会产生1个新的地盘)</em>*<br>
 边界：f[1]=2<br>
@@ -215,17 +215,17 @@ int main(){
 
 </code></pre>
 <p>课后测：<br>
-<img src="https://akioi.github.io/post-images/1596860600158.png" alt="" loading="lazy"></p>
+<img src="https://houpingze.github.io/post-images/1596860600158.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[暑假第11次课 过河卒]]></title>
-        <id>https://akioi.github.io/shu-jia-di-11-ci-ke-guo-he-zu/</id>
-        <link href="https://akioi.github.io/shu-jia-di-11-ci-ke-guo-he-zu/">
+        <id>https://houpingze.github.io/shu-jia-di-11-ci-ke-guo-he-zu/</id>
+        <link href="https://houpingze.github.io/shu-jia-di-11-ci-ke-guo-he-zu/">
         </link>
         <updated>2020-08-06T02:09:10.000Z</updated>
         <content type="html"><![CDATA[<p>课前测：<br>
-<img src="https://akioi.github.io/post-images/1596680370312.png" alt="" loading="lazy"></p>
+<img src="https://houpingze.github.io/post-images/1596680370312.png" alt="" loading="lazy"></p>
 <p>重点：<br>
 数塔问题中，如果自上而下推导，目标是什么？<br>
 答：         max{f[n][i]}, i∈[1,n];<br>
@@ -325,14 +325,14 @@ int main(){
 
 </code></pre>
 <p>课后测：<br>
-<img src="https://akioi.github.io/post-images/1596687726558.png" alt="" loading="lazy"></p>
+<img src="https://houpingze.github.io/post-images/1596687726558.png" alt="" loading="lazy"></p>
 <p>重点：注意dir数组</p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://akioi.github.io/hello-gridea/</id>
-        <link href="https://akioi.github.io/hello-gridea/">
+        <id>https://houpingze.github.io/hello-gridea/</id>
+        <link href="https://houpingze.github.io/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
