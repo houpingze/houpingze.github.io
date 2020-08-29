@@ -1,14 +1,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="1.填表法
-2.刷表法
-刷表法
-代码：
-#include&lt;iostream&gt;
-using namespace std;
-int n,cnt,m,f[100][100],x,y;
-int dir[4][5]{{-2,1},{2,1..." />
+    <meta name="description" content="输入与输出部分
+我们先讲输出
+要输出一个yes：
+cout&lt;&lt;&quot;yes&quot;;
+
+要输出一个变量a：
+cout&lt;&lt;a;
+
+要输出换行：
+cout&lt;&lt;endl;
+
+输入部分
+我们要输入一个变..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://houpingze.github.io/media/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
@@ -387,7 +392,7 @@ hiahiahia"]'>&nbsp;</span>
                 
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-08-08</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-08-29</div>
             <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
             <div class="posttag">
                 
@@ -395,57 +400,41 @@ hiahiahia"]'>&nbsp;</span>
         </div>
         
         <div id="texttitle" style="text-align: center">
-            <h2>4507 补充</h2>
+            <h2>c++入门（2）</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://houpingze.github.io/4507-bu-chong/</div>
+            <div id="pl" style="display:none">https://houpingze.github.io/cru-men-2/</div>
             <div id="rootaddr" style="display:none">https://houpingze.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="4507 补充">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="c++入门（2）">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
         <div class="text ">
-            <p>1.填表法<br>
-2.刷表法</p>
-<h1 id="刷表法">刷表法</h1>
-<p>代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-using namespace std;
-int n,cnt,m,f[100][100],x,y;
-int dir[4][5]{{-2,1},{2,1},{-1,2},{1,2}};
-int main(){
-	cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;
-    swap(n,m);
-	f[0][0]=1;
-	for(int j=0;j&lt;=n;j++){
-		for(int i=0;i&lt;=m;i++){
-			if(i==x||j==y){
-				f[i][j]=0;
-				continue;
-			}
-			for(int k=0;k&lt;4;k++){
-				int nx=i+dir[k][0],ny=j+dir[k][1];
-				if(nx&gt;=0&amp;&amp;nx&lt;=m&amp;&amp;ny&gt;=0&amp;&amp;ny&lt;=n) f[nx][ny]+=f[i][j];
-			}
-		} 
-	}
-	cout&lt;&lt;f[m][n];
-}
+            <h1 id="输入与输出部分">输入与输出部分</h1>
+<p>我们先讲输出</p>
+<p>要输出一个yes：</p>
+<pre><code>cout&lt;&lt;&quot;yes&quot;;
+</code></pre>
+<p>要输出一个变量a：</p>
+<pre><code>cout&lt;&lt;a;
+</code></pre>
+<p>要输出换行：</p>
+<pre><code>cout&lt;&lt;endl;
+</code></pre>
+<h2 id="输入部分">输入部分</h2>
+<p>我们要输入一个变量a：</p>
+<pre><code>cin&gt;&gt;a;
+</code></pre>
+<p>带空格输入一个字符串s：</p>
+<pre><code>getline(cin,s);
 </code></pre>
 
-        </div>
-        
-        <div class="prev-post">
-            上一篇
-            <a href="https://houpingze.github.io/gao-jing-du/">
-                高精度
-            </a>
         </div>
         
         
         <div class="next-post">
             下一篇
-            <a href="https://houpingze.github.io/qi-ta-di-tui/">
-                其他递推
+            <a href="https://houpingze.github.io/cru-men-1/">
+                c++入门（1）
             </a>
         </div>
         
@@ -524,7 +513,11 @@ int main(){
      
                 <div class="toc-container">
                     <ul class="markdownIt-TOC">
-<li><a href="#%E5%88%B7%E8%A1%A8%E6%B3%95">刷表法</a></li>
+<li><a href="#%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA%E9%83%A8%E5%88%86">输入与输出部分</a>
+<ul>
+<li><a href="#%E8%BE%93%E5%85%A5%E9%83%A8%E5%88%86">输入部分</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -675,7 +668,7 @@ int main(){
                 
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2020-08-08</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-08-29</div>
             <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
             <div class="posttag">
                 
@@ -683,57 +676,41 @@ int main(){
         </div>
         
         <div id="texttitle" style="text-align: center">
-            <h2>4507 补充</h2>
+            <h2>c++入门（2）</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://houpingze.github.io/4507-bu-chong/</div>
+            <div id="pl" style="display:none">https://houpingze.github.io/cru-men-2/</div>
             <div id="rootaddr" style="display:none">https://houpingze.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="4507 补充">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="c++入门（2）">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
         <div class="text ">
-            <p>1.填表法<br>
-2.刷表法</p>
-<h1 id="刷表法">刷表法</h1>
-<p>代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-using namespace std;
-int n,cnt,m,f[100][100],x,y;
-int dir[4][5]{{-2,1},{2,1},{-1,2},{1,2}};
-int main(){
-	cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;
-    swap(n,m);
-	f[0][0]=1;
-	for(int j=0;j&lt;=n;j++){
-		for(int i=0;i&lt;=m;i++){
-			if(i==x||j==y){
-				f[i][j]=0;
-				continue;
-			}
-			for(int k=0;k&lt;4;k++){
-				int nx=i+dir[k][0],ny=j+dir[k][1];
-				if(nx&gt;=0&amp;&amp;nx&lt;=m&amp;&amp;ny&gt;=0&amp;&amp;ny&lt;=n) f[nx][ny]+=f[i][j];
-			}
-		} 
-	}
-	cout&lt;&lt;f[m][n];
-}
+            <h1 id="输入与输出部分">输入与输出部分</h1>
+<p>我们先讲输出</p>
+<p>要输出一个yes：</p>
+<pre><code>cout&lt;&lt;&quot;yes&quot;;
+</code></pre>
+<p>要输出一个变量a：</p>
+<pre><code>cout&lt;&lt;a;
+</code></pre>
+<p>要输出换行：</p>
+<pre><code>cout&lt;&lt;endl;
+</code></pre>
+<h2 id="输入部分">输入部分</h2>
+<p>我们要输入一个变量a：</p>
+<pre><code>cin&gt;&gt;a;
+</code></pre>
+<p>带空格输入一个字符串s：</p>
+<pre><code>getline(cin,s);
 </code></pre>
 
-        </div>
-        
-        <div class="prev-post">
-            上一篇
-            <a href="https://houpingze.github.io/gao-jing-du/">
-                高精度
-            </a>
         </div>
         
         
         <div class="next-post">
             下一篇
-            <a href="https://houpingze.github.io/qi-ta-di-tui/">
-                其他递推
+            <a href="https://houpingze.github.io/cru-men-1/">
+                c++入门（1）
             </a>
         </div>
         
