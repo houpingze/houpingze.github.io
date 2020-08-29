@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-08-19T01:59:56.587Z</updated>
+    <updated>2020-08-29T08:06:44.046Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -11,6 +11,64 @@ hiahiahia</subtitle>
     <logo>https://houpingze.github.io/images/avatar.png</logo>
     <icon>https://houpingze.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
+    <entry>
+        <title type="html"><![CDATA[c++入门（1）]]></title>
+        <id>https://houpingze.github.io/cru-men-1/</id>
+        <link href="https://houpingze.github.io/cru-men-1/">
+        </link>
+        <updated>2020-08-29T07:48:42.000Z</updated>
+        <content type="html"><![CDATA[<p>c++是一个编程语言，他有很多好处</p>
+<hr>
+<p>我们初学者需要记得这个:</p>
+<pre><code>#include&lt;iostream&gt; 
+using namespace std; 
+int main(){
+
+}
+</code></pre>
+<p>接下来我们来讲解一下这每一句</p>
+<pre><code>#include&lt;iostream&gt;
+</code></pre>
+<p>加上这个语句，我们就可以在c++中输入输出东西，这个东西叫<strong>头文件</strong></p>
+<pre><code>using namespace std;
+</code></pre>
+<p>这个语句的意思是使用名称空间</p>
+<pre><code>int main(){
+
+}
+</code></pre>
+<p>这个语句的意思是主函数，我们写主要代码就是在这里写的</p>
+<p>定义一个变量：</p>
+<p>如果要定义一个整形变量a，需要这么做：</p>
+<pre><code>int a;
+</code></pre>
+<p>注意，c++中每一条语句都需要加”；“</p>
+<p>定义一个浮点型（小数）变量s：</p>
+<pre><code>double s;
+</code></pre>
+<p>定义一个字符串a：</p>
+<pre><code>string a;
+</code></pre>
+<p>输入与输出部分</p>
+<p>我们先讲输出</p>
+<p>要输出一个yes：</p>
+<pre><code>cout&lt;&lt;&quot;yes&quot;;
+</code></pre>
+<p>要输出一个变量a：</p>
+<pre><code>cout&lt;&lt;a;
+</code></pre>
+<p>要输出换行：</p>
+<pre><code>cout&lt;&lt;endl;
+</code></pre>
+<h2 id="输入部分">输入部分</h2>
+<p>我们要输入一个变量a：</p>
+<pre><code>cin&gt;&gt;a;
+</code></pre>
+<p>带空格输入一个字符串s：</p>
+<pre><code>getline(cin,s);
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[3916高难度补充]]></title>
         <id>https://houpingze.github.io/3916-gao-nan-du-bu-chong/</id>
