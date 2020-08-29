@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-08-29T08:06:44.046Z</updated>
+    <updated>2020-08-29T08:14:04.671Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -17,7 +17,7 @@ hiahiahia</subtitle>
         <link href="https://houpingze.github.io/cru-men-1/">
         </link>
         <updated>2020-08-29T07:48:42.000Z</updated>
-        <content type="html"><![CDATA[<p>c++是一个编程语言，他有很多好处</p>
+        <content type="html"><![CDATA[<p>c++是一个编程语言</p>
 <hr>
 <p>我们初学者需要记得这个:</p>
 <pre><code>#include&lt;iostream&gt; 
@@ -25,6 +25,7 @@ using namespace std;
 int main(){
 
 }
+--------------------------------
 </code></pre>
 <p>接下来我们来讲解一下这每一句</p>
 <pre><code>#include&lt;iostream&gt;
@@ -37,8 +38,8 @@ int main(){
 
 }
 </code></pre>
-<p>这个语句的意思是主函数，我们写主要代码就是在这里写的</p>
-<p>定义一个变量：</p>
+<h2 id="这个语句的意思是主函数我们写主要代码就是在这里写的">这个语句的意思是主函数，我们写主要代码就是在这里写的</h2>
+<h2 id="定义一个变量">定义一个变量：</h2>
 <p>如果要定义一个整形变量a，需要这么做：</p>
 <pre><code>int a;
 </code></pre>
@@ -49,6 +50,8 @@ int main(){
 <p>定义一个字符串a：</p>
 <pre><code>string a;
 </code></pre>
+<p>定义一个整形数组：</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200829161226.png" alt="" loading="lazy"></figure>
 <p>输入与输出部分</p>
 <p>我们先讲输出</p>
 <p>要输出一个yes：</p>
