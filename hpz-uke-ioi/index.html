@@ -53,7 +53,7 @@ hiahiahia" />
     
     <div id=side>
         <div class="avatar-border">
-            <img src="https://houpingze.github.io/images/avatar.png?v=1599134655298" class="avatar">
+            <img src="https://houpingze.github.io/images/avatar.png?v=1599136683630" class="avatar">
         </div>
         <div class="sitename">houpingzeAKIOI</div>
         <span class="describtion" data-text='["温故而知新，可以AKIOI
@@ -311,7 +311,7 @@ hiahiahia"]'>&nbsp;</span>
             </div>
             <div class="postinfo-detail">
                 <div class="postdate"><i class="fa fa-calendar"></i>2020-09-03</div>
-            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 3 min read</div>
             <div class="posttag">
                 
                 <a href="https://houpingze.github.io/sF1N1vQzB/" class="postlink">
@@ -339,7 +339,7 @@ hiahiahia"]'>&nbsp;</span>
 聪明的卡卡西帮助工人师傅们解决了难题，师傅们为了表示感谢，带领他们到了附近的西瓜地，请他们吃西瓜，正好看到农民伯伯正在给每个西瓜称重，每个西瓜的重量都记录在纸上，农民伯伯想知道这遍地的西瓜哪个重量的西瓜最多。卡卡西眼前一亮，大声的说：伯伯，让我来帮你完成吧！</p>
 <p>代码：</p>
 <p>桶：</p>
-<pre><code>#include&lt;iostream&gt;
+<pre><code class="language-cpp">#include&lt;iostream&gt;
 typedef unsigned long long ull;
 using namespace std;
 int n,cnt,m,a[10001],t;
@@ -360,7 +360,7 @@ int main(){
 
 </code></pre>
 <p>暴力：</p>
-<pre><code>#include&lt;iostream&gt;
+<pre><code class="language-cpp">#include&lt;iostream&gt;
 typedef unsigned long long ull;
 using namespace std;
 int n,cnt,m,a[10001];
@@ -386,7 +386,7 @@ int main(){
 <h2 id="1350">1350</h2>
 <p>题目：<br>
 <img src="https://houpingze.github.io/post-images/1599134520033.png" alt="" loading="lazy"></p>
-<pre><code>#include&lt;iostream&gt;
+<pre><code class="language-cpp">#include&lt;iostream&gt;
 typedef unsigned long long ull;
 using namespace std;
 int n,cnt,m,a[100]{1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,4,1,2,3,1,2,3,4};
@@ -399,6 +399,32 @@ int main(){
 		else cnt++;  
 	} 
 	cout&lt;&lt;cnt;
+}
+
+</code></pre>
+<p>1631：</p>
+<figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599136671819.png" alt="" loading="lazy"></figure>
+<p>代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+bool b[20000000];
+int main(){
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;i++){
+		double a;
+		cin&gt;&gt;a&gt;&gt;m;
+		for(int j=1;j&lt;=m;j++){
+			b[(int)(a*j)]=!b[(int)(a*j)];
+		}
+	}
+	for(int i=1;;i++){
+		if(b[i]){
+			cout&lt;&lt;i;
+			return 0;
+		}
+	}
 }
 
 </code></pre>
@@ -643,7 +669,7 @@ int main(){
             </div>
             <div class="postinfo-detail">
                 <div class="postdate"><i class="fa fa-calendar"></i>2020-09-03</div>
-            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 3 min read</div>
             <div class="posttag">
                 
                 <a href="https://houpingze.github.io/sF1N1vQzB/" class="postlink">
@@ -671,7 +697,7 @@ int main(){
 聪明的卡卡西帮助工人师傅们解决了难题，师傅们为了表示感谢，带领他们到了附近的西瓜地，请他们吃西瓜，正好看到农民伯伯正在给每个西瓜称重，每个西瓜的重量都记录在纸上，农民伯伯想知道这遍地的西瓜哪个重量的西瓜最多。卡卡西眼前一亮，大声的说：伯伯，让我来帮你完成吧！</p>
 <p>代码：</p>
 <p>桶：</p>
-<pre><code>#include&lt;iostream&gt;
+<pre><code class="language-cpp">#include&lt;iostream&gt;
 typedef unsigned long long ull;
 using namespace std;
 int n,cnt,m,a[10001],t;
@@ -692,7 +718,7 @@ int main(){
 
 </code></pre>
 <p>暴力：</p>
-<pre><code>#include&lt;iostream&gt;
+<pre><code class="language-cpp">#include&lt;iostream&gt;
 typedef unsigned long long ull;
 using namespace std;
 int n,cnt,m,a[10001];
@@ -718,7 +744,7 @@ int main(){
 <h2 id="1350">1350</h2>
 <p>题目：<br>
 <img src="https://houpingze.github.io/post-images/1599134520033.png" alt="" loading="lazy"></p>
-<pre><code>#include&lt;iostream&gt;
+<pre><code class="language-cpp">#include&lt;iostream&gt;
 typedef unsigned long long ull;
 using namespace std;
 int n,cnt,m,a[100]{1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,4,1,2,3,1,2,3,4};
@@ -731,6 +757,32 @@ int main(){
 		else cnt++;  
 	} 
 	cout&lt;&lt;cnt;
+}
+
+</code></pre>
+<p>1631：</p>
+<figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599136671819.png" alt="" loading="lazy"></figure>
+<p>代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+bool b[20000000];
+int main(){
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;i++){
+		double a;
+		cin&gt;&gt;a&gt;&gt;m;
+		for(int j=1;j&lt;=m;j++){
+			b[(int)(a*j)]=!b[(int)(a*j)];
+		}
+	}
+	for(int i=1;;i++){
+		if(b[i]){
+			cout&lt;&lt;i;
+			return 0;
+		}
+	}
 }
 
 </code></pre>
