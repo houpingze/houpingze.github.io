@@ -2,13 +2,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
 
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
+/fad
+1183:
+题目：
+聪明的卡卡西帮助工人师傅们解决了难题，师傅们为了表示感谢，带领他们到了附近的西瓜地，请他们吃西瓜，正好看到农民伯伯正在给每个西瓜称重，每个西瓜的重量都记录在纸上，农民伯伯想知道这遍地的西瓜哪个重量的西瓜最多..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://houpingze.github.io/media/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
@@ -312,33 +310,111 @@ hiahiahia"]'>&nbsp;</span>
                 
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2019-01-25</div>
-            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-03</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
             <div class="posttag">
                 
             </div>
         </div>
         
         <div id="texttitle" style="text-align: center">
-            <h2>关于</h2>
+            <h2>金牌冲刺6</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://houpingze.github.io/about/</div>
+            <div id="pl" style="display:none">https://houpingze.github.io/jin-pai-chong-ci-6/</div>
             <div id="rootaddr" style="display:none">https://houpingze.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="关于">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="金牌冲刺6">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
         <div class="text ">
-            <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+            <p><img src="https://houpingze.github.io/post-images/1599130901935.png" alt="" loading="lazy"><br>
+<img src="https://houpingze.github.io/post-images/1599131404879.png" alt="" loading="lazy"></p>
+<p>/fad</p>
+<h2 id="1183">1183:</h2>
+<p>题目：<br>
+聪明的卡卡西帮助工人师傅们解决了难题，师傅们为了表示感谢，带领他们到了附近的西瓜地，请他们吃西瓜，正好看到农民伯伯正在给每个西瓜称重，每个西瓜的重量都记录在纸上，农民伯伯想知道这遍地的西瓜哪个重量的西瓜最多。卡卡西眼前一亮，大声的说：伯伯，让我来帮你完成吧！</p>
+<p>代码：</p>
+<p>桶：</p>
+<pre><code>#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[10001],t;
+int main(){
+    cin&gt;&gt;n;
+    while(n--){
+        cin&gt;&gt;t;
+        a[t]++;	
+    }
+    for(int i=1;i&lt;=10000;i++){
+        if(a[i]&gt;m){
+            m=a[i];
+            cnt=i;
+        }
+    }
+    cout&lt;&lt;cnt;
+}
+
+</code></pre>
+<p>暴力：</p>
+<pre><code>#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[10001];
+int main(){
+    cin&gt;&gt;n;
+    for(int i=1;i&lt;=n;i++){
+        cin&gt;&gt;a[i];
+    }
+    for(int i=1;i&lt;=10000;i++){
+        int tmp=0;
+        for(int j=1;j&lt;=n;j++){
+            if(a[j]==i) tmp++;
+        }
+        if(m&lt;tmp){
+            m=tmp;
+            cnt=i;
+        }
+    }
+    cout&lt;&lt;cnt;
+}
+
+</code></pre>
+<h2 id="1350">1350</h2>
+<p>题目：<br>
+<img src="https://houpingze.github.io/post-images/1599134520033.png" alt="" loading="lazy"></p>
+<pre><code>#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[100]{1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,4,1,2,3,1,2,3,4};
+int main(){
+	string s;
+	getline(cin,s)
+	;
+	for(int i=0;i&lt;s.size();i++){
+		if(s[i]!=' ') cnt+=a[s[i]-'a'];
+		else cnt++;  
+	} 
+	cout&lt;&lt;cnt;
+}
+
+</code></pre>
 
         </div>
         
+        <div class="prev-post">
+            上一篇
+            <a href="https://houpingze.github.io/hpz-uke-ioi/">
+                金牌冲刺6
+            </a>
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://houpingze.github.io/cru-men-2/">
+                c++入门（2）
+            </a>
+        </div>
         
     </div>
     </div>
@@ -417,10 +493,8 @@ hiahiahia"]'>&nbsp;</span>
                     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99">🏠 关于本站</a></li>
-<li><a href="#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81">👨‍💻 博主是谁</a></li>
-<li><a href="#%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD">⛹ 兴趣爱好</a></li>
-<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80">📬 联系我呀</a></li>
+<li><a href="#1183">1183:</a></li>
+<li><a href="#1350">1350</a></li>
 </ul>
 </li>
 </ul>
@@ -571,33 +645,111 @@ hiahiahia"]'>&nbsp;</span>
                 
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2019-01-25</div>
-            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-03</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
             <div class="posttag">
                 
             </div>
         </div>
         
         <div id="texttitle" style="text-align: center">
-            <h2>关于</h2>
+            <h2>金牌冲刺6</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://houpingze.github.io/about/</div>
+            <div id="pl" style="display:none">https://houpingze.github.io/jin-pai-chong-ci-6/</div>
             <div id="rootaddr" style="display:none">https://houpingze.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="关于">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="金牌冲刺6">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
         <div class="text ">
-            <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+            <p><img src="https://houpingze.github.io/post-images/1599130901935.png" alt="" loading="lazy"><br>
+<img src="https://houpingze.github.io/post-images/1599131404879.png" alt="" loading="lazy"></p>
+<p>/fad</p>
+<h2 id="1183">1183:</h2>
+<p>题目：<br>
+聪明的卡卡西帮助工人师傅们解决了难题，师傅们为了表示感谢，带领他们到了附近的西瓜地，请他们吃西瓜，正好看到农民伯伯正在给每个西瓜称重，每个西瓜的重量都记录在纸上，农民伯伯想知道这遍地的西瓜哪个重量的西瓜最多。卡卡西眼前一亮，大声的说：伯伯，让我来帮你完成吧！</p>
+<p>代码：</p>
+<p>桶：</p>
+<pre><code>#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[10001],t;
+int main(){
+    cin&gt;&gt;n;
+    while(n--){
+        cin&gt;&gt;t;
+        a[t]++;	
+    }
+    for(int i=1;i&lt;=10000;i++){
+        if(a[i]&gt;m){
+            m=a[i];
+            cnt=i;
+        }
+    }
+    cout&lt;&lt;cnt;
+}
+
+</code></pre>
+<p>暴力：</p>
+<pre><code>#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[10001];
+int main(){
+    cin&gt;&gt;n;
+    for(int i=1;i&lt;=n;i++){
+        cin&gt;&gt;a[i];
+    }
+    for(int i=1;i&lt;=10000;i++){
+        int tmp=0;
+        for(int j=1;j&lt;=n;j++){
+            if(a[j]==i) tmp++;
+        }
+        if(m&lt;tmp){
+            m=tmp;
+            cnt=i;
+        }
+    }
+    cout&lt;&lt;cnt;
+}
+
+</code></pre>
+<h2 id="1350">1350</h2>
+<p>题目：<br>
+<img src="https://houpingze.github.io/post-images/1599134520033.png" alt="" loading="lazy"></p>
+<pre><code>#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[100]{1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,4,1,2,3,1,2,3,4};
+int main(){
+	string s;
+	getline(cin,s)
+	;
+	for(int i=0;i&lt;s.size();i++){
+		if(s[i]!=' ') cnt+=a[s[i]-'a'];
+		else cnt++;  
+	} 
+	cout&lt;&lt;cnt;
+}
+
+</code></pre>
 
         </div>
         
+        <div class="prev-post">
+            上一篇
+            <a href="https://houpingze.github.io/hpz-uke-ioi/">
+                金牌冲刺6
+            </a>
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://houpingze.github.io/cru-men-2/">
+                c++入门（2）
+            </a>
+        </div>
         
     </div>
     </div>
