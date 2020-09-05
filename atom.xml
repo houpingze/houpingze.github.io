@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-09-05T03:26:11.653Z</updated>
+    <updated>2020-09-05T08:50:38.738Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -13,8 +13,8 @@ hiahiahia</subtitle>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
     <entry>
         <title type="html"><![CDATA[递归基本思想]]></title>
-        <id>https://houpingze.github.io/di-gui-ji-ben-si-xiang/</id>
-        <link href="https://houpingze.github.io/di-gui-ji-ben-si-xiang/">
+        <id>https://houpingze.github.io/ak-ctsc-1/</id>
+        <link href="https://houpingze.github.io/ak-ctsc-1/">
         </link>
         <updated>2020-09-05T02:15:54.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599272172797.png" alt="" loading="lazy"></figure>
@@ -134,6 +134,89 @@ because :</p>
   return f(n-1)+f(n-2)
 }
 </code></pre>
+<p>2458:<br>
+题目：<br>
+<img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905114616.png" alt="" loading="lazy"></p>
+<p><code>f(n)</code>表示数字 n 各个位数上的和</p>
+<p>递推： <code>f(n)=f(n/10)+n%10</code></p>
+<p>边界：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&gt;</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">n&gt;10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>时 <code>return n;</code></p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[100000];
+int f(int n){
+	if(n&lt;10) return n;
+	return f(n/10)+n%10;
+}
+int main(){
+	cin&gt;&gt;n; 
+	cout&lt;&lt;f(n);
+}
+
+</code></pre>
+<p>3831:</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+string s;
+bool f(int i){
+	if(i==s.size()/2) return true;
+	if(s[i]!=s[s.size()-1-i]) return false;
+	return f(i+1); 
+}
+int main(){
+	cin&gt;&gt;s; 
+	if(f(0)==1) cout&lt;&lt;&quot;是回文串&quot;;
+	else cout&lt;&lt;&quot;不是回文串&quot;; 
+}
+
+</code></pre>
+<p>我的代码：<br>
+f(i)表示s[i]~s[s.size()-1-i]是否是回文<br>
+递推：</p>
+<p><code>if(i==s.size()/2) return true;</code><br>
+<code>if(s[i]!=s[s.size()-1-i]) return false;</code><br>
+边界：</p>
+<p><code>if(i==s.size()/2) return true;</code></p>
+<pre><code>#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+string s;
+bool f(int i){
+	if(i==s.size()/2) return true;
+	if(s[i]!=s[s.size()-1-i]) return false;
+	return f(i+1); 
+}
+int main(){
+	cin&gt;&gt;s; 
+	if(f(0)==1) cout&lt;&lt;&quot;是回文串&quot;;
+	else cout&lt;&lt;&quot;不是回文串&quot;; 
+}
+</code></pre>
+<p>老师的代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+string s;
+bool f(int i,int j){
+	if(i&gt;=j) return true;
+	if(s[i]==s[j]) return f(i+1,j-1);
+	return false;
+}
+int main(){
+	cin&gt;&gt;s; 
+	if(f(0,s.size()-1)==1) cout&lt;&lt;&quot;是回文串&quot;;
+	else cout&lt;&lt;&quot;不是回文串&quot;; 
+}
+
+</code></pre>
+<p>其实也差不多。。。<br>
+<img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905121906.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
