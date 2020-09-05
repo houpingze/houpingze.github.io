@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-09-05T03:23:33.442Z</updated>
+    <updated>2020-09-05T03:26:11.653Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -122,7 +122,7 @@ int main(){
 <p>时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mn>2</mn><mi>n</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(2^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
 <p>but,why???<br>
 because :</p>
-<h2 id=""><img src="https://codingtang.oss-cn-hangzhou.aliyuncs.com/2020090511195376.png" alt="image.png" loading="lazy"></h2>
+<h2 id=""><img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905112551.png" alt="" loading="lazy"></h2>
 <h2 id="递归过程中有大量的重复计算例如上图fn-2被算了很多次">递归过程中有大量的重复计算，例如上图f(n-2)被算了很多次。</h2>
 <hr>
 <p>我们可以通过记忆化来避免重复计算，即定义一个数组存。<br>
