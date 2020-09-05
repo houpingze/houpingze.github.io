@@ -1,15 +1,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="👏  欢迎使用 Gridea ！
-✍️  Gridea 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...
-
-Github
-Gridea 主页
-示例网站
-特性👇
-📝  你可以使用最酷的 Markdo..." />
-    <meta name="keywords" content="Gridea" />
+    <meta name="description" content="
+递归的两大要素：
+递推关系：
+根据某种方法，对问题进行拆分【递】
+终止条件：
+到达某种条件，问题可以直接求解，此时到达递归的边界，然后依次组合出原来的大问题的解。【归】
+代码讲解：
+2404：
+#include&lt;iostream&g..." />
+    <meta name="keywords" content="课堂笔记" />
     <link rel="stylesheet" href="https://houpingze.github.io/media/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
     
@@ -307,61 +308,106 @@ hiahiahia"]'>&nbsp;</span>
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://houpingze.github.io/post-images/hello-gridea.png" class="postimage" style="cursor:auto">
+                <img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905112257.png" class="postimage" style="cursor:auto">
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2018-12-12</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-05</div>
                 <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
                 <div class="posttag">
                     
-                    <a href="https://houpingze.github.io/0XJO9jVCH/" class="postlink">
-                        <i class="fa fa-tag"></i> Gridea
+                    <a href="https://houpingze.github.io/sF1N1vQzB/" class="postlink">
+                        <i class="fa fa-tag"></i> 课堂笔记
                     </a>
                     
                 </div>
             </div>
             
         <div id="texttitle" style="text-align: center">
-            <h2>Hello Gridea</h2>
+            <h2>递归基本思想</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://houpingze.github.io/hello-gridea/</div>
+            <div id="pl" style="display:none">https://houpingze.github.io/di-gui-ji-ben-si-xiang/</div>
             <div id="rootaddr" style="display:none">https://houpingze.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="Hello Gridea">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="递归基本思想">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
         <div class="text ">
-            <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+            <figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599272172797.png" alt="" loading="lazy"></figure>
+<h2 id="递归的两大要素">递归的两大要素：</h2>
+<h3 id="递推关系">递推关系：</h3>
+<p>根据某种方法，对问题进行拆分【递】</p>
+<h3 id="终止条件">终止条件：</h3>
+<p>到达某种条件，问题可以直接求解，此时到达递归的边界，然后依次组合出原来的大问题的解。【归】</p>
+<h2 id="代码讲解">代码讲解：</h2>
+<p>2404：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+using namespace std;
+int f(int n){
+    if(n==1) return 1;
+    return f(n-1)+n;
+}
+int main(){
+    int n;
+    cin &gt;&gt; n;
+    cout&lt;&lt;f(n);
+}
+ 
+</code></pre>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>表示前n个数的和<br>
+递推关系：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>+</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">f(n)=f(n-1)+n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span><br>
+边界:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(1)=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
+<p>2462:</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[100000];
+int f(int n){
+	if(n==1) return a[1];
+	return max(f(n-1),a[n]);
+}
+int main(){
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;i++) cin&gt;&gt;a[i];
+	cout&lt;&lt;f(n);
+}
+
+</code></pre>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>表示前n个数的最大值<br>
+递推：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>max</mi><mo>⁡</mo><mo>(</mo><mi>f</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo separator="true">,</mo><mi>a</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)=\max(f(n-1),a[n])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span><br>
+边界：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi>a</mi><mo>[</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">f(1)=a[1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span></span></span></span></p>
+<h2 id="斐波那契数列">斐波那契数列：</h2>
+<p>普通算法：</p>
+<pre><code>int f(int n){
+  if(n==1||n==2) return 1;
+  return f(n-1)+f(n-2)
+}
+</code></pre>
 <!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+<p>时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mn>2</mn><mi>n</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(2^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<p>but,why???<br>
+because :</p>
+<h2 id=""><img src="https://codingtang.oss-cn-hangzhou.aliyuncs.com/2020090511195376.png" alt="image.png" loading="lazy"></h2>
+<h2 id="递归过程中有大量的重复计算例如上图fn-2被算了很多次">递归过程中有大量的重复计算，例如上图f(n-2)被算了很多次。</h2>
+<hr>
+<p>我们可以通过记忆化来避免重复计算，即定义一个数组存。<br>
+记忆化：</p>
+<pre><code>int f(int n){
+  if(j[n]!=0) return j[n];
+  if(n==1||n==2) return 1;
+  j[n]=f(n-1)+f(n-2);
+  return f(n-1)+f(n-2)
+}
+</code></pre>
 
         </div>
         
-        <div class="prev-post">
-            上一篇
-            <a href="https://houpingze.github.io/shu-jia-di-11-ci-ke-guo-he-zu/">
-                暑假第11次课 过河卒
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://houpingze.github.io/hpz-uke-ioi/">
+                金牌冲刺6
             </a>
         </div>
-        
         
     </div>
     </div>
@@ -440,7 +486,16 @@ hiahiahia"]'>&nbsp;</span>
                     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E7%89%B9%E6%80%A7">特性👇</a></li>
+<li><a href="#%E9%80%92%E5%BD%92%E7%9A%84%E4%B8%A4%E5%A4%A7%E8%A6%81%E7%B4%A0">递归的两大要素：</a>
+<ul>
+<li><a href="#%E9%80%92%E6%8E%A8%E5%85%B3%E7%B3%BB">递推关系：</a></li>
+<li><a href="#%E7%BB%88%E6%AD%A2%E6%9D%A1%E4%BB%B6">终止条件：</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3">代码讲解：</a></li>
+<li><a href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97">斐波那契数列：</a></li>
+<li><a href="#">!image.png</a></li>
+<li><a href="#%E9%80%92%E5%BD%92%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%9C%89%E5%A4%A7%E9%87%8F%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%A1%E7%AE%97%E4%BE%8B%E5%A6%82%E4%B8%8A%E5%9B%BEfn-2%E8%A2%AB%E7%AE%97%E4%BA%86%E5%BE%88%E5%A4%9A%E6%AC%A1">递归过程中有大量的重复计算，例如上图f(n-2)被算了很多次。</a></li>
 </ul>
 </li>
 </ul>
@@ -586,61 +641,106 @@ hiahiahia"]'>&nbsp;</span>
         <div class="postshow">
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="https://houpingze.github.io/post-images/hello-gridea.png" class="postimage" style="cursor:auto">
+                <img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905112257.png" class="postimage" style="cursor:auto">
             </div>
             <div class="postinfo-detail">
-                <div class="postdate"><i class="fa fa-calendar"></i>2018-12-12</div>
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-05</div>
                 <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
                 <div class="posttag">
                     
-                    <a href="https://houpingze.github.io/0XJO9jVCH/" class="postlink">
-                        <i class="fa fa-tag"></i> Gridea
+                    <a href="https://houpingze.github.io/sF1N1vQzB/" class="postlink">
+                        <i class="fa fa-tag"></i> 课堂笔记
                     </a>
                     
                 </div>
             </div>
             
         <div id="texttitle" style="text-align: center">
-            <h2>Hello Gridea</h2>
+            <h2>递归基本思想</h2>
             <!-- id 将作为查询条件 -->
-            <div id="pl" style="display:none">https://houpingze.github.io/hello-gridea/</div>
+            <div id="pl" style="display:none">https://houpingze.github.io/di-gui-ji-ben-si-xiang/</div>
             <div id="rootaddr" style="display:none">https://houpingze.github.io</div>
-            <span id="hotnum" class="leancloud_visitors" data-flag-title="Hello Gridea">
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="递归基本思想">
                 <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
             </span>
         </div>
         <div class="text ">
-            <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+            <figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599272172797.png" alt="" loading="lazy"></figure>
+<h2 id="递归的两大要素">递归的两大要素：</h2>
+<h3 id="递推关系">递推关系：</h3>
+<p>根据某种方法，对问题进行拆分【递】</p>
+<h3 id="终止条件">终止条件：</h3>
+<p>到达某种条件，问题可以直接求解，此时到达递归的边界，然后依次组合出原来的大问题的解。【归】</p>
+<h2 id="代码讲解">代码讲解：</h2>
+<p>2404：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+using namespace std;
+int f(int n){
+    if(n==1) return 1;
+    return f(n-1)+n;
+}
+int main(){
+    int n;
+    cin &gt;&gt; n;
+    cout&lt;&lt;f(n);
+}
+ 
+</code></pre>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>表示前n个数的和<br>
+递推关系：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>+</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">f(n)=f(n-1)+n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span><br>
+边界:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(1)=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
+<p>2462:</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[100000];
+int f(int n){
+	if(n==1) return a[1];
+	return max(f(n-1),a[n]);
+}
+int main(){
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;i++) cin&gt;&gt;a[i];
+	cout&lt;&lt;f(n);
+}
+
+</code></pre>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>表示前n个数的最大值<br>
+递推：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>max</mi><mo>⁡</mo><mo>(</mo><mi>f</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo separator="true">,</mo><mi>a</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)=\max(f(n-1),a[n])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span><br>
+边界：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi>a</mi><mo>[</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">f(1)=a[1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span></span></span></span></p>
+<h2 id="斐波那契数列">斐波那契数列：</h2>
+<p>普通算法：</p>
+<pre><code>int f(int n){
+  if(n==1||n==2) return 1;
+  return f(n-1)+f(n-2)
+}
+</code></pre>
 <!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+<p>时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mn>2</mn><mi>n</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(2^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<p>but,why???<br>
+because :</p>
+<h2 id=""><img src="https://codingtang.oss-cn-hangzhou.aliyuncs.com/2020090511195376.png" alt="image.png" loading="lazy"></h2>
+<h2 id="递归过程中有大量的重复计算例如上图fn-2被算了很多次">递归过程中有大量的重复计算，例如上图f(n-2)被算了很多次。</h2>
+<hr>
+<p>我们可以通过记忆化来避免重复计算，即定义一个数组存。<br>
+记忆化：</p>
+<pre><code>int f(int n){
+  if(j[n]!=0) return j[n];
+  if(n==1||n==2) return 1;
+  j[n]=f(n-1)+f(n-2);
+  return f(n-1)+f(n-2)
+}
+</code></pre>
 
         </div>
         
-        <div class="prev-post">
-            上一篇
-            <a href="https://houpingze.github.io/shu-jia-di-11-ci-ke-guo-he-zu/">
-                暑假第11次课 过河卒
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://houpingze.github.io/hpz-uke-ioi/">
+                金牌冲刺6
             </a>
         </div>
-        
         
     </div>
     </div>
