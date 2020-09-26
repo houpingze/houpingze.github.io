@@ -1,98 +1,37 @@
-<!DOCTYPE html>
-<html lang="zh-han">
-<style>
-    @keyframes fade-in {
-        0% {
-            opacity: 0;
-        }
-
-        /*初始状态 透明度为0*/
-        40% {
-            opacity: 0;
-        }
-
-        /*过渡状态 透明度为0*/
-        100% {
-            opacity: 1;
-        }
-
-        /*结束状态 透明度为1*/
-    }
-
-    @-webkit-keyframes fade-in {
-
-        /*针对webkit内核*/
-        0% {
-            opacity: 0;
-        }
-
-        40% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    .tags-container {
-        min-height: 100vh;
-        background: white;
-        position: absolute;
-        padding-bottom: 70px;
-        animation: fade-in;
-        /*动画名称*/
-        animation-duration: 1s;
-        /*动画持续时间*/
-        -webkit-animation: fade-in 1s;
-        /*针对webkit内核*/
-    }
-
-    .tagintro {
-        padding-top: 2%;
-        padding-left: 5%;
-        font-size: 2em;
-        font-weight: bold;
-        text-align: left;
-    }
-
-    .tag {
-        display: inline;
-        float: left;
-        width: 15%;
-        margin-left: 2%;
-        margin-top: 5%;
-        margin-right: 2%;
-        border: solid;
-        border-radius: 7px;
-        padding: 5px;
-        color: #3cdc82;
-        font-size: 1.2em;
-    }
-
-    .tagsimg {
-        width: 100%;
-    }
-
-    @media screen and (max-width: 1300px) {
-        .tag {
-            width: 80%;
-        }
-    }
-</style>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://houpingze.github.io/media/css/live2d.css">
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <meta name="description" content="houpingze.cf
+" />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://houpingze.github.io/media/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://houpingze.github.io/media/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://houpingze.github.io/media/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
     <title>houpingzeAKIOI</title>
-</head>
+    
+    <style>
+        .markdownIt-TOC {
+            margin-left: 28%;
+            padding-left: 2px;
+            width: 80%;
+        }
+        .markdownIt-TOC li{
+            padding-left: 8%;
+        }
 
+    </style>
+    
+</head>
 
 <body>
     <!-- 响应式布局，针对PC端内容显示 -->
@@ -342,32 +281,150 @@ hiahiahia"]'>&nbsp;</span>
             alert("博主暂未设置QQ联系方式");
     }
 </script></div>
-                
-                <div id="main" class="col-xs-12 col-sm-7">
-                    <div class="tags-container">
-                        
-                        <img class="tagsimg" src="" alt="">
-                        
-                        
-                        <a class="tag" href="https://houpingze.github.io/sF1N1vQzB/"># 课堂笔记</a>
-                        
-                        <a class="tag" href="https://houpingze.github.io/0XJO9jVCH/"># Gridea</a>
-                        
-                    </div>
-                </div>
-                
-                <div class="col-xs-6 col-sm-2"></div>
-            </div>
+    
+    <div id="tab1" class="tab">
+        <div class="bars">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <div id="bg">
-        </div>
-        <div id="bgchoice" style="display: none">
-            </div>
-            
-            <div id="bgurl" style="display:none"></div>
-               
+        <div class="close"></div>
     </div>
+    <div id="main" class="col-xs-12 col-sm-7">
+        <link rel="stylesheet" href="https://houpingze.github.io/media/css/font-awesome.css">
+<style>
 
+</style>
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                
+                <img src="" class="postimage">
+                
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-26</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
+            <div class="posttag">
+                
+            </div>
+        </div>
+        
+        <div id="texttitle" style="text-align: center">
+            <h2>搬迁</h2>
+            <!-- id 将作为查询条件 -->
+            <div id="pl" style="display:none">https://houpingze.github.io/ban-qian/</div>
+            <div id="rootaddr" style="display:none">https://houpingze.github.io</div>
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="搬迁">
+                <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
+            </span>
+        </div>
+        <div class="text ">
+            <p>houpingze.cf</p>
+
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://houpingze.github.io/ak-ctsc-1/">
+                递归基本思想
+            </a>
+        </div>
+        
+    </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时�?
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函�?
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我�?需要�?�理cover。其它图片可以不管�?
+        // 查找所有封面图，迭代�?�理
+        $('.postdetailimg').each(function () {
+            // 找到�?0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完�?
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时�?
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归�?�?
+            }, 500); // 我这里�?�置的是500�?秒就�?描一次，�?以自己调�?
+        }
+    }
+
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: 'houpingze.github.io',
+    owner: '',
+    admin: [''],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+                
+                
+                
+            </div>
+        </div>
+    </div>
+     
+                <div class="toc-container">
+                    
+    </div>
+    </div>
+    </div>
+    <div class="toggleContainer">
+        <div class="toggle">
+            <i class="fas fa-angle-double-up"></i>
+        </div>
+    </div>
+    <div id="bg">
+    </div>
+    <div id="bgchoice" style="display: none"></div>
+    
+    <div id="bgurl" style="display:none"></div>
+       
+    </div>
     <!-- 响应式布局，针对手机端内容显示 -->
     <div class="nav-small">
         <head>
@@ -483,43 +540,187 @@ hiahiahia"]'>&nbsp;</span>
   }
   </script> 
 </body>
-            <div style="margin-top:50px"></div>
-            <div class="tags-container">
-                
-                <img class="tagsimg" src="" alt="">
-                
+    <div style="margin-top:30px"></div>
+    <link rel="stylesheet" href="https://houpingze.github.io/media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow">
             
-                <a class="tag" href="https://houpingze.github.io/sF1N1vQzB/"># 课堂笔记</a>
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
                 
-                <a class="tag" href="https://houpingze.github.io/0XJO9jVCH/"># Gridea</a>
+                <img src="" class="postimage">
+                
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-09-26</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 1 min read</div>
+            <div class="posttag">
                 
             </div>
         </div>
-        <div id="landlord">
-            <div class="message" style="opacity:0"></div>
-            <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+        
+        <div id="texttitle" style="text-align: center">
+            <h2>搬迁</h2>
+            <!-- id 将作为查询条件 -->
+            <div id="pl" style="display:none">https://houpingze.github.io/ban-qian/</div>
+            <div id="rootaddr" style="display:none">https://houpingze.github.io</div>
+            <span id="hotnum" class="leancloud_visitors" data-flag-title="搬迁">
+                <h4 class="readercount">热度🔥: <i class="leancloud-visitors-count">loading...</i></h4>
+            </span>
         </div>
-        <div id="domainname" style="display:none">https://houpingze.github.io</div>
+        <div class="text ">
+            <p>houpingze.cf</p>
+
+        </div>
+        
+        
+        <div class="next-post">
+            下一篇
+            <a href="https://houpingze.github.io/ak-ctsc-1/">
+                递归基本思想
+            </a>
+        </div>
+        
+    </div>
+    </div>
 </body>
-
-</html>
 <script>
-    $(".tag").each(function () {
-        var rgb = '#' + Math.floor(Math.random() * 0xffffff).toString(16);;
-        $(this).css('color', rgb);
+    var t_img; // 定时�?
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
     });
+    // 判断图片加载的函�?
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我�?需要�?�理cover。其它图片可以不管�?
+        // 查找所有封面图，迭代�?�理
+        $('.postdetailimg').each(function () {
+            // 找到�?0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完�?
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时�?
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归�?�?
+            }, 500); // 我这里�?�置的是500�?秒就�?描一次，�?以自己调�?
+        }
+    }
+
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+    <div name="comment" style="background: white;margin-top:100px">
+        <div class="commentcontainer">
+            
+            
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: 'houpingze.github.io',
+    owner: '',
+    admin: [''],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
 </script>
 
-<script type="text/javascript">
-    var message_Path = '/live2d/'
-    var home_Path = document.getElementById("domainname").innerHTML+"/"; //此处修改为你的域名，必须带斜杠
+            
+            
+            
+        </div>
+    </div>
+    </div>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+    <div id="codeCopyText" style="display: none">代码复制成功了哦</div>
+    <div id="domainname" style="display:none">https://houpingze.github.io</div>
+    </body>
+    <script src="https://houpingze.github.io/media/js/post.js"></script>
+    <script>
+        //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+        var codes = document.getElementsByTagName('code');
+        if (codes.length) {
+            for (var i = 0; i < codes.length; i++) {
+                //高度/行高=文本行数
+                // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+                // console.log("当前有"+rowNum+"行");
+                var code_id = "code_id_" + i;
+                codes[i].setAttribute("id", code_id);
+                var ci = "#" + code_id;
+                var codedot = $(ci);
+                var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+                if (rowNum <= 1) continue;
+                var btn = document.createElement("button");
+                btn.setAttribute("class", "copybt");
+                btn.setAttribute("data-clipboard-target", "#" + code_id);
+                btn.innerHTML = '复制代码';
+                codes[i].parentNode.insertBefore(btn, codes[i]);
+            }
+        };
+        var cop = new ClipboardJS('.copybt');
+        var codeCopyText = $("#codeCopyText").html();
+        cop.on('success', function (e) {
+            alert(codeCopyText);
+            e.clearSelection();
+        });
+        cop.on('error', function (e) {
+            alert("矮油，复制失败了...手动复制吧勇士！");
+            e.clearSelection();
+        });
+    </script>
+    
+    <script type="text/javascript">
+        var message_Path = '/live2d/'
+        var home_Path = document.getElementById("domainname").innerHTML+"/"; //此处修改为你的域名，必须带斜杠
+    </script>
+    <script type="text/javascript" src="https://houpingze.github.io/media/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="https://houpingze.github.io/media/live2d/js/message.js"></script>
+    <script type="text/javascript">
+        loadlive2d("live2d", "https://houpingze.github.io/media/live2d/assets/tororo.model.json");
+    </script>
+    
+<script>
+$(function () {
+    $('.toggleContainer').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+	$(window).scroll(function() {
+        var st = $(window).scrollTop();
+        if(st > 30){
+            $(".toggleContainer").fadeIn(400);
+        }else{
+            $(".toggleContainer").fadeOut(100);
+        }
+	});
+});
 </script>
-<script type="text/javascript" src="https://houpingze.github.io/media/live2d/js/live2d.js"></script>
-<script type="text/javascript" src="https://houpingze.github.io/media/live2d/js/message.js"></script>
-<script type="text/javascript">
-    loadlive2d("live2d", "https://houpingze.github.io/media/live2d/assets/tororo.model.json");
-</script>
-
 
 <script>
         var bgchoice=$('#bgchoice').html();
