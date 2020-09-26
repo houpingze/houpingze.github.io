@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Gridea | houpingzeAKIOI</title>
+<title>其他递推 | houpingzeAKIOI</title>
 <meta name="description" content="温故而知新，可以AKIOI
 hiahiahia">
 
@@ -16,6 +16,12 @@ hiahiahia">
 <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
@@ -24,6 +30,7 @@ hiahiahia">
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://houpingze.github.io">houpingzeAKIOI</a></h3>
@@ -96,42 +103,90 @@ hiahiahia">
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <h2 class="current-tag">标签: Gridea</h2>
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/hello-gridea/">Hello Gridea</a>
-    </h2>
-    <p class="article-meta">
-      2018-12-12
-      
-        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge ">
-          Gridea
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+          <article class="article">
+            <h1>其他递推</h1>
+            <p class="article-meta">
+              2020-08-08
+              
+            </p>
+            
+            <div class="post-content">
+              <h2 id="4514">4514</h2>
+<p><img src="https://houpingze.github.io/post-images/1596855149009.png" alt="" loading="lazy"><br>
+f[i]表示i个椭圆最多可以把平面分成f[i]个地盘<br>
+<em><em>递推式：f[i]=f[i-1]+2</em>(i-1)(其中i-1表示前i-1个椭圆，2表示第i个椭圆会和每个椭圆相交2次，每相交一次会产生1个新的地盘)</em>*<br>
+边界：f[1]=2<br>
+解：f[n]<br>
+代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+int main(){
+	cin&gt;&gt;n;
+	int f[26];
+	f[1]=2;
+	for(int i=2;i&lt;=n;i++){
+		f[i]=f[i-1]+2*(i-1);
+	} 
+	cout&lt;&lt;f[n];
+}
+</code></pre>
+<h2 id="4515">4515</h2>
+<p>小P最近搬进了新家，打算布置一番。现在小P有n本不同的书，想放进带有m个格子的书架上（m&lt;n）。要求每个格子至少有一本书。请你帮小P计算有多少种布置的方案。</p>
+<p>定义：f[i][j]表示前i本书放入j个格子的方案总数,（每个格子至少放1本书）<br>
+递推式：f[i][j]=f[i-1][j]*j+f[i-1][j-1]<br>
+边界：f[1][1]=1;<br>
+解：f[n][m]</p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,f[100][100];
+int main(){
+	cin&gt;&gt;n&gt;&gt;m;
+	f[1][1]=1;
+	for(int i=1;i&lt;=n;i++){
+		for(int j=1;j&lt;=m;j++){
+			if(i==1&amp;&amp;j==1) continue;
+			f[i][j]=f[i-1][j]*j+f[i-1][j-1];
+		}
+	}
+	cout&lt;&lt;f[n][m];
+}
 
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/hello-gridea/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
+</code></pre>
+<p>课后测：<br>
+<img src="https://houpingze.github.io/post-images/1596860600158.png" alt="" loading="lazy"></p>
 
-
+            </div>
+          </article>
         </div>
-        <div class="row flex-edges">
-  
-  
-</div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://houpingze.github.io/post/shu-jia-di-11-ci-ke-guo-he-zu/">
+                <h3 class="post-title">
+                  暑假第11次课 过河卒
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
 
+          
+        
       </div>
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://houpingze.github.io/images/avatar.png?v=1601121591729" class="no-responsive avatar">
@@ -237,11 +292,11 @@ hiahiahia</div>
     </div>
     <div class="row">
       
-        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge secondary">
+        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge ">
           课堂笔记
         </a>
       
-        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge success">
+        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge ">
           Gridea
         </a>
       
@@ -261,6 +316,7 @@ hiahiahia</div>
   </div>
 </div>
 
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -272,6 +328,29 @@ AOS.init();
 hljs.initHighlightingOnLoad()
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'houpingze.github.io',
+        owner: '',
+        admin: [''],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

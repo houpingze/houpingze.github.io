@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Gridea | houpingzeAKIOI</title>
+<title>金牌冲刺6 | houpingzeAKIOI</title>
 <meta name="description" content="温故而知新，可以AKIOI
 hiahiahia">
 
@@ -16,6 +16,12 @@ hiahiahia">
 <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
@@ -24,6 +30,7 @@ hiahiahia">
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://houpingze.github.io">houpingzeAKIOI</a></h3>
@@ -96,42 +103,114 @@ hiahiahia">
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <h2 class="current-tag">标签: Gridea</h2>
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/hello-gridea/">Hello Gridea</a>
-    </h2>
-    <p class="article-meta">
-      2018-12-12
-      
-        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge ">
-          Gridea
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+          <article class="article">
+            <h1>金牌冲刺6</h1>
+            <p class="article-meta">
+              2020-09-03
+              
+            </p>
+            
+            <div class="post-content">
+              <p><img src="https://houpingze.github.io/post-images/1599130901935.png" alt="" loading="lazy"><br>
+<img src="https://houpingze.github.io/post-images/1599131404879.png" alt="" loading="lazy"></p>
+<p>/fad</p>
+<h2 id="1183">1183:</h2>
+<p>题目：<br>
+聪明的卡卡西帮助工人师傅们解决了难题，师傅们为了表示感谢，带领他们到了附近的西瓜地，请他们吃西瓜，正好看到农民伯伯正在给每个西瓜称重，每个西瓜的重量都记录在纸上，农民伯伯想知道这遍地的西瓜哪个重量的西瓜最多。卡卡西眼前一亮，大声的说：伯伯，让我来帮你完成吧！</p>
+<p>代码：</p>
+<p>桶：</p>
+<pre><code>#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[10001],t;
+int main(){
+    cin&gt;&gt;n;
+    while(n--){
+        cin&gt;&gt;t;
+        a[t]++;	
+    }
+    for(int i=1;i&lt;=10000;i++){
+        if(a[i]&gt;m){
+            m=a[i];
+            cnt=i;
+        }
+    }
+    cout&lt;&lt;cnt;
+}
 
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/hello-gridea/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
+</code></pre>
+<p>暴力：</p>
+<pre><code>#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[10001];
+int main(){
+    cin&gt;&gt;n;
+    for(int i=1;i&lt;=n;i++){
+        cin&gt;&gt;a[i];
+    }
+    for(int i=1;i&lt;=10000;i++){
+        int tmp=0;
+        for(int j=1;j&lt;=n;j++){
+            if(a[j]==i) tmp++;
+        }
+        if(m&lt;tmp){
+            m=tmp;
+            cnt=i;
+        }
+    }
+    cout&lt;&lt;cnt;
+}
 
+</code></pre>
+<h2 id="1350">1350</h2>
+<p>题目：<br>
+<img src="https://houpingze.github.io/post-images/1599134520033.png" alt="" loading="lazy"></p>
+<pre><code>#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[100]{1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,4,1,2,3,1,2,3,4};
+int main(){
+	string s;
+	getline(cin,s)
+	;
+	for(int i=0;i&lt;s.size();i++){
+		if(s[i]!=' ') cnt+=a[s[i]-'a'];
+		else cnt++;  
+	} 
+	cout&lt;&lt;cnt;
+}
 
+</code></pre>
+
+            </div>
+          </article>
         </div>
-        <div class="row flex-edges">
-  
-  
-</div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://houpingze.github.io/post/cru-men-2/">
+                <h3 class="post-title">
+                  c++入门（2）
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
 
+          
+        
       </div>
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://houpingze.github.io/images/avatar.png?v=1601121591729" class="no-responsive avatar">
@@ -237,11 +316,11 @@ hiahiahia</div>
     </div>
     <div class="row">
       
-        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge secondary">
+        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge warning">
           课堂笔记
         </a>
       
-        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge success">
+        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge secondary">
           Gridea
         </a>
       
@@ -261,6 +340,7 @@ hiahiahia</div>
   </div>
 </div>
 
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -272,6 +352,29 @@ AOS.init();
 hljs.initHighlightingOnLoad()
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'houpingze.github.io',
+        owner: '',
+        admin: [''],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

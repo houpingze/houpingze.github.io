@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Gridea | houpingzeAKIOI</title>
+<title>搬迁 | houpingzeAKIOI</title>
 <meta name="description" content="温故而知新，可以AKIOI
 hiahiahia">
 
@@ -16,6 +16,12 @@ hiahiahia">
 <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
@@ -24,6 +30,7 @@ hiahiahia">
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://houpingze.github.io">houpingzeAKIOI</a></h3>
@@ -96,42 +103,44 @@ hiahiahia">
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <h2 class="current-tag">标签: Gridea</h2>
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/hello-gridea/">Hello Gridea</a>
-    </h2>
-    <p class="article-meta">
-      2018-12-12
-      
-        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge ">
-          Gridea
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+          <article class="article">
+            <h1>搬迁</h1>
+            <p class="article-meta">
+              2020-09-26
+              
+            </p>
+            
+            <div class="post-content">
+              <p>houpingze.cf</p>
 
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/hello-gridea/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-
+            </div>
+          </article>
         </div>
-        <div class="row flex-edges">
-  
-  
-</div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://houpingze.github.io/post/ak-ctsc-1/">
+                <h3 class="post-title">
+                  递归基本思想
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
 
+          
+        
       </div>
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://houpingze.github.io/images/avatar.png?v=1601121591729" class="no-responsive avatar">
@@ -261,6 +270,7 @@ hiahiahia</div>
   </div>
 </div>
 
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -272,6 +282,29 @@ AOS.init();
 hljs.initHighlightingOnLoad()
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'houpingze.github.io',
+        owner: '',
+        admin: [''],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

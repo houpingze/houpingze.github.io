@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>houpingzeAKIOI</title>
+<title>递归基本思想 | houpingzeAKIOI</title>
 <meta name="description" content="温故而知新，可以AKIOI
 hiahiahia">
 
@@ -16,6 +16,12 @@ hiahiahia">
 <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
@@ -24,6 +30,7 @@ hiahiahia">
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://houpingze.github.io">houpingzeAKIOI</a></h3>
@@ -93,85 +100,24 @@ hiahiahia">
   </div>
 </nav>
 
-
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/ri-ji-0001/">日记0001</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-26
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/ri-ji-0001/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/han-nuo-ta/">汉诺塔</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-26
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/han-nuo-ta/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/ban-qian/">搬迁</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-26
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/ban-qian/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/ak-ctsc-1/">递归基本思想</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-05
-      
-        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge warning">
-          课堂笔记
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599272172797.png" alt="" loading="lazy"></figure>
+          <article class="article">
+            <h1>递归基本思想</h1>
+            <p class="article-meta">
+              2020-09-05
+              
+                <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge secondary">
+                  课堂笔记
+                </a>
+              
+            </p>
+            
+              <img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905112257.png" alt="递归基本思想">
+            
+            <div class="post-content">
+              <figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599272172797.png" alt="" loading="lazy"></figure>
 <h2 id="递归的两大要素">递归的两大要素：</h2>
 <h3 id="递推关系">递推关系：</h3>
 <p>根据某种方法，对问题进行拆分【递】</p>
@@ -221,237 +167,134 @@ int main(){
   return f(n-1)+f(n-2)
 }
 </code></pre>
+<!-- more -->
+<p>时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mn>2</mn><mi>n</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(2^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<p>but,why???<br>
+because :</p>
+<h2 id=""><img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905112551.png" alt="" loading="lazy"></h2>
+<h2 id="递归过程中有大量的重复计算例如上图fn-2被算了很多次">递归过程中有大量的重复计算，例如上图f(n-2)被算了很多次。</h2>
+<hr>
+<p>我们可以通过记忆化来避免重复计算，即定义一个数组存。<br>
+记忆化：</p>
+<pre><code>int f(int n){
+  if(j[n]!=0) return j[n];
+  if(n==1||n==2) return 1;
+  j[n]=f(n-1)+f(n-2);
+  return f(n-1)+f(n-2)
+}
+</code></pre>
+<p>2458:<br>
+题目：<br>
+<img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905114616.png" alt="" loading="lazy"></p>
+<p><code>f(n)</code>表示数字 n 各个位数上的和</p>
+<p>递推： <code>f(n)=f(n/10)+n%10</code></p>
+<p>边界：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&gt;</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">n&gt;10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>时 <code>return n;</code></p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[100000];
+int f(int n){
+	if(n&lt;10) return n;
+	return f(n/10)+n%10;
+}
+int main(){
+	cin&gt;&gt;n; 
+	cout&lt;&lt;f(n);
+}
 
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/ak-ctsc-1/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
+</code></pre>
+<p>3831:</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+string s;
+bool f(int i){
+	if(i==s.size()/2) return true;
+	if(s[i]!=s[s.size()-1-i]) return false;
+	return f(i+1); 
+}
+int main(){
+	cin&gt;&gt;s; 
+	if(f(0)==1) cout&lt;&lt;&quot;是回文串&quot;;
+	else cout&lt;&lt;&quot;不是回文串&quot;; 
+}
 
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/hpz-uke-ioi/">金牌冲刺6</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-03
-      
-        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge warning">
-          课堂笔记
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/hpz-uke-ioi/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
+</code></pre>
+<p>我的代码：<br>
+f(i)表示s[i]~s[s.size()-1-i]是否是回文<br>
+递推：</p>
+<p><code>if(i==s.size()/2) return true;</code><br>
+<code>if(s[i]!=s[s.size()-1-i]) return false;</code><br>
+边界：</p>
+<p><code>if(i==s.size()/2) return true;</code></p>
+<pre><code>#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+string s;
+bool f(int i){
+	if(i==s.size()/2) return true;
+	if(s[i]!=s[s.size()-1-i]) return false;
+	return f(i+1); 
+}
+int main(){
+	cin&gt;&gt;s; 
+	if(f(0)==1) cout&lt;&lt;&quot;是回文串&quot;;
+	else cout&lt;&lt;&quot;不是回文串&quot;; 
+}
+</code></pre>
+<p>老师的代码：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+string s;
+bool f(int i,int j){
+	if(i&gt;=j) return true;
+	if(s[i]==s[j]) return f(i+1,j-1);
+	return false;
+}
+int main(){
+	cin&gt;&gt;s; 
+	if(f(0,s.size()-1)==1) cout&lt;&lt;&quot;是回文串&quot;;
+	else cout&lt;&lt;&quot;不是回文串&quot;; 
+}
 
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/jin-pai-chong-ci-6/">金牌冲刺6</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-03
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/jin-pai-chong-ci-6/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
+</code></pre>
+<p>其实也差不多。。。<br>
+<img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905121906.png" alt="" loading="lazy"></p>
 
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/cru-men-2/">c++入门（2）</a>
-    </h2>
-    <p class="article-meta">
-      2020-08-29
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/cru-men-2/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/cru-men-1/">c++入门（1）</a>
-    </h2>
-    <p class="article-meta">
-      2020-08-29
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/cru-men-1/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/3916-gao-nan-du-bu-chong/">3916高难度补充</a>
-    </h2>
-    <p class="article-meta">
-      2020-08-09
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/3916-gao-nan-du-bu-chong/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/gao-jing-du/">高精度</a>
-    </h2>
-    <p class="article-meta">
-      2020-08-09
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/gao-jing-du/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/4507-bu-chong/">4507 补充</a>
-    </h2>
-    <p class="article-meta">
-      2020-08-08
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/4507-bu-chong/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/qi-ta-di-tui/">其他递推</a>
-    </h2>
-    <p class="article-meta">
-      2020-08-08
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/qi-ta-di-tui/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/shu-jia-di-11-ci-ke-guo-he-zu/">暑假第11次课 过河卒</a>
-    </h2>
-    <p class="article-meta">
-      2020-08-06
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/shu-jia-di-11-ci-ke-guo-he-zu/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/hello-gridea/">Hello Gridea</a>
-    </h2>
-    <p class="article-meta">
-      2018-12-12
-      
-        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge secondary">
-          Gridea
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/hello-gridea/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://houpingze.github.io/post/hpz-uke-ioi/">
+                <h3 class="post-title">
+                  金牌冲刺6
+                </h3>
+              </a>
+            </div>
+          
         </div>
         
-        <div class="row flex-edges">
-  
-  
-</div>
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
 
+          
+        
       </div>
-      
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://houpingze.github.io/images/avatar.png?v=1601121591729" class="no-responsive avatar">
@@ -557,11 +400,11 @@ hiahiahia</div>
     </div>
     <div class="row">
       
-        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge secondary">
+        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge ">
           课堂笔记
         </a>
       
-        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge warning">
+        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge ">
           Gridea
         </a>
       
@@ -581,7 +424,9 @@ hiahiahia</div>
   </div>
 </div>
 
+
     </div>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <script type="application/javascript">
@@ -591,6 +436,29 @@ AOS.init();
 hljs.initHighlightingOnLoad()
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'houpingze.github.io',
+        owner: '',
+        admin: [''],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-09-26T07:21:38.571Z</updated>
+    <updated>2020-09-26T11:59:59.126Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -12,9 +12,20 @@ hiahiahia</subtitle>
     <icon>https://houpingze.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
     <entry>
+        <title type="html"><![CDATA[日记0001]]></title>
+        <id>https://houpingze.github.io/post/ri-ji-0001/</id>
+        <link href="https://houpingze.github.io/post/ri-ji-0001/">
+        </link>
+        <updated>2020-09-26T11:54:41.000Z</updated>
+        <content type="html"><![CDATA[<p>today ：</p>
+<p>md几个老师把一天假期的作业当成两天假期布置了（</p>
+<p>上午：上了c++的汉诺塔问题，难得要死😱😱😱😢，具体的笔记请见<a href="ak-ioi.gq">RT </a></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[汉诺塔]]></title>
-        <id>https://houpingze.github.io/han-nuo-ta/</id>
-        <link href="https://houpingze.github.io/han-nuo-ta/">
+        <id>https://houpingze.github.io/post/han-nuo-ta/</id>
+        <link href="https://houpingze.github.io/post/han-nuo-ta/">
         </link>
         <updated>2020-09-26T03:27:10.000Z</updated>
         <content type="html"><![CDATA[<p>这道题需要经过中间柱，所以可以把操作分为两类：</p>
@@ -44,8 +55,8 @@ hiahiahia</subtitle>
     </entry>
     <entry>
         <title type="html"><![CDATA[搬迁]]></title>
-        <id>https://houpingze.github.io/ban-qian/</id>
-        <link href="https://houpingze.github.io/ban-qian/">
+        <id>https://houpingze.github.io/post/ban-qian/</id>
+        <link href="https://houpingze.github.io/post/ban-qian/">
         </link>
         <updated>2020-09-26T01:43:41.000Z</updated>
         <content type="html"><![CDATA[<p>houpingze.cf</p>
@@ -53,8 +64,8 @@ hiahiahia</subtitle>
     </entry>
     <entry>
         <title type="html"><![CDATA[递归基本思想]]></title>
-        <id>https://houpingze.github.io/ak-ctsc-1/</id>
-        <link href="https://houpingze.github.io/ak-ctsc-1/">
+        <id>https://houpingze.github.io/post/ak-ctsc-1/</id>
+        <link href="https://houpingze.github.io/post/ak-ctsc-1/">
         </link>
         <updated>2020-09-05T02:15:54.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599272172797.png" alt="" loading="lazy"></figure>
@@ -261,8 +272,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[金牌冲刺6]]></title>
-        <id>https://houpingze.github.io/hpz-uke-ioi/</id>
-        <link href="https://houpingze.github.io/hpz-uke-ioi/">
+        <id>https://houpingze.github.io/post/hpz-uke-ioi/</id>
+        <link href="https://houpingze.github.io/post/hpz-uke-ioi/">
         </link>
         <updated>2020-09-03T11:00:47.000Z</updated>
         <content type="html"><![CDATA[<p><img src="https://houpingze.github.io/post-images/1599130901935.png" alt="" loading="lazy"><br>
@@ -368,8 +379,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[金牌冲刺6]]></title>
-        <id>https://houpingze.github.io/jin-pai-chong-ci-6/</id>
-        <link href="https://houpingze.github.io/jin-pai-chong-ci-6/">
+        <id>https://houpingze.github.io/post/jin-pai-chong-ci-6/</id>
+        <link href="https://houpingze.github.io/post/jin-pai-chong-ci-6/">
         </link>
         <updated>2020-09-03T11:00:47.000Z</updated>
         <content type="html"><![CDATA[<p><img src="https://houpingze.github.io/post-images/1599130901935.png" alt="" loading="lazy"><br>
@@ -447,8 +458,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[c++入门（2）]]></title>
-        <id>https://houpingze.github.io/cru-men-2/</id>
-        <link href="https://houpingze.github.io/cru-men-2/">
+        <id>https://houpingze.github.io/post/cru-men-2/</id>
+        <link href="https://houpingze.github.io/post/cru-men-2/">
         </link>
         <updated>2020-08-29T08:15:55.000Z</updated>
         <content type="html"><![CDATA[<h1 id="输入与输出部分">输入与输出部分</h1>
@@ -473,8 +484,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[c++入门（1）]]></title>
-        <id>https://houpingze.github.io/cru-men-1/</id>
-        <link href="https://houpingze.github.io/cru-men-1/">
+        <id>https://houpingze.github.io/post/cru-men-1/</id>
+        <link href="https://houpingze.github.io/post/cru-men-1/">
         </link>
         <updated>2020-08-29T07:48:42.000Z</updated>
         <content type="html"><![CDATA[<p>c++是一个编程语言</p>
@@ -516,8 +527,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[3916高难度补充]]></title>
-        <id>https://houpingze.github.io/3916-gao-nan-du-bu-chong/</id>
-        <link href="https://houpingze.github.io/3916-gao-nan-du-bu-chong/">
+        <id>https://houpingze.github.io/post/3916-gao-nan-du-bu-chong/</id>
+        <link href="https://houpingze.github.io/post/3916-gao-nan-du-bu-chong/">
         </link>
         <updated>2020-08-09T03:57:08.000Z</updated>
         <content type="html"><![CDATA[<p><img src="https://houpingze.github.io/post-images/1596945482668.png" alt="" loading="lazy">😀😀😀😀😀😀😀</p>
@@ -550,8 +561,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[高精度]]></title>
-        <id>https://houpingze.github.io/gao-jing-du/</id>
-        <link href="https://houpingze.github.io/gao-jing-du/">
+        <id>https://houpingze.github.io/post/gao-jing-du/</id>
+        <link href="https://houpingze.github.io/post/gao-jing-du/">
         </link>
         <updated>2020-08-09T02:22:21.000Z</updated>
         <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1596939794090.png" alt="" loading="lazy"></figure>
@@ -630,41 +641,6 @@ int main(){
 </code></pre>
 <p>课后测：<br>
 <img src="https://houpingze.github.io/post-images/1596946748131.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[4507 补充]]></title>
-        <id>https://houpingze.github.io/4507-bu-chong/</id>
-        <link href="https://houpingze.github.io/4507-bu-chong/">
-        </link>
-        <updated>2020-08-08T03:41:36.000Z</updated>
-        <content type="html"><![CDATA[<p>1.填表法<br>
-2.刷表法</p>
-<h1 id="刷表法">刷表法</h1>
-<p>代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-using namespace std;
-int n,cnt,m,f[100][100],x,y;
-int dir[4][5]{{-2,1},{2,1},{-1,2},{1,2}};
-int main(){
-	cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;
-    swap(n,m);
-	f[0][0]=1;
-	for(int j=0;j&lt;=n;j++){
-		for(int i=0;i&lt;=m;i++){
-			if(i==x||j==y){
-				f[i][j]=0;
-				continue;
-			}
-			for(int k=0;k&lt;4;k++){
-				int nx=i+dir[k][0],ny=j+dir[k][1];
-				if(nx&gt;=0&amp;&amp;nx&lt;=m&amp;&amp;ny&gt;=0&amp;&amp;ny&lt;=n) f[nx][ny]+=f[i][j];
-			}
-		} 
-	}
-	cout&lt;&lt;f[m][n];
-}
-</code></pre>
 ]]></content>
     </entry>
 </feed>
