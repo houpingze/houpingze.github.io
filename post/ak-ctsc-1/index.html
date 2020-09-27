@@ -4,15 +4,11 @@
     <meta charset="utf-8" >
 
 <title>递归基本思想 | houpingzeAKIOI</title>
-<meta name="description" content="温故而知新，可以AKIOI
-hiahiahia">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://houpingze.github.io/favicon.ico?v=1601201389581">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="https://houpingze.github.io/favicon.ico?v=1601202488074">
 <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
 
 
@@ -22,101 +18,121 @@ hiahiahia">
 
   
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
+
+    <meta name="description" content="
+递归的两大要素：
+递推关系：
+根据某种方法，对问题进行拆分【递】
+终止条件：
+到达某种条件，问题可以直接求解，此时到达递归的边界，然后依次组合出原来的大问题的解。【归】
+代码讲解：
+2404：
+#include&lt;iostream&g..." />
+    <meta name="keywords" content="课堂笔记" />
   </head>
   <body>
-  
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://houpingze.github.io">houpingzeAKIOI</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://houpingze.github.io">
+        <img src="https://houpingze.github.io/images/avatar.png?v=1601202488074" class="site-logo">
+        <h1 class="site-title">houpingzeAKIOI</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
         
-          <li>
-            
-              <a href="/" class="menu">
-                首页
-              </a>
-            
-          </li>
+          <a href="/" class="site-nav">
+            首页
+          </a>
         
-          <li>
-            
-              <a href="/archives" class="menu">
-                归档
-              </a>
-            
-          </li>
+      
         
-          <li>
-            
-              <a href="/tags" class="menu">
-                标签
-              </a>
-            
-          </li>
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
         
-          <li>
-            
-              <a href="/post/about" class="menu">
-                关于
-              </a>
-            
-          </li>
+      
         
-          <li>
-            
-              <a href="https://newcourse.codingtang.com/#/user/center" class="menu">
-                关于houpingze蒟蒻
-              </a>
-            
-          </li>
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
         
-          <li>
-            
-              <a href="刘景程大佬：https://liujingcheng2019.github.io/" class="menu">
-                友链
-              </a>
-            
-          </li>
+      
         
-      </ul>
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://newcourse.codingtang.com/#/user/center" class="site-nav">
+            关于houpingze蒟蒻
+          </a>
+        
+      
+        
+          <a href="刘景程大佬：https://liujingcheng2019.github.io/" class="site-nav">
+            友链
+          </a>
+        
+      
     </div>
   </div>
-</nav>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新，可以AKIOI
+hiahiahia
+    </div>
+    <div class="site-footer">
+      <marquee><font size=+3 color=red>侯平仄大蒟蒻</font></marquee>
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <article class="article">
-            <h1>递归基本思想</h1>
-            <p class="article-meta">
-              2020-09-05
-              
-                <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge warning">
-                  课堂笔记
-                </a>
-              
-            </p>
+访问次数：
+
+<div align='center'><a href='https://www.hit-counts.com/'><img src='http://www.hit-counts.com/counter.php?t=MTQ1MDYzOA==' border='0' alt='logo creation'></a><BR><a href='https://www.glowgraphics.co.uk/'>logo creation</a></div>
+<span id="jinrishici-sentence">正在加载今日诗词....</span>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+      <h2 class="subTt">膜 hpz</h2>
+ | <a class="rss" href="https://houpingze.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">递归基本思想</h2>
+            <div class="post-date">2020-09-05</div>
             
-              <img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905112257.png" alt="递归基本思想">
+              <div class="feature-container" style="background-image: url('https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905112257.png')">
+              </div>
             
-            <div class="post-content">
+            <div class="post-content" v-pre>
               <figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599272172797.png" alt="" loading="lazy"></figure>
 <h2 id="递归的两大要素">递归的两大要素：</h2>
 <h3 id="递推关系">递推关系：</h3>
@@ -268,174 +284,60 @@ int main(){
 <img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905121906.png" alt="" loading="lazy"></p>
 
             </div>
-          </article>
-        </div>
-        <div class="paper" data-aos="fade-in">
-          
-            <div class="next-post">
-              <div class="next">
-                下一篇
+            
+              <div class="tag-container">
+                
+                  <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="tag">
+                    课堂笔记
+                  </a>
+                
               </div>
-              <a href="https://houpingze.github.io/post/hpz-uke-ioi/">
-                <h3 class="post-title">
-                  金牌冲刺6
-                </h3>
-              </a>
-            </div>
-          
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://houpingze.github.io/post/hpz-uke-ioi/">
+                  <h3 class="post-title">
+                    金牌冲刺6
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
         </div>
-        
-          
-            <div class="paper" data-aos="fade-in">
-              <div id="gitalk-container"></div>
-            </div>
-          
-
-          
-        
       </div>
-
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://houpingze.github.io/images/avatar.png?v=1601201389581" class="no-responsive avatar">
-    <div class="text-muted">温故而知新，可以AKIOI
-hiahiahia</div>
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="https://houpingze.github.io/post/ri-ji-0001/">日记0001</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://houpingze.github.io/post/han-nuo-ta/">汉诺塔</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://houpingze.github.io/post/ban-qian/">搬迁</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://houpingze.github.io/post/ak-ctsc-1/">递归基本思想</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://houpingze.github.io/post/hpz-uke-ioi/">金牌冲刺6</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://houpingze.github.io/post/jin-pai-chong-ci-6/">金牌冲刺6</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://houpingze.github.io/post/cru-men-2/">c++入门（2）</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://houpingze.github.io/post/cru-men-1/">c++入门（1）</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://houpingze.github.io/post/3916-gao-nan-du-bu-chong/">3916高难度补充</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://houpingze.github.io/post/gao-jing-du/">高精度</a>
-            </li>
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge success">
-          课堂笔记
-        </a>
-      
-        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge success">
-          Gridea
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-    <marquee><font size=+3 color=red>侯平仄大蒟蒻</font></marquee>
-
-访问次数：
-
-<div align='center'><a href='https://www.hit-counts.com/'><img src='http://www.hit-counts.com/counter.php?t=MTQ1MDYzOA==' border='0' alt='logo creation'></a><BR><a href='https://www.glowgraphics.co.uk/'>logo creation</a></div>
-<span id="jinrishici-sentence">正在加载今日诗词....</span>
-<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-
-      <h2 class="subTt">膜 hpz</h2>
- | <a class="rss" href="https://houpingze.github.io/atom.xml" target="_blank">RSS</a>
-  </div>
-</div>
-
-
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
 <script type="application/javascript">
 
 AOS.init();
 
-hljs.initHighlightingOnLoad()
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
 
 
 
