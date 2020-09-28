@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>c++入门（2） | houpingzeAKIOI</title>
+<title>你谷 P1996 题解 | houpingzeAKIOI</title>
 <meta name="description" content="温故而知新，可以AKIOI
 hiahiahia">
 
@@ -104,30 +104,34 @@ hiahiahia">
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>c++入门（2）</h1>
+            <h1>你谷 P1996 题解</h1>
             <p class="article-meta">
-              2020-08-29
+              2020-09-28
               
             </p>
             
             <div class="post-content">
-              <h1 id="输入与输出部分">输入与输出部分</h1>
-<p>我们先讲输出</p>
-<p>要输出一个yes：</p>
-<pre><code>cout&lt;&lt;&quot;yes&quot;;
-</code></pre>
-<p>要输出一个变量a：</p>
-<pre><code>cout&lt;&lt;a;
-</code></pre>
-<p>要输出换行：</p>
-<pre><code>cout&lt;&lt;endl;
-</code></pre>
-<h2 id="输入部分">输入部分</h2>
-<p>我们要输入一个变量a：</p>
-<pre><code>cin&gt;&gt;a;
-</code></pre>
-<p>带空格输入一个字符串s：</p>
-<pre><code>getline(cin,s);
+              <pre><code class="language-cpp">#include&lt;iostream&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,m,num;
+bool b[10000];
+int a[100000],c[1000000];
+void s(){
+    int r=n,i=1,cnt=0;
+    while(r&gt;0){
+        if(b[i]==0){
+            num++;
+            if(num==m) cnt++,cout&lt;&lt;i&lt;&lt;' ',b[i]=1,r--,num=0;
+        }
+        i++;
+        if(i&gt;n) i=1;
+    }
+}
+int main(){
+    cin&gt;&gt;n&gt;&gt;m;
+    s(); 
+}
 </code></pre>
 
             </div>
@@ -139,9 +143,9 @@ hiahiahia">
               <div class="next">
                 下一篇
               </div>
-              <a href="https://houpingze.github.io/post/cru-men-1/">
+              <a href="https://houpingze.github.io/post/pUvUJIijg/">
                 <h3 class="post-title">
-                  c++入门（1）
+                  日记0003
                 </h3>
               </a>
             </div>
@@ -269,7 +273,7 @@ hiahiahia</div>
     </div>
     <div class="row">
       
-        <a href="https://houpingze.github.io/tag/iQSU2zU7k/" class="badge ">
+        <a href="https://houpingze.github.io/tag/iQSU2zU7k/" class="badge warning">
           日记
         </a>
       
