@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>金牌冲刺6 | houpingzeAKIOI</title>
+<title>你古 P1104 代码 | houpingzeAKIOI</title>
 <meta name="description" content="温故而知新，可以AKIOI
 houpingze 的小站">
 
@@ -104,83 +104,38 @@ houpingze 的小站">
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>金牌冲刺6</h1>
+            <h1>你古 P1104 代码</h1>
             <p class="article-meta">
-              2020-09-03
+              2020-09-28
               
             </p>
             
             <div class="post-content">
-              <p><img src="https://houpingze.github.io/post-images/1599130901935.png" alt="" loading="lazy"><br>
-<img src="https://houpingze.github.io/post-images/1599131404879.png" alt="" loading="lazy"></p>
-<p>/fad</p>
-<h2 id="1183">1183:</h2>
-<p>题目：<br>
-聪明的卡卡西帮助工人师傅们解决了难题，师傅们为了表示感谢，带领他们到了附近的西瓜地，请他们吃西瓜，正好看到农民伯伯正在给每个西瓜称重，每个西瓜的重量都记录在纸上，农民伯伯想知道这遍地的西瓜哪个重量的西瓜最多。卡卡西眼前一亮，大声的说：伯伯，让我来帮你完成吧！</p>
-<p>代码：</p>
-<p>桶：</p>
-<pre><code>#include&lt;iostream&gt;
+              <pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;bits/stdc++.h&gt;
 typedef unsigned long long ull;
 using namespace std;
-int n,cnt,m,a[10001],t;
-int main(){
-    cin&gt;&gt;n;
-    while(n--){
-        cin&gt;&gt;t;
-        a[t]++;	
-    }
-    for(int i=1;i&lt;=10000;i++){
-        if(a[i]&gt;m){
-            m=a[i];
-            cnt=i;
-        }
-    }
-    cout&lt;&lt;cnt;
+int n,cnt,m;
+struct s{
+	int y,m,d;
+	int sj,id;
+	string n;
+}a[101010];
+bool cmp(s a,s b){
+	if(a.y!=b.y) return a.y&lt;b.y;
+	if(a.m!=b.m) return a.m&lt;b.m;
+	if(a.d!=b.d) return a.d&lt;b.d;
+	return a.id&gt;b.id;
 }
-
-</code></pre>
-<p>暴力：</p>
-<pre><code>#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[10001];
 int main(){
-    cin&gt;&gt;n;
-    for(int i=1;i&lt;=n;i++){
-        cin&gt;&gt;a[i];
-    }
-    for(int i=1;i&lt;=10000;i++){
-        int tmp=0;
-        for(int j=1;j&lt;=n;j++){
-            if(a[j]==i) tmp++;
-        }
-        if(m&lt;tmp){
-            m=tmp;
-            cnt=i;
-        }
-    }
-    cout&lt;&lt;cnt;
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;i++){
+		cin&gt;&gt;a[i].n&gt;&gt;a[i].y&gt;&gt;a[i].m&gt;&gt;a[i].d; 
+		a[i].id=i;
+	}
+	sort(a+1,a+n+1,cmp);
+	for(int i=1;i&lt;=n;i++) cout&lt;&lt;a[i].n&lt;&lt;endl;
 }
-
-</code></pre>
-<h2 id="1350">1350</h2>
-<p>题目：<br>
-<img src="https://houpingze.github.io/post-images/1599134520033.png" alt="" loading="lazy"></p>
-<pre><code>#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[100]{1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,4,1,2,3,1,2,3,4};
-int main(){
-	string s;
-	getline(cin,s)
-	;
-	for(int i=0;i&lt;s.size();i++){
-		if(s[i]!=' ') cnt+=a[s[i]-'a'];
-		else cnt++;  
-	} 
-	cout&lt;&lt;cnt;
-}
-
 </code></pre>
 
             </div>
@@ -192,9 +147,9 @@ int main(){
               <div class="next">
                 下一篇
               </div>
-              <a href="https://houpingze.github.io/post/cru-men-2/">
+              <a href="https://houpingze.github.io/post/ry6gl4U1C/">
                 <h3 class="post-title">
-                  c++入门（2）
+                  你谷 P1996 题解
                 </h3>
               </a>
             </div>
@@ -324,7 +279,7 @@ houpingze 的小站</div>
     </div>
     <div class="row">
       
-        <a href="https://houpingze.github.io/tag/iQSU2zU7k/" class="badge secondary">
+        <a href="https://houpingze.github.io/tag/iQSU2zU7k/" class="badge ">
           日记
         </a>
       
