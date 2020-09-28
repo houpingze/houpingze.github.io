@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-09-27T12:59:26.299Z</updated>
+    <updated>2020-09-28T10:18:28.751Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -11,6 +11,30 @@ hiahiahia</subtitle>
     <logo>https://houpingze.github.io/images/avatar.png</logo>
     <icon>https://houpingze.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
+    <entry>
+        <title type="html"><![CDATA[日记0003]]></title>
+        <id>https://houpingze.github.io/post/pUvUJIijg/</id>
+        <link href="https://houpingze.github.io/post/pUvUJIijg/">
+        </link>
+        <updated>2020-09-28T09:49:42.000Z</updated>
+        <content type="html"><![CDATA[<p>今天发生了许多事情。</p>
+<ol>
+<li>体育课的事情<br>
+一个<code>**</code>的体育老师叫我们罚跑13圈，关键是只叫女生跑9圈，md，之前老师还说什么“全班是一个集体，要跑一起跑”xswl<br>
+这种**的老师，也没必要表现出好学生的表现，虽然我是班长。<br>
+于是，凭我的精（zhi）密（zhang）的分析，我发现，老师的视觉盲区就在操场中间，于是……</li>
+</ol>
+<h2 id="抄近道">抄近道！</h2>
+<p>然后以100km/s的速度超了近道，并且……</p>
+<h2 id="老师没发现">老师没发现！</h2>
+<p>（（（（（（（（（（（（（（（（（（（（（（（（<br>
+<s>快mod我</s><br>
+2. 下午<br>
+有一个xxs的女生，本来老师就不给骑自行车上下学，结果<strong>它</strong>还偏要骑，而且，还故意用自行车来撞男生一个学霸，我们还手，它还说什么“我明天报复你们”，xxs，xswl<br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200927215021.png" alt="" loading="lazy"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200927215004.png" alt="" loading="lazy"><br>
+3. 作业好多（bushi</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[日记0002]]></title>
         <id>https://houpingze.github.io/post/日记0002/</id>
@@ -553,40 +577,6 @@ int main(){
 </code></pre>
 <p>定义一个整形数组：</p>
 <figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200829161226.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[3916高难度补充]]></title>
-        <id>https://houpingze.github.io/post/3916-gao-nan-du-bu-chong/</id>
-        <link href="https://houpingze.github.io/post/3916-gao-nan-du-bu-chong/">
-        </link>
-        <updated>2020-08-09T03:57:08.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://houpingze.github.io/post-images/1596945482668.png" alt="" loading="lazy">😀😀😀😀😀😀😀</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m;
-int a[15],f[100000];
-int main(){
-	for(int i=1;i&lt;=10;i++) cin&gt;&gt;a[i];
-	cin&gt;&gt;n;
-	/*
-	f[i]表示i公里的最优解 
-	*/ 
-    memset(f,0x7f,sizeof(f));
-	f[1]=a[1];
-	for(int i=2;i&lt;=n;i++){
-		f[i]=f[i-1]+a[1];
-		for(int j=1;j&lt;=min(i,10);j++){
-	 		f[i]=min(f[i],a[j]+f[i-j]);
-		}
-	}
-	cout&lt;&lt;f[n];
-}
-
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAqCAMAAAAOCBKjAAABjFBMVEUAAAAAAAAAAAAAAAAAAAAZGRkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHBwcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANDQ0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAAAAAAAAACAgLQ0NDe3t4AAAAAAAAAAAAAAAD///8BAQH4+PgzMzP39/cODg4REREICAjh4eHb29vOzs7IyMi4uLhzc3NjY2Pv7++lpaV2dnZMTEw6OjowMDAaGhoVFRX9/f3s7OzU1NTFxcW9vb2KiopYWFhTU1MtLS0nJyciIiINDQ3x8fHm5ubf39/Nzc2oqKibm5uNjY1eXl49PT0fHx/09PTp6enQ0NCzs7OsrKyYmJiRkZGHh4eBgYF+fn5vb29bW1tPT09GRkZDQ0NAQEA3NzcrKyscHBz6+vrj4+PW1tbKysq8vLyioqKVlZWEhIRsbGxnZ2dXV1dJSUnBwcGurq53d3cpKSkIPbx0AAAANHRSTlMATPHRp/m/fldEJxsL29XHw7iHXC4F+vjMophsRz8VEgf647q0q3hxYlP06ujk48WQOCIgda3aFAAAAqVJREFUOMuVlGV74kAURnFaWmiBurusyw0hhASCe3G3uvvWbeWPbzIkJLTwPLvnS+4kJ5ORNyP7b3omVsZUpq7JmU7CoHxRr/a/+E7xdyMmXVulS5nx/twAjsJ2cmhs6o3ROxqKW0Ek6pvrfq1o/HZoZW94otVR+S3wmopC1zKWUB7e4uqXKDP6e2iDu94l6SZjgXbsSToyPqBbPwAh1oXZ5oimFJsQ8Z4HLnDcV2IfUS6crQOJNTgzC85k2mpJ4TuPGLZzGEyA3ebzvGCEp2rb8Y4KjtkH64TruowR1E0gAxT2QDFYKu/MVj0awdE+AxTPCBtGEqEqu5RbKa7OBpmcY0RwTEfAYnc4YsUcICi2ptm5OpSCs5yEDoiO3N/J8TQXSDd71cFhVDKBkbsOzul401mqtVeoIZ0YY8VaW+dwXiaixcON9JW5sFruPKh1nZ2UxlDJoLuxS+Lk8DhoqwCn4mMyKQPDcSSFnU+1xLabK9ePNa3/lUqt+A0tWPzvDdLUTxue85+20SP6oHpwyxXW0ucKKUm96gR49onTxJntT6zR2v3QIyjd2QKvOLGSvQDuR4xfi+SC4PTt80qkjl1mydo6MPVGwDdCq3w3QTfvJAKbt9Fo2gVW2xb/NX0vcka9vFLCaPTBkBXwOCDCKbRj3z7SqLmWJO+5+VhyoU3YJ+MxKselQ8l1NB7g9qGYIZJF9npQp91BO4R3L2ykl3slY+ZGjJJKV64aE3MCHQSO/A06JY6MrGNwgUj63BmvYU9RyU/fh/a82Y64ho3zC1r54hAjnEXW9DK3V/oy3y5fGgdkiK99KX4VGc0Mijy5F2H38Nf53Ip4NmoVx1sRcHsV/Fvd/eoTX1q5NC2NwneTQe1XawbEE/WLyowMKVPyVfmg7B/5C0QS4X4FJcxWAAAAAElFTkSuQmCC" alt="avatar" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
