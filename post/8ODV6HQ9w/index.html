@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>金牌冲刺6 | houpingzeAKIOI</title>
+<title>日记0004 | houpingzeAKIOI</title>
 <meta name="description" content="温故而知新，可以AKIOI
 houpingze 的小站">
 
@@ -104,116 +104,26 @@ houpingze 的小站">
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>金牌冲刺6</h1>
+            <h1>日记0004</h1>
             <p class="article-meta">
-              2020-09-03
-              
-                <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge secondary">
-                  课堂笔记
-                </a>
+              2020-09-30
               
             </p>
             
             <div class="post-content">
-              <p><img src="https://houpingze.github.io/post-images/1599130901935.png" alt="" loading="lazy"><br>
-<img src="https://houpingze.github.io/post-images/1599131404879.png" alt="" loading="lazy"></p>
-<p>/fad</p>
-<h2 id="1183">1183:</h2>
-<p>题目：<br>
-聪明的卡卡西帮助工人师傅们解决了难题，师傅们为了表示感谢，带领他们到了附近的西瓜地，请他们吃西瓜，正好看到农民伯伯正在给每个西瓜称重，每个西瓜的重量都记录在纸上，农民伯伯想知道这遍地的西瓜哪个重量的西瓜最多。卡卡西眼前一亮，大声的说：伯伯，让我来帮你完成吧！</p>
-<p>代码：</p>
-<p>桶：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[10001],t;
-int main(){
-    cin&gt;&gt;n;
-    while(n--){
-        cin&gt;&gt;t;
-        a[t]++;	
-    }
-    for(int i=1;i&lt;=10000;i++){
-        if(a[i]&gt;m){
-            m=a[i];
-            cnt=i;
-        }
-    }
-    cout&lt;&lt;cnt;
-}
-
-</code></pre>
-<p>暴力：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[10001];
-int main(){
-    cin&gt;&gt;n;
-    for(int i=1;i&lt;=n;i++){
-        cin&gt;&gt;a[i];
-    }
-    for(int i=1;i&lt;=10000;i++){
-        int tmp=0;
-        for(int j=1;j&lt;=n;j++){
-            if(a[j]==i) tmp++;
-        }
-        if(m&lt;tmp){
-            m=tmp;
-            cnt=i;
-        }
-    }
-    cout&lt;&lt;cnt;
-}
-
-</code></pre>
-<h2 id="1350">1350</h2>
-<p>题目：<br>
-<img src="https://houpingze.github.io/post-images/1599134520033.png" alt="" loading="lazy"></p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[100]{1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,4,1,2,3,1,2,3,4};
-int main(){
-	string s;
-	getline(cin,s)
-	;
-	for(int i=0;i&lt;s.size();i++){
-		if(s[i]!=' ') cnt+=a[s[i]-'a'];
-		else cnt++;  
-	} 
-	cout&lt;&lt;cnt;
-}
-
-</code></pre>
-<p>1631：</p>
-<figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599136671819.png" alt="" loading="lazy"></figure>
-<p>代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m;
-bool b[20000000];
-int main(){
-	cin&gt;&gt;n;
-	for(int i=1;i&lt;=n;i++){
-		double a;
-		cin&gt;&gt;a&gt;&gt;m;
-		for(int j=1;j&lt;=m;j++){
-			b[(int)(a*j)]=!b[(int)(a*j)];
-		}
-	}
-	for(int i=1;;i++){
-		if(b[i]){
-			cout&lt;&lt;i;
-			return 0;
-		}
-	}
-}
-
-</code></pre>
-<figure data-type="image" tabindex="2"><img src="https://houpingze.github.io/post-images/1599138922872.png" alt="" loading="lazy"></figure>
-<p>😱😱😱😱😱😱😱😱😱😱😱😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤😭😭🤐🤐🤐🤐😭😭😭😭😭😭😓😓😓😓😓😓😓😓😓😓😓😓😓😓😓😓😓😓😓😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😪😪😪😪😓😓😓😓😓😓😓😓😓😓😭😭😭😭😭🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤</p>
+              <p>昨天的日记因为学而思创新班考试，所以咕咕咕<br>
+另：考试没考上，录取线75<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">pts</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span></span></span></span>，我68<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">pts</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span></span></span></span>/kel<br>
+wtcl<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200927215010.png" alt="" loading="lazy"><br>
+因为今天下午要早点去学校，要到烈士陵园，所以老师在前天（还是昨天（？，说今天早点放学<br>
+结果………………………………<br>
+今天放学比之前更晚<br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200927214942.png" alt="" loading="lazy"><br>
+/fad<br>
+下午去的烈士陵园，在那站了很久，累死我了，关键是老师还不给带水，7456，坑<br>
+我们班举旗的同学，很累很累，活动结束后跑去喝了一瓶水/fad<br>
+我也被渴死了/fad<br>
+(⇀‸↼‶)<br>
+不过今天解放啦（</p>
 
             </div>
           </article>
@@ -224,9 +134,9 @@ int main(){
               <div class="next">
                 下一篇
               </div>
-              <a href="https://houpingze.github.io/post/jin-pai-chong-ci-6/">
+              <a href="https://houpingze.github.io/post/tFOL2_rVM/">
                 <h3 class="post-title">
-                  金牌冲刺6
+                  你古 P1104 代码
                 </h3>
               </a>
             </div>
@@ -362,7 +272,7 @@ houpingze 的小站</div>
           日记
         </a>
       
-        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge secondary">
+        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge warning">
           课堂笔记
         </a>
       
