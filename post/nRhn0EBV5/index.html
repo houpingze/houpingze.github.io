@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>houpingzeAKIOI</title>
+<title>日记0005 | houpingzeAKIOI</title>
 <meta name="description" content="温故而知新，可以AKIOI
 houpingze 的小站">
 
@@ -16,6 +16,12 @@ houpingze 的小站">
 <link rel="stylesheet" href="https://houpingze.github.io/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
@@ -24,6 +30,7 @@ houpingze 的小站">
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://houpingze.github.io">houpingzeAKIOI</a></h3>
@@ -93,91 +100,66 @@ houpingze 的小站">
   </div>
 </nav>
 
-
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
+          <article class="article">
+            <h1>日记0005</h1>
+            <p class="article-meta">
+              2020-10-01
+              
+            </p>
+            
+            <div class="post-content">
+              <p>今天上午在家学会（？）了STL数据结构堆，结果………………<br>
+我刚刚****手残点错按钮，把笔记删了<br>
+我*********************************** (口吐芬芳)<br>
+备份一下吧/fad:</p>
+<pre><code class="language-cpp">首先你需要一个头文件：#include&lt;queue&gt;
+priority_queue&lt;int&gt; q;//这是一个大根堆q
+priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt;q;//这是一个小根堆q
+//注意某些编译器在定义一个小根堆的时候greater&lt;int&gt;和后面的&gt;要隔一个空格，不然会被编译器识别成位运算符号&gt;&gt; 
+
+q.top()//取得堆顶元素，并不会弹出
+q.pop()//弹出堆顶元素
+q.push()//往堆里面插入一个元素
+q.empty()//查询堆是否为空，为空则返回1否则返回0
+q.size()//查询堆内元素数量
+</code></pre>
+<p>然后去老家<br>
+smwy堵爆了¿<br>
+今天真是倒霉透了，到现在还在堵车<br>
+而且在车上搞电脑，鼠标难用就不说了，电脑屏幕还反光，电脑被太阳晒的烫死了<br>
+还不如去上学¿¿¿</p>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
           
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/qi-ta-di-tui/">其他递推</a>
-    </h2>
-    <p class="article-meta">
-      2020-08-08
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/qi-ta-di-tui/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/shu-jia-di-11-ci-ke-guo-he-zu/">暑假第11次课 过河卒</a>
-    </h2>
-    <p class="article-meta">
-      2020-08-06
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/shu-jia-di-11-ci-ke-guo-he-zu/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://houpingze.github.io/post/hello-gridea/">Hello Gridea</a>
-    </h2>
-    <p class="article-meta">
-      2018-12-12
-      
-        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge success">
-          Gridea
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-
-    </p>
-    <div class="row">
-      <a href="https://houpingze.github.io/post/hello-gridea/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://houpingze.github.io/post/8ODV6HQ9w/">
+                <h3 class="post-title">
+                  日记0004
+                </h3>
+              </a>
+            </div>
+          
         </div>
         
-        <div class="row flex-edges">
-  
-    <a href="https://houpingze.github.io/" class="paper-btn">
-      上一页
-    </a>
-  
-  
-</div>
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
 
+          
+        
       </div>
-      
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://houpingze.github.io/images/avatar.png?v=1601547619614" class="no-responsive avatar">
@@ -295,15 +277,15 @@ houpingze 的小站</div>
     </div>
     <div class="row">
       
-        <a href="https://houpingze.github.io/tag/iQSU2zU7k/" class="badge success">
+        <a href="https://houpingze.github.io/tag/iQSU2zU7k/" class="badge secondary">
           日记
         </a>
       
-        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge warning">
+        <a href="https://houpingze.github.io/tag/sF1N1vQzB/" class="badge ">
           课堂笔记
         </a>
       
-        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge ">
+        <a href="https://houpingze.github.io/tag/0XJO9jVCH/" class="badge secondary">
           Gridea
         </a>
       
@@ -323,7 +305,9 @@ houpingze 的小站</div>
   </div>
 </div>
 
+
     </div>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <script type="application/javascript">
@@ -333,6 +317,29 @@ AOS.init();
 hljs.initHighlightingOnLoad()
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'houpingze.github.io',
+        owner: '',
+        admin: [''],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
