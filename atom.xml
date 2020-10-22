@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-10-22T11:02:30.640Z</updated>
+    <updated>2020-10-22T12:35:21.982Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -11,6 +11,58 @@ houpingze 的小站</subtitle>
     <logo>https://houpingze.github.io/images/avatar.png</logo>
     <icon>https://houpingze.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
+    <entry>
+        <title type="html"><![CDATA[贪心]]></title>
+        <id>https://houpingze.github.io/post/gGWoYdpH6/</id>
+        <link href="https://houpingze.github.io/post/gGWoYdpH6/">
+        </link>
+        <updated>2020-10-22T11:17:20.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20201022195155.png" alt="" loading="lazy"></figure>
+<p>4340：<br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20201022202927.png" alt="" loading="lazy"></p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,x[101010],y[101010],ans,cntx=1,cnty=1;
+int main(){
+	cin&gt;&gt;n&gt;&gt;m;
+	for(int i=1;i&lt;n;i++) cin&gt;&gt;x[i];
+	for(int i=1;i&lt;m;i++) cin&gt;&gt;y[i];
+	sort(x+1,x+n);
+	sort(y+1,y+m);
+	int l=n-1,r=m-1;
+	while(l&gt;0||r&gt;0){
+		if(x[l]&gt;y[r]) ans+=x[l]*cnty,cntx++,l--;
+		else ans+=y[r]*cntx,cnty++,r--;
+	}
+	cout&lt;&lt;ans;
+}
+
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20201022203157.png" alt="" loading="lazy"></figure>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[10101001];
+int main(){
+	cin&gt;&gt;n&gt;&gt;m;
+	for(int i=1;i&lt;=n;i++) cin&gt;&gt;a[i];
+	sort(a+1,a+n+1);
+	int l=1,r=n;
+	while(l&lt;=r){
+		r--,cnt++;
+		if(a[l]+a[r]&lt;=m) l++; 
+	} 
+	cout&lt;&lt;cnt;
+}
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[日记0005]]></title>
         <id>https://houpingze.github.io/post/nRhn0EBV5/</id>
@@ -232,214 +284,6 @@ balabala讲了一大堆，接着上课<br>
         </link>
         <updated>2020-09-26T01:43:41.000Z</updated>
         <content type="html"><![CDATA[<p>houpingze.cf</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[递归基本思想]]></title>
-        <id>https://houpingze.github.io/post/ak-ctsc-1/</id>
-        <link href="https://houpingze.github.io/post/ak-ctsc-1/">
-        </link>
-        <updated>2020-09-05T02:15:54.000Z</updated>
-        <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599272172797.png" alt="" loading="lazy"></figure>
-<h2 id="递归的两大要素">递归的两大要素：</h2>
-<h3 id="递推关系">递推关系：</h3>
-<p>根据某种方法，对问题进行拆分【递】</p>
-<h3 id="终止条件">终止条件：</h3>
-<p>到达某种条件，问题可以直接求解，此时到达递归的边界，然后依次组合出原来的大问题的解。【归】</p>
-<h2 id="代码讲解">代码讲解：</h2>
-<p>2404：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-using namespace std;
-int f(int n){
-    if(n==1) return 1;
-    return f(n-1)+n;
-}
-int main(){
-    int n;
-    cin &gt;&gt; n;
-    cout&lt;&lt;f(n);
-}
- 
-</code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>表示前n个数的和<br>
-递推关系：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>+</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">f(n)=f(n-1)+n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span><br>
-边界:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(1)=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
-<p>2462:</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[100000];
-int f(int n){
-	if(n==1) return a[1];
-	return max(f(n-1),a[n]);
-}
-int main(){
-	cin&gt;&gt;n;
-	for(int i=1;i&lt;=n;i++) cin&gt;&gt;a[i];
-	cout&lt;&lt;f(n);
-}
-
-</code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>表示前n个数的最大值<br>
-递推：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>max</mi><mo>⁡</mo><mo>(</mo><mi>f</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo separator="true">,</mo><mi>a</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)=\max(f(n-1),a[n])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span><br>
-边界：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi>a</mi><mo>[</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">f(1)=a[1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span></span></span></span></p>
-<h2 id="斐波那契数列">斐波那契数列：</h2>
-<p>普通算法：</p>
-<pre><code>int f(int n){
-  if(n==1||n==2) return 1;
-  return f(n-1)+f(n-2)
-}
-</code></pre>
-]]></summary>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599272172797.png" alt="" loading="lazy"></figure>
-<h2 id="递归的两大要素">递归的两大要素：</h2>
-<h3 id="递推关系">递推关系：</h3>
-<p>根据某种方法，对问题进行拆分【递】</p>
-<h3 id="终止条件">终止条件：</h3>
-<p>到达某种条件，问题可以直接求解，此时到达递归的边界，然后依次组合出原来的大问题的解。【归】</p>
-<h2 id="代码讲解">代码讲解：</h2>
-<p>2404：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-using namespace std;
-int f(int n){
-    if(n==1) return 1;
-    return f(n-1)+n;
-}
-int main(){
-    int n;
-    cin &gt;&gt; n;
-    cout&lt;&lt;f(n);
-}
- 
-</code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>表示前n个数的和<br>
-递推关系：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>+</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">f(n)=f(n-1)+n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span><br>
-边界:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(1)=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
-<p>2462:</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[100000];
-int f(int n){
-	if(n==1) return a[1];
-	return max(f(n-1),a[n]);
-}
-int main(){
-	cin&gt;&gt;n;
-	for(int i=1;i&lt;=n;i++) cin&gt;&gt;a[i];
-	cout&lt;&lt;f(n);
-}
-
-</code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>表示前n个数的最大值<br>
-递推：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>max</mi><mo>⁡</mo><mo>(</mo><mi>f</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo separator="true">,</mo><mi>a</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)=\max(f(n-1),a[n])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span><br>
-边界：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi>a</mi><mo>[</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">f(1)=a[1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span></span></span></span></p>
-<h2 id="斐波那契数列">斐波那契数列：</h2>
-<p>普通算法：</p>
-<pre><code>int f(int n){
-  if(n==1||n==2) return 1;
-  return f(n-1)+f(n-2)
-}
-</code></pre>
-<!-- more -->
-<p>时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mn>2</mn><mi>n</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(2^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
-<p>but,why???<br>
-because :</p>
-<h2 id=""><img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905112551.png" alt="" loading="lazy"></h2>
-<h2 id="递归过程中有大量的重复计算例如上图fn-2被算了很多次">递归过程中有大量的重复计算，例如上图f(n-2)被算了很多次。</h2>
-<hr>
-<p>我们可以通过记忆化来避免重复计算，即定义一个数组存。<br>
-记忆化：</p>
-<pre><code>int f(int n){
-  if(j[n]!=0) return j[n];
-  if(n==1||n==2) return 1;
-  j[n]=f(n-1)+f(n-2);
-  return f(n-1)+f(n-2)
-}
-</code></pre>
-<p>2458:<br>
-题目：<br>
-<img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905114616.png" alt="" loading="lazy"></p>
-<p><code>f(n)</code>表示数字 n 各个位数上的和</p>
-<p>递推： <code>f(n)=f(n/10)+n%10</code></p>
-<p>边界：</p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&gt;</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">n&gt;10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>时 <code>return n;</code></p>
-<p>代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[100000];
-int f(int n){
-	if(n&lt;10) return n;
-	return f(n/10)+n%10;
-}
-int main(){
-	cin&gt;&gt;n; 
-	cout&lt;&lt;f(n);
-}
-
-</code></pre>
-<p>3831:</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m;
-string s;
-bool f(int i){
-	if(i==s.size()/2) return true;
-	if(s[i]!=s[s.size()-1-i]) return false;
-	return f(i+1); 
-}
-int main(){
-	cin&gt;&gt;s; 
-	if(f(0)==1) cout&lt;&lt;&quot;是回文串&quot;;
-	else cout&lt;&lt;&quot;不是回文串&quot;; 
-}
-
-</code></pre>
-<p>我的代码：<br>
-f(i)表示s[i]~s[s.size()-1-i]是否是回文<br>
-递推：</p>
-<p><code>if(i==s.size()/2) return true;</code><br>
-<code>if(s[i]!=s[s.size()-1-i]) return false;</code><br>
-边界：</p>
-<p><code>if(i==s.size()/2) return true;</code></p>
-<pre><code>#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m;
-string s;
-bool f(int i){
-	if(i==s.size()/2) return true;
-	if(s[i]!=s[s.size()-1-i]) return false;
-	return f(i+1); 
-}
-int main(){
-	cin&gt;&gt;s; 
-	if(f(0)==1) cout&lt;&lt;&quot;是回文串&quot;;
-	else cout&lt;&lt;&quot;不是回文串&quot;; 
-}
-</code></pre>
-<p>老师的代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m;
-string s;
-bool f(int i,int j){
-	if(i&gt;=j) return true;
-	if(s[i]==s[j]) return f(i+1,j-1);
-	return false;
-}
-int main(){
-	cin&gt;&gt;s; 
-	if(f(0,s.size()-1)==1) cout&lt;&lt;&quot;是回文串&quot;;
-	else cout&lt;&lt;&quot;不是回文串&quot;; 
-}
-
-</code></pre>
-<p>其实也差不多。。。<br>
-<img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905121906.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>

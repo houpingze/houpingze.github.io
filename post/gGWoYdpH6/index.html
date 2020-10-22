@@ -9,7 +9,7 @@
 <meta name="description" content="温故而知新，可以AKIOI
 houpingze 的小站">
 <meta name="theme-color" content="#000">
-<title>递归基本思想 | houpingzeAKIOI</title>
+<title>贪心 | houpingzeAKIOI</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1603370113448">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -39,8 +39,8 @@ houpingze 的小站">
 
 
 
-  <meta name="description" content="递归基本思想" />
-  <meta name="keywords" content="课堂笔记" />
+  <meta name="description" content="贪心" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -217,8 +217,7 @@ houpingze 的小站">
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -254,204 +253,6 @@ houpingze 的小站">
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E9%80%92%E5%BD%92%E7%9A%84%E4%B8%A4%E5%A4%A7%E8%A6%81%E7%B4%A0">递归的两大要素：</a>
-<ul>
-<li><a href="#%E9%80%92%E6%8E%A8%E5%85%B3%E7%B3%BB">递推关系：</a></li>
-<li><a href="#%E7%BB%88%E6%AD%A2%E6%9D%A1%E4%BB%B6">终止条件：</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3">代码讲解：</a></li>
-<li><a href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97">斐波那契数列：</a></li>
-<li><a href="#">!</a></li>
-<li><a href="#%E9%80%92%E5%BD%92%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%9C%89%E5%A4%A7%E9%87%8F%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%A1%E7%AE%97%E4%BE%8B%E5%A6%82%E4%B8%8A%E5%9B%BEfn-2%E8%A2%AB%E7%AE%97%E4%BA%86%E5%BE%88%E5%A4%9A%E6%AC%A1">递归过程中有大量的重复计算，例如上图f(n-2)被算了很多次。</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -539,8 +340,8 @@ houpingze 的小站">
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/ak-ctsc-1/">
-      递归基本思想
+    <a class="post-title-link" href="https://houpingze.github.io/post/gGWoYdpH6/">
+      贪心
     </a>
   </h1>
   <div class="post-meta">
@@ -548,36 +349,23 @@ houpingze 的小站">
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-05 10:15:54">2020-09-05</span>
+      <span class="publish-time" data-t="2020-10-22 19:17:20">2020-10-22</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://houpingze.github.io/tag/sF1N1vQzB/">
-        <span>课堂笔记</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5<span class="language" data-lan="minute">分钟</span></span>
+      <span>2<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>762<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>193<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/ak-ctsc-1/" data-flag-title="递归基本思想" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/gGWoYdpH6/" data-flag-title="贪心" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -586,155 +374,50 @@ houpingze 的小站">
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599272172797.png" alt="" loading="lazy"></figure>
-<h2 id="递归的两大要素">递归的两大要素：</h2>
-<h3 id="递推关系">递推关系：</h3>
-<p>根据某种方法，对问题进行拆分【递】</p>
-<h3 id="终止条件">终止条件：</h3>
-<p>到达某种条件，问题可以直接求解，此时到达递归的边界，然后依次组合出原来的大问题的解。【归】</p>
-<h2 id="代码讲解">代码讲解：</h2>
-<p>2404：</p>
+              <figure data-type="image" tabindex="1"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20201022195155.png" alt="" loading="lazy"></figure>
+<p>4340：<br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20201022202927.png" alt="" loading="lazy"></p>
 <pre><code class="language-cpp">#include&lt;iostream&gt;
-using namespace std;
-int f(int n){
-    if(n==1) return 1;
-    return f(n-1)+n;
-}
-int main(){
-    int n;
-    cin &gt;&gt; n;
-    cout&lt;&lt;f(n);
-}
- 
-</code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>表示前n个数的和<br>
-递推关系：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>+</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">f(n)=f(n-1)+n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span><br>
-边界:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(1)=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
-<p>2462:</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
 typedef unsigned long long ull;
 using namespace std;
-int n,cnt,m,a[100000];
-int f(int n){
-	if(n==1) return a[1];
-	return max(f(n-1),a[n]);
-}
+int n,cnt,m,x[101010],y[101010],ans,cntx=1,cnty=1;
 int main(){
-	cin&gt;&gt;n;
+	cin&gt;&gt;n&gt;&gt;m;
+	for(int i=1;i&lt;n;i++) cin&gt;&gt;x[i];
+	for(int i=1;i&lt;m;i++) cin&gt;&gt;y[i];
+	sort(x+1,x+n);
+	sort(y+1,y+m);
+	int l=n-1,r=m-1;
+	while(l&gt;0||r&gt;0){
+		if(x[l]&gt;y[r]) ans+=x[l]*cnty,cntx++,l--;
+		else ans+=y[r]*cntx,cnty++,r--;
+	}
+	cout&lt;&lt;ans;
+}
+
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20201022203157.png" alt="" loading="lazy"></figure>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m,a[10101001];
+int main(){
+	cin&gt;&gt;n&gt;&gt;m;
 	for(int i=1;i&lt;=n;i++) cin&gt;&gt;a[i];
-	cout&lt;&lt;f(n);
+	sort(a+1,a+n+1);
+	int l=1,r=n;
+	while(l&lt;=r){
+		r--,cnt++;
+		if(a[l]+a[r]&lt;=m) l++; 
+	} 
+	cout&lt;&lt;cnt;
 }
 
 </code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>表示前n个数的最大值<br>
-递推：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>max</mi><mo>⁡</mo><mo>(</mo><mi>f</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo separator="true">,</mo><mi>a</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)=\max(f(n-1),a[n])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span><br>
-边界：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi>a</mi><mo>[</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">f(1)=a[1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span></span></span></span></p>
-<h2 id="斐波那契数列">斐波那契数列：</h2>
-<p>普通算法：</p>
-<pre><code>int f(int n){
-  if(n==1||n==2) return 1;
-  return f(n-1)+f(n-2)
-}
-</code></pre>
-<!-- more -->
-<p>时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mn>2</mn><mi>n</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(2^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
-<p>but,why???<br>
-because :</p>
-<h2 id=""><img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905112551.png" alt="" loading="lazy"></h2>
-<h2 id="递归过程中有大量的重复计算例如上图fn-2被算了很多次">递归过程中有大量的重复计算，例如上图f(n-2)被算了很多次。</h2>
-<hr>
-<p>我们可以通过记忆化来避免重复计算，即定义一个数组存。<br>
-记忆化：</p>
-<pre><code>int f(int n){
-  if(j[n]!=0) return j[n];
-  if(n==1||n==2) return 1;
-  j[n]=f(n-1)+f(n-2);
-  return f(n-1)+f(n-2)
-}
-</code></pre>
-<p>2458:<br>
-题目：<br>
-<img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905114616.png" alt="" loading="lazy"></p>
-<p><code>f(n)</code>表示数字 n 各个位数上的和</p>
-<p>递推： <code>f(n)=f(n/10)+n%10</code></p>
-<p>边界：</p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&gt;</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">n&gt;10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>时 <code>return n;</code></p>
-<p>代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[100000];
-int f(int n){
-	if(n&lt;10) return n;
-	return f(n/10)+n%10;
-}
-int main(){
-	cin&gt;&gt;n; 
-	cout&lt;&lt;f(n);
-}
-
-</code></pre>
-<p>3831:</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m;
-string s;
-bool f(int i){
-	if(i==s.size()/2) return true;
-	if(s[i]!=s[s.size()-1-i]) return false;
-	return f(i+1); 
-}
-int main(){
-	cin&gt;&gt;s; 
-	if(f(0)==1) cout&lt;&lt;&quot;是回文串&quot;;
-	else cout&lt;&lt;&quot;不是回文串&quot;; 
-}
-
-</code></pre>
-<p>我的代码：<br>
-f(i)表示s[i]~s[s.size()-1-i]是否是回文<br>
-递推：</p>
-<p><code>if(i==s.size()/2) return true;</code><br>
-<code>if(s[i]!=s[s.size()-1-i]) return false;</code><br>
-边界：</p>
-<p><code>if(i==s.size()/2) return true;</code></p>
-<pre><code>#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m;
-string s;
-bool f(int i){
-	if(i==s.size()/2) return true;
-	if(s[i]!=s[s.size()-1-i]) return false;
-	return f(i+1); 
-}
-int main(){
-	cin&gt;&gt;s; 
-	if(f(0)==1) cout&lt;&lt;&quot;是回文串&quot;;
-	else cout&lt;&lt;&quot;不是回文串&quot;; 
-}
-</code></pre>
-<p>老师的代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m;
-string s;
-bool f(int i,int j){
-	if(i&gt;=j) return true;
-	if(s[i]==s[j]) return f(i+1,j-1);
-	return false;
-}
-int main(){
-	cin&gt;&gt;s; 
-	if(f(0,s.size()-1)==1) cout&lt;&lt;&quot;是回文串&quot;;
-	else cout&lt;&lt;&quot;不是回文串&quot;; 
-}
-
-</code></pre>
-<p>其实也差不多。。。<br>
-<img src="https://cdn.jsdelivr.net/gh/houpingze/tc@latest/data/20200905121906.png" alt="" loading="lazy"></p>
 
             </div>
             
@@ -751,7 +434,7 @@ int main(){
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://houpingze.github.io/post/ak-ctsc-1/" title="递归基本思想">https://houpingze.github.io/post/ak-ctsc-1/</a>
+      <a href="https://houpingze.github.io/post/gGWoYdpH6/" title="贪心">https://houpingze.github.io/post/gGWoYdpH6/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -760,21 +443,15 @@ int main(){
   </ul>
   <div class="tags">
     
-      <a href="https://houpingze.github.io/tag/sF1N1vQzB/"># 课堂笔记</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="搬迁" href="https://houpingze.github.io/post/ban-qian/">搬迁</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="搬迁" href="https://houpingze.github.io/post/ban-qian/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="金牌冲刺6" href="https://houpingze.github.io/post/hpz-uke-ioi/">金牌冲刺6</a>
-        <a class="nav-mobile-next" title="金牌冲刺6" href="https://houpingze.github.io/post/hpz-uke-ioi/">下一篇</a>
+        <a class="nav-pc-next" title="日记0005" href="https://houpingze.github.io/post/nRhn0EBV5/">日记0005</a>
+        <a class="nav-mobile-next" title="日记0005" href="https://houpingze.github.io/post/nRhn0EBV5/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
