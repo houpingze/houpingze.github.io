@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-10-24T03:00:20.455Z</updated>
+    <updated>2020-10-24T04:39:37.881Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -12,14 +12,14 @@ houpingze 的小站</subtitle>
     <icon>https://houpingze.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
     <entry>
-        <title type="html"><![CDATA[分治]]></title>
+        <title type="html"><![CDATA[分治----手写快速排序]]></title>
         <id>https://houpingze.github.io/post/MN2QHtuVr/</id>
         <link href="https://houpingze.github.io/post/MN2QHtuVr/">
         </link>
         <updated>2020-10-24T02:20:20.000Z</updated>
         <content type="html"><![CDATA[<p>课前测<br>
 下载链接：</p>
-<p><a href="https://github.com/houpingze/houpingze.github.io/raw/master/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E8%AF%BE%E5%89%8D%E6%B5%8B%EF%BC%88%E7%81%AB%E7%AE%ADv2%EF%BC%89.rar">link</a></p>
+<p><a href="https://gitee.com/houpingze/ak-ioi/raw/master/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E8%AF%BE%E5%89%8D%E6%B5%8B%EF%BC%88%E7%81%AB%E7%AE%ADv2%EF%BC%89.rar">link</a></p>
 <h2 id="4938">4938:</h2>
 <figure data-type="image" tabindex="1"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20201024110006.png" alt="" loading="lazy"></figure>
 <pre><code class="language-cpp">#include&lt;iostream&gt;
@@ -63,6 +63,39 @@ int main(){
 }
 
 </code></pre>
+<h2 id="1459">1459</h2>
+<p>统计每一行交头接耳和每一列的交头接耳的人数，排序，最后注意输出要从小到大</p>
+<h1 id="快速排序">快速排序</h1>
+<p>对数组从大到小排序：<br>
+把数组拆成两部分，使得左半部分的所有数字比右半部分的所有数字要小<br>
+继续对左半部分进行快速排序<br>
+继续对右半部分进行快速排序<br>
+此时合并数组，是有序的<br>
+例如：<br>
+1 3 2 6 4 9：<br>
+拆分成：</p>
+<pre><code>1 3 2
+6 4 9
+</code></pre>
+<p>然后继续拆分。</p>
+<pre><code>定义一个指针i和j，分别指向左端点和右端点
+设置参考值（标兵）为mid=6
+大的放到右边，小的放到左边
+i找参考值打的数
+j找参考值小的数
+左半部分数字小于标兵
+右半部分大于标兵
+i从l往右滑动，跳过小于标兵的数字，在大于等于标兵的位置停下
+j从r往右滑动，跳过大于标兵的数字，在小于等于标兵的位置停下
+i&lt;j : 交换，把 i 和 j 往后移动
+当i&gt;j时，j划过的位置比标兵大，i划过的比标兵小，对l~j快速排序，对i~r快速排序
+</code></pre>
+<p>快速排序的时间复杂度时<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<p>排序算法的稳定性：<br>
+如果一个排序算法，对于数组中数值相同的元素，在排序之后，他们的相对位置发生了改变，那么就是不稳定排序算法，否则就是稳定的<br>
+快速排序是不稳定的排序算法<br>
+选择排序是不稳定的排序算法<br>
+插入排序和冒泡排序是稳定的排序算法</p>
 ]]></content>
     </entry>
     <entry>

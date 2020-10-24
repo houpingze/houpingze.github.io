@@ -10,7 +10,7 @@
 houpingze 的小站">
 <meta name="theme-color" content="#000">
 <title>houpingzeAKIOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1603508410594">
+<link rel="shortcut icon" href="/favicon.ico?v=1603512729851">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -555,7 +555,7 @@ houpingze 的小站">
         <a class="result-title" style="opacity: 0;" href="https://houpingze.github.io/post/MN2QHtuVr/"" data-c="
           &lt;p&gt;课前测&lt;br&gt;
 下载链接：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/houpingze/houpingze.github.io/raw/master/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E8%AF%BE%E5%89%8D%E6%B5%8B%EF%BC%88%E7%81%AB%E7%AE%ADv2%EF%BC%89.rar&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://gitee.com/houpingze/ak-ioi/raw/master/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E8%AF%BE%E5%89%8D%E6%B5%8B%EF%BC%88%E7%81%AB%E7%AE%ADv2%EF%BC%89.rar&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;4938&#34;&gt;4938:&lt;/h2&gt;
 &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://gitee.com/houpingze/ak-ioi/raw/master/20201024110006.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;iostream&amp;gt;
@@ -599,7 +599,40 @@ int main(){
 }
 
 &lt;/code&gt;&lt;/pre&gt;
-">分治</a>
+&lt;h2 id=&#34;1459&#34;&gt;1459&lt;/h2&gt;
+&lt;p&gt;统计每一行交头接耳和每一列的交头接耳的人数，排序，最后注意输出要从小到大&lt;/p&gt;
+&lt;h1 id=&#34;快速排序&#34;&gt;快速排序&lt;/h1&gt;
+&lt;p&gt;对数组从大到小排序：&lt;br&gt;
+把数组拆成两部分，使得左半部分的所有数字比右半部分的所有数字要小&lt;br&gt;
+继续对左半部分进行快速排序&lt;br&gt;
+继续对右半部分进行快速排序&lt;br&gt;
+此时合并数组，是有序的&lt;br&gt;
+例如：&lt;br&gt;
+1 3 2 6 4 9：&lt;br&gt;
+拆分成：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1 3 2
+6 4 9
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后继续拆分。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;定义一个指针i和j，分别指向左端点和右端点
+设置参考值（标兵）为mid=6
+大的放到右边，小的放到左边
+i找参考值打的数
+j找参考值小的数
+左半部分数字小于标兵
+右半部分大于标兵
+i从l往右滑动，跳过小于标兵的数字，在大于等于标兵的位置停下
+j从r往右滑动，跳过大于标兵的数字，在小于等于标兵的位置停下
+i&amp;lt;j : 交换，把 i 和 j 往后移动
+当i&amp;gt;j时，j划过的位置比标兵大，i划过的比标兵小，对l~j快速排序，对i~r快速排序
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;快速排序的时间复杂度时&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;O(n\log n)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.02778em;&#34;&gt;O&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mop&#34;&gt;lo&lt;span style=&#34;margin-right:0.01389em;&#34;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;排序算法的稳定性：&lt;br&gt;
+如果一个排序算法，对于数组中数值相同的元素，在排序之后，他们的相对位置发生了改变，那么就是不稳定排序算法，否则就是稳定的&lt;br&gt;
+快速排序是不稳定的排序算法&lt;br&gt;
+选择排序是不稳定的排序算法&lt;br&gt;
+插入排序和冒泡排序是稳定的排序算法&lt;/p&gt;
+">分治----手写快速排序</a>
       </div>
       
       <div class="item">
