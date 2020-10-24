@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-10-24T04:39:37.881Z</updated>
+    <updated>2020-10-24T13:04:54.834Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -13,11 +13,12 @@ houpingze 的小站</subtitle>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
     <entry>
         <title type="html"><![CDATA[分治----手写快速排序]]></title>
-        <id>https://houpingze.github.io/post/MN2QHtuVr/</id>
-        <link href="https://houpingze.github.io/post/MN2QHtuVr/">
+        <id>https://houpingze.github.io/post/分治/</id>
+        <link href="https://houpingze.github.io/post/分治/">
         </link>
         <updated>2020-10-24T02:20:20.000Z</updated>
-        <content type="html"><![CDATA[<p>课前测<br>
+        <content type="html"><![CDATA[<!-- more -->
+<p>课前测<br>
 下载链接：</p>
 <p><a href="https://gitee.com/houpingze/ak-ioi/raw/master/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E8%AF%BE%E5%89%8D%E6%B5%8B%EF%BC%88%E7%81%AB%E7%AE%ADv2%EF%BC%89.rar">link</a></p>
 <h2 id="4938">4938:</h2>
