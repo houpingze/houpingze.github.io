@@ -10,7 +10,7 @@
 houpingze 的小站">
 <meta name="theme-color" content="#000">
 <title>houpingzeAKIOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1603502110448">
+<link rel="shortcut icon" href="/favicon.ico?v=1603508410594">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -211,7 +211,7 @@ houpingze 的小站">
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">22</span>
+        <span class="site-item-stat-count">23</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -254,6 +254,79 @@ houpingze 的小站">
         <div class="section-box gemini">
           <section class="section  posts-expand slide-down-in">
             
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://houpingze.github.io/post/3916-gao-nan-du-bu-chong/">
+      3916高难度补充
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2020-08-09 11:57:08">2020-08-09</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>104<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</section>
+      <div class="post-body">
+        
+        
+          
+            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
+            
+            
+              
+              
+              
+            
+              
+              
+              
+            
+              
+              
+              
+            
+            
+              <p><p><img src="https://houpingze.github.io/post-images/1596945482668.png" alt="" loading="lazy">😀😀😀😀😀😀😀</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+
+                
+                  <!-- 自动摘要出来的内容有<code则补上结尾,防止格式错误 -->
+                  </code></pre>
+                
+              <p>
+            
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/3916-gao-nan-du-bu-chong/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
   <article class="post-list-box  post box-shadow-wrapper">
     <div class="article-wrapper bg-color">
       <section class="post-header">
@@ -869,6 +942,57 @@ f[i]表示i个椭圆最多可以把平面分成f[i]个地盘<br>
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://houpingze.github.io/post/MN2QHtuVr/"" data-c="
+          &lt;p&gt;课前测&lt;br&gt;
+下载链接：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/houpingze/houpingze.github.io/raw/master/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E8%AF%BE%E5%89%8D%E6%B5%8B%EF%BC%88%E7%81%AB%E7%AE%ADv2%EF%BC%89.rar&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4938&#34;&gt;4938:&lt;/h2&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://gitee.com/houpingze/ak-ioi/raw/master/20201024110006.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;iostream&amp;gt;
+#include&amp;lt;cstdio&amp;gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+	string s;
+int f(int,int);
+int g(int,int);
+int f(int l,int r){
+	int ans=-99999999;
+	if(l==r) return s[l]-&#39;0&#39;;
+	for(int j=l;j&amp;lt;r;j++){
+		ans=max(ans,f(l,j)+f(j+1,r));
+		ans=max(ans,f(l,j)-g(j+1,r));
+		ans=max(ans,f(l,j)*f(j+1,r));
+		ans=max(ans,g(l,j)*g(j+1,r));
+		ans=max(ans,f(l,j)*g(j+1,r));
+		ans=max(ans,g(l,j)*f(j+1,r));
+	}
+	return ans;
+}
+int g(int l,int r){
+	int ans=99999999;
+	if(l==r) return s[l]-&#39;0&#39;;
+	for(int j=l;j&amp;lt;r;j++){
+		ans=min(ans,g(l,j)+g(j+1,r));
+		ans=min(ans,g(l,j)-f(j+1,r));
+		ans=min(ans,f(l,j)*f(j+1,r));
+		ans=min(ans,g(l,j)*g(j+1,r));
+		ans=min(ans,f(l,j)*g(j+1,r));
+		ans=min(ans,g(l,j)*f(j+1,r));
+	}
+	return ans;
+}
+int main(){	
+	cin&amp;gt;&amp;gt;s;
+	s=&#39; &#39;+s;
+	cout&amp;lt;&amp;lt;f(1,s.size()-1);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+">分治</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://houpingze.github.io/post/Hv8U_8FKM/"" data-c="

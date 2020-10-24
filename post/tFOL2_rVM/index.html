@@ -10,7 +10,7 @@
 houpingze 的小站">
 <meta name="theme-color" content="#000">
 <title>你古 P1104 代码 | houpingzeAKIOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1603502110448">
+<link rel="shortcut icon" href="/favicon.ico?v=1603508410594">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -228,7 +228,7 @@ houpingze 的小站">
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">22</span>
+        <span class="site-item-stat-count">23</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -928,6 +928,57 @@ int main(){
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://houpingze.github.io/post/MN2QHtuVr/"" data-c="
+          &lt;p&gt;课前测&lt;br&gt;
+下载链接：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/houpingze/houpingze.github.io/raw/master/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E8%AF%BE%E5%89%8D%E6%B5%8B%EF%BC%88%E7%81%AB%E7%AE%ADv2%EF%BC%89.rar&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4938&#34;&gt;4938:&lt;/h2&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://gitee.com/houpingze/ak-ioi/raw/master/20201024110006.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;iostream&amp;gt;
+#include&amp;lt;cstdio&amp;gt;
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+	string s;
+int f(int,int);
+int g(int,int);
+int f(int l,int r){
+	int ans=-99999999;
+	if(l==r) return s[l]-&#39;0&#39;;
+	for(int j=l;j&amp;lt;r;j++){
+		ans=max(ans,f(l,j)+f(j+1,r));
+		ans=max(ans,f(l,j)-g(j+1,r));
+		ans=max(ans,f(l,j)*f(j+1,r));
+		ans=max(ans,g(l,j)*g(j+1,r));
+		ans=max(ans,f(l,j)*g(j+1,r));
+		ans=max(ans,g(l,j)*f(j+1,r));
+	}
+	return ans;
+}
+int g(int l,int r){
+	int ans=99999999;
+	if(l==r) return s[l]-&#39;0&#39;;
+	for(int j=l;j&amp;lt;r;j++){
+		ans=min(ans,g(l,j)+g(j+1,r));
+		ans=min(ans,g(l,j)-f(j+1,r));
+		ans=min(ans,f(l,j)*f(j+1,r));
+		ans=min(ans,g(l,j)*g(j+1,r));
+		ans=min(ans,f(l,j)*g(j+1,r));
+		ans=min(ans,g(l,j)*f(j+1,r));
+	}
+	return ans;
+}
+int main(){	
+	cin&amp;gt;&amp;gt;s;
+	s=&#39; &#39;+s;
+	cout&amp;lt;&amp;lt;f(1,s.size()-1);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+">分治</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://houpingze.github.io/post/Hv8U_8FKM/"" data-c="
