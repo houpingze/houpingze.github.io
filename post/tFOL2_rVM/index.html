@@ -10,7 +10,7 @@
 houpingze 的小站">
 <meta name="theme-color" content="#000">
 <title>你古 P1104 代码 | houpingzeAKIOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1603544682816">
+<link rel="shortcut icon" href="/favicon.ico?v=1603545496957">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -228,7 +228,7 @@ houpingze 的小站">
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">23</span>
+        <span class="site-item-stat-count">24</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -928,6 +928,47 @@ int main(){
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://houpingze.github.io/post/NtonHk-Vq/"" data-c="
+          &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://gitee.com/houpingze/ak-ioi/raw/master/20201024211754.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;/*
+不区分大小写:全部转为大小/小写
+给要查找的单词t前后加上空格:匹配完整的单词
+给句子s的前后加上空格:找到第一个和最后一 个单词
+a = s.find(t)
+如果等于-1:
+输出-1
+pos=a
+当a!=-1: //当能找到时
+cnt ++
+a = s.find(t, a+1) //找下一次出现的位置
+输出cnt和pos
+*/
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+using namespace std;
+string t,s;
+int ans,cnt;
+int main() {
+	cin &amp;gt;&amp;gt; t;
+	getline(cin, s);
+	getline(cin, s);
+	for(int i=0; i&amp;lt;t.size(); i++) if(t[i]&amp;gt;=&#39;A&#39;&amp;amp;&amp;amp;t[i]&amp;lt;=&#39;Z&#39;) t[i] += &#39;a&#39;-&#39;A&#39;;
+	for(int i=0; i&amp;lt;s.size(); i++) if(s[i]&amp;gt;=&#39;A&#39;&amp;amp;&amp;amp;s[i]&amp;lt;=&#39;Z&#39;) s[i] += &#39;a&#39;-&#39;A&#39;;
+	t=&amp;quot; &amp;quot;+t+&amp;quot; &amp;quot;,s=&amp;quot; &amp;quot;+s+&amp;quot; &amp;quot;;
+	int a = s.find(t);
+	if(a==-1)cout &amp;lt;&amp;lt; -1;
+	else {
+		ans=a;
+		while(a!=-1)  cnt ++,a = s.find(t, a+1);
+		cout &amp;lt;&amp;lt; cnt &amp;lt;&amp;lt; &#39; &#39;&amp;lt;&amp;lt; ans;
+		return 0;
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+">1444 题解</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://houpingze.github.io/post/分治/"" data-c="
