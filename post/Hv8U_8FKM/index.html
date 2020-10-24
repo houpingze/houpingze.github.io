@@ -9,7 +9,7 @@
 <meta name="description" content="温故而知新，可以AKIOI
 houpingze 的小站">
 <meta name="theme-color" content="#000">
-<title>houpingzeAKIOI</title>
+<title>rp++ | houpingzeAKIOI</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1603502110448">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -39,6 +39,8 @@ houpingze 的小站">
 
 
 
+  <meta name="description" content="rp++" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -74,7 +76,7 @@ houpingze 的小站">
             
               
             
-            <li class="nav-item nav-item-active">
+            <li class="nav-item ">
               
               
                 <a href="/" target="_self">
@@ -199,8 +201,23 @@ houpingze 的小站">
     <div
       class="section-layout gemini ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -236,27 +253,92 @@ houpingze 的小站">
 
 
 </div>
+          
+        
+      </div>
+    </div>
+  
 </div>
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
       }
-    });
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
   }
-  </script>
-        <div class="section-box gemini">
-          <section class="section  posts-expand slide-down-in">
-            
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <section class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://houpingze.github.io/post/Hv8U_8FKM/">
       rp++
@@ -281,1290 +363,84 @@ houpingze 的小站">
       <span>504<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
+    
+    
+    <span id="/post/Hv8U_8FKM/" data-flag-title="rp++" class="meta-item pc-show leancloud_visitors">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-eye"></i>
+      <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
+    </span>
+    
   </div>
 </section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-            
-              <p><p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathsize="0.9em"><mstyle mathcolor="red"><msubsup><mrow><mi mathvariant="script">N</mi><mi>o</mi><mi>i</mi><mi>p</mi></mrow><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow></msub></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mstyle></mstyle></mrow><annotation encoding="application/x-tex">\small\mathcal\color{red}{Noip}^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{score++_{score++_{score++_{score++_{score++_{score++_{score++_{score++_{score++_{score++_{score++^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}
+            <div class="post-body next-md-body" id="post_body">
+              <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathsize="0.9em"><mstyle mathcolor="red"><msubsup><mrow><mi mathvariant="script">N</mi><mi>o</mi><mi>i</mi><mi>p</mi></mrow><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msup></mrow></msup></mrow></msup></mrow></msubsup></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msubsup><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow><mrow><mi>r</mi><mi>p</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><msub><mo>+</mo><mrow><mi mathvariant="script">L</mi><mi>u</mi><mi>c</mi><mi>k</mi><mo>+</mo><mo>+</mo></mrow></msub></mrow></msub></mrow></msub></mrow></msub></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mrow></msubsup></mstyle></mstyle></mrow><annotation encoding="application/x-tex">\small\mathcal\color{red}{Noip}^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++^{rp++_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{Luck++_{Luck++_{Luck++_{Luck++}}}}}_{score++_{score++_{score++_{score++_{score++_{score++_{score++_{score++_{score++_{score++_{score++^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}^{Luck++^{Luck++^{Luck++^{Luck++}}}}}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:27.653065em;vertical-align:-10.109014999999996em;"></span><span class="mord sizing reset-size6 size5" style="color:red;"><span class="mord" style="color:red;"><span class="mord mathcal" style="margin-right:0.14736em;color:red;">N</span><span class="mord mathdefault" style="color:red;">o</span><span class="mord mathdefault" style="color:red;">i</span><span class="mord mathdefault" style="color:red;">p</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:19.493388888888894em;"><span style="top:-19.265800000000002em;margin-right:0.05555555555555556em;"><span class="pstrut" style="height:20.232961111111113em;"></span><span class="sizing reset-size5 size2 mtight" style="color:red;"><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="color:red;">s</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="color:red;">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">e</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7279416666666674em;"><span style="top:-2.1488000000000014em;margin-left:0em;margin-right:0.08333333333333334em;"><span class="pstrut" style="height:3.670474999999999em;"></span><span class="sizing reset-size2 size1 mtight" style="color:red;"><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="color:red;">s</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="color:red;">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">e</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.004569999999999em;"><span style="top:-2.1487999999999996em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="color:red;">s</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="color:red;">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">e</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.004569999999999em;"><span style="top:-2.1487999999999996em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="color:red;">s</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="color:red;">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">e</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.004569999999999em;"><span style="top:-2.1487999999999996em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="color:red;">s</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="color:red;">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">e</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.004569999999999em;"><span style="top:-2.1488000000000014em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="color:red;">s</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="color:red;">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">e</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.004569999999999em;"><span style="top:-2.1487999999999996em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="color:red;">s</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="color:red;">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">e</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.0045699999999997em;"><span style="top:-2.1487999999999996em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="color:red;">s</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="color:red;">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">e</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.0045699999999997em;"><span style="top:-2.1487999999999996em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="color:red;">s</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="color:red;">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">e</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.0045699999999997em;"><span style="top:-2.1487999999999996em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="color:red;">s</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="color:red;">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">e</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.0045699999999993em;"><span style="top:-2.1488000000000005em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:3.8704399999999994em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="color:red;">s</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="color:red;">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">e</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.8704399999999994em;"><span style="top:-3.87044em;margin-right:0.1em;"><span class="pstrut" style="height:3.57644em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5764399999999996em;"><span style="top:-3.57644em;margin-right:0.1em;"><span class="pstrut" style="height:3.28244em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2824399999999998em;"><span style="top:-3.28244em;margin-right:0.1em;"><span class="pstrut" style="height:2.9884399999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.98844em;"><span style="top:-2.98844em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-4.29857em;margin-right:0.1em;"><span class="pstrut" style="height:3.8704399999999994em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5764399999999996em;"><span style="top:-3.57644em;margin-right:0.1em;"><span class="pstrut" style="height:3.28244em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2824399999999998em;"><span style="top:-3.28244em;margin-right:0.1em;"><span class="pstrut" style="height:2.9884399999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.98844em;"><span style="top:-2.98844em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.8049699999999993em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.4327em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5764399999999996em;"><span style="top:-3.57644em;margin-right:0.1em;"><span class="pstrut" style="height:3.28244em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2824399999999998em;"><span style="top:-3.28244em;margin-right:0.1em;"><span class="pstrut" style="height:2.9884399999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.98844em;"><span style="top:-2.98844em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:3.6607399999999988em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.4327em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5764399999999996em;"><span style="top:-3.57644em;margin-right:0.1em;"><span class="pstrut" style="height:3.28244em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2824399999999998em;"><span style="top:-3.28244em;margin-right:0.1em;"><span class="pstrut" style="height:2.9884399999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.98844em;"><span style="top:-2.98844em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:5.5165099999999985em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.4327em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5764399999999996em;"><span style="top:-3.57644em;margin-right:0.1em;"><span class="pstrut" style="height:3.28244em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2824399999999998em;"><span style="top:-3.28244em;margin-right:0.1em;"><span class="pstrut" style="height:2.9884399999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.98844em;"><span style="top:-2.98844em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:7.372279999999998em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.432699999999999em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5764399999999996em;"><span style="top:-3.57644em;margin-right:0.1em;"><span class="pstrut" style="height:3.28244em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2824399999999998em;"><span style="top:-3.28244em;margin-right:0.1em;"><span class="pstrut" style="height:2.9884399999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.98844em;"><span style="top:-2.98844em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:9.228049999999998em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.432699999999999em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5764399999999996em;"><span style="top:-3.57644em;margin-right:0.1em;"><span class="pstrut" style="height:3.28244em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2824399999999998em;"><span style="top:-3.28244em;margin-right:0.1em;"><span class="pstrut" style="height:2.9884399999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.98844em;"><span style="top:-2.98844em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:11.083819999999996em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.432699999999999em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5764399999999996em;"><span style="top:-3.57644em;margin-right:0.1em;"><span class="pstrut" style="height:3.28244em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2824399999999998em;"><span style="top:-3.28244em;margin-right:0.1em;"><span class="pstrut" style="height:2.9884399999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.98844em;"><span style="top:-2.98844em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:12.939589999999995em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.432699999999999em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5764399999999996em;"><span style="top:-3.57644em;margin-right:0.1em;"><span class="pstrut" style="height:3.28244em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2824399999999998em;"><span style="top:-3.28244em;margin-right:0.1em;"><span class="pstrut" style="height:2.9884399999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.98844em;"><span style="top:-2.98844em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:14.795359999999995em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.432699999999999em;margin-right:0.1em;"><span class="pstrut" style="height:4.004569999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5764399999999996em;"><span style="top:-3.57644em;margin-right:0.1em;"><span class="pstrut" style="height:3.28244em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2824399999999998em;"><span style="top:-3.28244em;margin-right:0.1em;"><span class="pstrut" style="height:2.9884399999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.98844em;"><span style="top:-2.98844em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:16.651129999999995em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-4.084716666666667em;margin-right:0.08333333333333334em;"><span class="pstrut" style="height:3.670474999999999em;"></span><span class="sizing reset-size2 size1 mtight" style="color:red;"><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5764399999999996em;"><span style="top:-3.57644em;margin-right:0.1em;"><span class="pstrut" style="height:3.28244em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2824399999999998em;"><span style="top:-3.28244em;margin-right:0.1em;"><span class="pstrut" style="height:2.9884399999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.98844em;"><span style="top:-2.98844em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:15.39761666666666em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-21.493388888888894em;margin-right:0.05555555555555556em;"><span class="pstrut" style="height:20.232961111111113em;"></span><span class="sizing reset-size5 size2 mtight" style="color:red;"><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:27.34944166666667em;"><span style="top:-27.176500000000004em;margin-left:0em;margin-right:0.08333333333333334em;"><span class="pstrut" style="height:27.606400000000004em;"></span><span class="sizing reset-size2 size1 mtight" style="color:red;"><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-29.34944166666667em;margin-right:0.08333333333333334em;"><span class="pstrut" style="height:27.606400000000004em;"></span><span class="sizing reset-size2 size1 mtight" style="color:red;"><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:30.727680000000003em;"><span style="top:-30.15935em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:30.704990000000002em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-32.72768em;margin-right:0.1em;"><span class="pstrut" style="height:30.704990000000002em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:28.704990000000002em;"><span style="top:-28.13666em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:28.6823em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-30.704990000000002em;margin-right:0.1em;"><span class="pstrut" style="height:28.6823em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:26.6823em;"><span style="top:-26.11397em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:26.65961em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-28.6823em;margin-right:0.1em;"><span class="pstrut" style="height:26.65961em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:24.65961em;"><span style="top:-24.091279999999998em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:24.63692em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-26.65961em;margin-right:0.1em;"><span class="pstrut" style="height:24.63692em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:22.63692em;"><span style="top:-22.068589999999997em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:22.61423em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-24.63692em;margin-right:0.1em;"><span class="pstrut" style="height:22.61423em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:20.61423em;"><span style="top:-20.045899999999996em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:20.59154em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-22.61423em;margin-right:0.1em;"><span class="pstrut" style="height:20.59154em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:18.59154em;"><span style="top:-18.023209999999995em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:18.568849999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-20.59154em;margin-right:0.1em;"><span class="pstrut" style="height:18.568849999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:16.568849999999998em;"><span style="top:-16.000519999999998em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:16.546159999999997em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-18.568849999999998em;margin-right:0.1em;"><span class="pstrut" style="height:16.546159999999997em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:14.546159999999997em;"><span style="top:-13.977829999999997em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:14.523469999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-16.546159999999997em;margin-right:0.1em;"><span class="pstrut" style="height:14.523469999999998em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:12.523469999999998em;"><span style="top:-11.95514em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:12.500779999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-14.523469999999998em;margin-right:0.1em;"><span class="pstrut" style="height:12.500779999999999em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:10.500779999999999em;"><span style="top:-9.93245em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:10.47809em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-12.500779999999999em;margin-right:0.1em;"><span class="pstrut" style="height:10.47809em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:8.47809em;"><span style="top:-7.909760000000001em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:8.455400000000001em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-10.47809em;margin-right:0.1em;"><span class="pstrut" style="height:8.455400000000001em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:6.4554em;"><span style="top:-5.8870700000000005em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:6.43271em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-8.455400000000001em;margin-right:0.1em;"><span class="pstrut" style="height:6.43271em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:4.43271em;"><span style="top:-3.8643800000000006em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:4.41002em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-6.43271em;margin-right:0.1em;"><span class="pstrut" style="height:4.41002em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.4100200000000003em;"><span style="top:-2.1488000000000005em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.52113em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathdefault mtight" style="margin-right:0.02778em;color:red;">r</span><span class="mord mathdefault mtight" style="color:red;">p</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999998em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3447999999999999em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;"><span class="mbin mtight" style="color:red;">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.69444em;"></span><span class="mord mtight" style="color:red;"><span class="mord mathcal mtight" style="color:red;">L</span><span class="mord mathdefault mtight" style="color:red;">u</span><span class="mord mathdefault mtight" style="color:red;">c</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;color:red;">k</span><span class="mbin mtight" style="color:red;">+</span><span class="mord mtight" style="color:red;">+</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43296999999999997em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7826099999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.13225em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.48189em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6778899999999999em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.3734416666666667em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:11.232238888888883em;"><span></span></span></span></span></span></span></span></span></span></span></p>
 
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/Hv8U_8FKM/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/gGWoYdpH6/">
-      贪心
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-10-22 19:17:20">2020-10-22</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>193<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><figure data-type="image" tabindex="1"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20201022195155.png" alt="" loading="lazy"></figure>
-<p>4340：<br>
-<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20201022202927.png" alt="" loading="lazy"></p>
-
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/gGWoYdpH6/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/nRhn0EBV5/">
-      日记0005
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-10-01 09:18:36">2020-10-01</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>265<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><p>今天上午在家学会（？）了STL数据结构堆，结果………………<br>
-我刚刚****手残点错按钮，把笔记删了<br>
-我*********************************** (口吐芬芳)<br>
-
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/nRhn0EBV5/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/8ODV6HQ9w/">
-      日记0004
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-30 17:27:34">2020-09-30</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>167<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><p>昨天的日记因为学而思创新班考试，所以咕咕咕<br>
-另：考试没考上，录取线75<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">pts</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span></span></span></span>，我68<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">pts</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span></span></span></span>/kel<br>
-wtcl<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200927215010.png" alt="" loading="lazy"><br>
-
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/8ODV6HQ9w/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/tFOL2_rVM/">
-      你古 P1104 代码
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-28 21:22:29">2020-09-28</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>143<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><pre><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;bits/stdc++.h&gt;
-typedef unsigned long long ull;
-
-                
-                  <!-- 自动摘要出来的内容有<code则补上结尾,防止格式错误 -->
-                  </code></pre>
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/tFOL2_rVM/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/ry6gl4U1C/">
-      你谷 P1996 题解
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-28 20:51:02">2020-09-28</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>75<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-
-                
-                  <!-- 自动摘要出来的内容有<code则补上结尾,防止格式错误 -->
-                  </code></pre>
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/ry6gl4U1C/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/pUvUJIijg/">
-      日记0003
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-28 17:49:42">2020-09-28</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://houpingze.github.io/tag/iQSU2zU7k/">
-        <span>日记</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>260<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><p>今天发生了许多事情。</p>
-<ol>
-<li>体育课的事情<br>
-
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/pUvUJIijg/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/日记0002/">
-      日记0002
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-27 18:18:52">2020-09-27</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://houpingze.github.io/tag/iQSU2zU7k/">
-        <span>日记</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>224<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><p>昨天作业写到9：00左右祭（bushi<br>
-作业是真的多/kel<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200926100211.png" alt="" loading="lazy"></p>
-<p>上午没什么好说的，就是下午，老师上完课还要再上，再上，再上<br>
-
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/日记0002/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/ri-ji-0001/">
-      日记0001
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-26 19:54:41">2020-09-26</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://houpingze.github.io/tag/iQSU2zU7k/">
-        <span>日记</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>178<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><p>几个老师把一天假期的作业当成两天假期布置了（</p>
-<p>上午：上了c++的汉诺塔问题，难得要死😱😱😱😢，具体的笔记请见w我的上一篇文章</p>
-<p>课后测被题目坑到了，结果……90，wtcl<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220616.png" alt="" loading="lazy"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220616.png" alt="" loading="lazy"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220616.png" alt="" loading="lazy"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220616.png" alt="" loading="lazy"></p>
-
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/ri-ji-0001/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/han-nuo-ta/">
-      汉诺塔
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-26 11:27:10">2020-09-26</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>400<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><p>这道题需要经过中间柱，所以可以把操作分为两类：</p>
-<ol>
-<li>移到中间柱子上</li>
-
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/han-nuo-ta/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/ban-qian/">
-      搬迁
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-26 09:43:41">2020-09-26</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>2<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-            
-              <p><p>houpingze.cf</p>
-
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/ban-qian/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/ak-ctsc-1/">
-      递归基本思想
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-05 10:15:54">2020-09-05</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://houpingze.github.io/tag/sF1N1vQzB/">
-        <span>课堂笔记</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>5<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>762<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599272172797.png" alt="" loading="lazy"></figure>
-<h2 id="递归的两大要素">递归的两大要素：</h2>
-<h3 id="递推关系">递推关系：</h3>
-<p>根据某种方法，对问题进行拆分【递】</p>
-<h3 id="终止条件">终止条件：</h3>
-<p>到达某种条件，问题可以直接求解，此时到达递归的边界，然后依次组合出原来的大问题的解。【归】</p>
-<h2 id="代码讲解">代码讲解：</h2>
-<p>2404：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-using namespace std;
-int f(int n){
-    if(n==1) return 1;
-    return f(n-1)+n;
-}
-int main(){
-    int n;
-    cin &gt;&gt; n;
-    cout&lt;&lt;f(n);
-}
- 
-</code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>表示前n个数的和<br>
-递推关系：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>+</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">f(n)=f(n-1)+n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span><br>
-边界:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(1)=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
-<p>2462:</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[100000];
-int f(int n){
-	if(n==1) return a[1];
-	return max(f(n-1),a[n]);
-}
-int main(){
-	cin&gt;&gt;n;
-	for(int i=1;i&lt;=n;i++) cin&gt;&gt;a[i];
-	cout&lt;&lt;f(n);
-}
-
-</code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>表示前n个数的最大值<br>
-递推：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>max</mi><mo>⁡</mo><mo>(</mo><mi>f</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo separator="true">,</mo><mi>a</mi><mo>[</mo><mi>n</mi><mo>]</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">f(n)=\max(f(n-1),a[n])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span><br>
-边界：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi>a</mi><mo>[</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">f(1)=a[1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span></span></span></span></p>
-<h2 id="斐波那契数列">斐波那契数列：</h2>
-<p>普通算法：</p>
-<pre><code>int f(int n){
-  if(n==1||n==2) return 1;
-  return f(n-1)+f(n-2)
-}
-</code></pre>
-
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/ak-ctsc-1/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/hpz-uke-ioi/">
-      金牌冲刺6
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-03 19:00:47">2020-09-03</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://houpingze.github.io/tag/sF1N1vQzB/">
-        <span>课堂笔记</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>3<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>407<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><p><img src="https://houpingze.github.io/post-images/1599130901935.png" alt="" loading="lazy"><br>
-<img src="https://houpingze.github.io/post-images/1599131404879.png" alt="" loading="lazy"></p>
-<p>/fad</p>
-
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/hpz-uke-ioi/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/jin-pai-chong-ci-6/">
-      金牌冲刺6
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-03 19:00:47">2020-09-03</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>332<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><p><img src="https://houpingze.github.io/post-images/1599130901935.png" alt="" loading="lazy"><br>
-<img src="https://houpingze.github.io/post-images/1599131404879.png" alt="" loading="lazy"></p>
-<p>/fad</p>
-
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/jin-pai-chong-ci-6/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/cru-men-2/">
-      c++入门（2）
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-08-29 16:15:55">2020-08-29</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>78<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><h1 id="输入与输出部分">输入与输出部分</h1>
-<p>我们先讲输出</p>
-<p>要输出一个yes：</p>
-
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/cru-men-2/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/cru-men-1/">
-      c++入门（1）
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-08-29 15:48:42">2020-08-29</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>188<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><p>c++是一个编程语言</p>
-<hr>
-<p>我们初学者需要记得这个:</p>
-
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/cru-men-1/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/3916-gao-nan-du-bu-chong/">
-      3916高难度补充
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-08-09 11:57:08">2020-08-09</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>104<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-      <div class="post-body">
-        
-        
-          
-            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
-            
-            
-              
-              
-              
-            
-              
-              
-              
-            
-              
-              
-              
-            
-            
-              <p><p><img src="https://houpingze.github.io/post-images/1596945482668.png" alt="" loading="lazy">😀😀😀😀😀😀😀</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-
-                
-                  <!-- 自动摘要出来的内容有<code则补上结尾,防止格式错误 -->
-                  </code></pre>
-                
-              <p>
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn language" data-lan="read-more" href="https://houpingze.github.io/post/3916-gao-nan-du-bu-chong/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-  
-            
-            
-<div class="page bg-color">
-  <ul class="pagination-ul">
-    
-    
-      
-        <li class="pagination-li pagination-active">
-            <a href="/page/../">
-              1
-            </a>
-        </li>
-      
-        <li class="pagination-li ">
-            <a href="/page/2">
-              2
-            </a>
-        </li>
-      
-    
-    
-      <li class="pagination-dir">
-        <a href="/page/2">
-          <i class="fa fa-angle-right"></i>
-        </a>
-      </li>
-    
+            </div>
+            
+              <div class="reward-btn">
+                <div class="reward-btn-text">赞赏</div>
+              </div>
+            
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      适用 Gemini,Pisces 布局,版权说明需配置
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://houpingze.github.io/post/Hv8U_8FKM/" title="rp++">https://houpingze.github.io/post/Hv8U_8FKM/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
   </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="贪心" href="https://houpingze.github.io/post/gGWoYdpH6/">贪心</a>
+        <a class="nav-mobile-next" title="贪心" href="https://houpingze.github.io/post/gGWoYdpH6/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
 </div>
-          </section>
+            
+            
+  
+    
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: 'houpingze.github.io',
+    owner: '',
+    admin: [''],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
+</script>
+    
+    
+  
+
+          </div>
         </div>
       </div>
     </div>
@@ -1790,6 +666,223 @@ int main(){
     }
   })
 </script>
+    <div class="reward-mask" style="display: none;">
+  <div class="reward-relative">
+    <span class="close" aria-hidden="true">x</span>
+    <div class="reward-body">
+      <h2>感谢您的支持，我会继续努力的!</h2>
+      <div class="reward-img-box">
+        <div style="position: relative; width: 140px; height: 140px;">
+          
+          
+          
+        </div>
+      </div>
+      <p class="reward-word">扫码打赏，你说多少就多少</p>
+      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
+    </div>
+    <div class="bottom">
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+  .reward-mask {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000054;
+  }
+
+  .reward-relative {
+    position: relative;
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -205px;
+  }
+
+  .reward-relative .close {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+  }
+
+  .reward-body {
+    padding: 40px 20px 20px;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .reward-btn {
+    text-align: center;
+  }
+
+  .reward-btn-text {
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #ff9734;
+    color: #FFF;
+    margin-top: 20px;
+  }
+
+  .pay-text {
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1;
+    transition: all .2s linear;
+  }
+
+  .pay-text:hover {
+    background-color: #a5a5a536;
+  }
+
+  .reward-body h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  .reward-body h2:after,
+  .reward-body h2:before {
+    font-family: Arial, Helvetica, sans-serif;
+    background: 0 0;
+    width: 0;
+    height: 0;
+    font-style: normal;
+    color: #eee;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .reward-body h2:before {
+    content: '\201c';
+    left: 50px;
+  }
+
+  .reward-body h2:after {
+    content: '\201d';
+    right: 80px;
+  }
+
+  .reward-img-box {
+    display: inline-block;
+    padding: 10px;
+    border: 6px solid #ea5f00;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .reward-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .reward-relative {
+      height: 100%;
+      top: 0px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .reward-relative .bottom {
+      flex-direction: column;
+    }
+
+    .reward-relative .pay-text {
+      width: 80%;
+      margin: 5px auto;
+      border: 1px solid silver;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .reward-body h2:after {
+      right: 40px;
+    }
+
+    .reward-body h2:after,
+    .reward-body h2:before {
+      font-size: 60px;
+    }
+
+    .reward-body h2:before {
+      left: 20px;
+    }
+  }
+</style>
+<script>
+  !function () {
+    var mask = document.querySelector('.reward-mask');
+    let close = document.querySelector('.reward-relative .close');
+    let rewardBtn = document.querySelector('.reward-btn');
+
+    let zfb = document.querySelector('#zfb'),
+      wx = document.querySelector('#wx'),
+      zfbBtn = document.querySelector('#zfbBtn'),
+      wxBtn = document.querySelector('#wxBtn');
+
+    if (zfbBtn && wxBtn) {
+      zfbBtn.addEventListener('click', () => {
+        window.Velocity(zfb, 'transition.slideLeftIn', {
+          duration: 400
+        });
+        window.Velocity(wx, 'transition.slideRightOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+
+      wxBtn.addEventListener('click', () => {
+        window.Velocity(wx, 'transition.slideRightIn', {
+          duration: 400
+        });
+        window.Velocity(zfb, 'transition.slideLeftOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+    }
+
+    rewardBtn.addEventListener('click', (e) => {
+      window.Velocity(mask, 'transition.slideDownIn', {
+        duration: 400
+      })
+    });
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.Velocity(mask, 'transition.slideUpOut', {
+        duration: 400
+      })
+    })
+  }()
+</script>
+
   </div>
 </body>
 
@@ -3097,7 +2190,6 @@ int main(){
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
 <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
 <script type="text/javascript" src="/media/js/mouse/fireworks.js"></script>
-
 
 
 
