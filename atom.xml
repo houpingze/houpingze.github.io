@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-10-24T13:21:20.263Z</updated>
+    <updated>2020-12-13T07:07:03.006Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -11,6 +11,113 @@ houpingze 的小站</subtitle>
     <logo>https://houpingze.github.io/images/avatar.png</logo>
     <icon>https://houpingze.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, houpingzeAKIOI</rights>
+    <entry>
+        <title type="html"><![CDATA[【长期置顶】刷题日记]]></title>
+        <id>https://houpingze.github.io/post/UAb-a1AkT/</id>
+        <link href="https://houpingze.github.io/post/UAb-a1AkT/">
+        </link>
+        <updated>2020-12-13T07:01:49.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="at3600">AT3600</h2>
+<p>不难，但是偏模拟。</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define reg register int
+#define INF (1&lt;&lt;30)
+#define t() cout&lt;&lt;&quot;iakioi\n&quot;;
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&gt;='0' &amp;&amp; c&lt;='9')){ if(c=='-')fs=-1; c=getchar(); }
+	while(c&gt;='0' &amp;&amp; c&lt;='9')res=res*10+c-'0',c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&lt;0) { putchar('-'); x=-x;}
+    if(x&gt;9) print(x/10);
+    putchar(x%10+'0');
+}
+int n,cnt,m,a[5010],tmp;
+string s,t;
+string mx=&quot;zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz&quot;;
+bool iakioi(int st,int ed){
+	for(int i=st,j=0;i&lt;ed,j&lt;t.size();i++,j++){
+		if(s[i]!='?'&amp;&amp;s[i]!=t[j]) return false;
+	}
+	return true;
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin&gt;&gt;s&gt;&gt;t;
+	if(s.size()&lt;t.size()){
+		cout&lt;&lt;&quot;UNRESTORABLE\n&quot;;
+		return 0;
+	}
+	for(int i=0;i&lt;s.size();i++){
+		if(iakioi(i,i+t.size()-1)){
+			string ans=&quot;                                                                                                &quot;;
+//			t();
+//			cout&lt;&lt;i&lt;&lt;endl;
+			int st=i,ed=i+t.size()-1;
+			for(int w=st,j=0;w&lt;=ed,j&lt;t.size();w++,j++){
+//				if(s[i]!='?'&amp;&amp;s[i]!=t[i]) return false;
+				ans[w]=t[j];
+			}
+//			cout&lt;&lt;ans&lt;&lt;endl;
+			for(int j=0;j&lt;st;j++) if(s[j]=='?') ans[j]='a';
+									else ans[j]=s[j];
+			for(int j=ed+1;j&lt;s.size();j++) if(s[j]=='?') ans[j]='a';
+									else ans[j]=s[j];
+			while(ans[ans.size()-1]==' ') ans.erase(ans.size()-1,1);
+			mx=min(mx,ans);
+		}
+	}
+	if(mx==&quot;zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz&quot;) cout&lt;&lt;&quot;UNRESTORABLE\n&quot;;
+	else cout&lt;&lt;mx&lt;&lt;endl;
+    return 0;
+}
+
+</code></pre>
+<h2 id="at3529-abc073b-theater">AT3529 [ABC073B] Theater</h2>
+<p>巨水。</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define reg register int
+#define INF (1&lt;&lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&gt;='0' &amp;&amp; c&lt;='9')){ if(c=='-')fs=-1; c=getchar(); }
+	while(c&gt;='0' &amp;&amp; c&lt;='9')res=res*10+c-'0',c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&lt;0) { putchar('-'); x=-x;}
+    if(x&gt;9) print(x/10);
+    putchar(x%10+'0');
+}
+int x,y,n,cnt,m,a[5010],ans,tmp;
+int main() {
+	ios::sync_with_stdio(false);
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;i++) {
+		cin&gt;&gt;x&gt;&gt;y;
+		ans+=y-x+1; 
+	}
+	cout&lt;&lt;ans&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+<p><a href="https://www.luogu.com.cn/record/43645939">AC link.</a></p>
+<h2 id=""></h2>
+<pre><code class="language-cpp">
+</code></pre>
+<h2 id="-2"></h2>
+<pre><code class="language-cpp">
+</code></pre>
+<h2 id="-3"></h2>
+<pre><code class="language-cpp">
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[1444 题解]]></title>
         <id>https://houpingze.github.io/post/NtonHk-Vq/</id>
@@ -345,32 +452,6 @@ int main(){
 3. 作业好多（bushi<br>
 4. 今天上课时<br>
 有一个xxs的数学老师，我坐在窗户边，可是很热，因为有窗帘挡着，而且拉不了/kk，所以我就用手拉着窗帘</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[日记0002]]></title>
-        <id>https://houpingze.github.io/post/日记0002/</id>
-        <link href="https://houpingze.github.io/post/日记0002/">
-        </link>
-        <updated>2020-09-27T10:18:52.000Z</updated>
-        <content type="html"><![CDATA[<p>昨天作业写到9：00左右祭（bushi<br>
-作业是真的多/kel<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200926100211.png" alt="" loading="lazy"></p>
-<p>上午没什么好说的，就是下午，老师上完课还要再上，再上，再上<br>
-具体就是下课了，老师上了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>10</mn><mi>min</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">10\min</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66786em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">min</span></span></span></span>，结果就要下去排练什么东西<s>反正我没听进去</s>（bushi<br>
-然后回来老师要我们把语文书打开，我们一阵“哎”<br>
-结果老师说：“你们看别的班也都在上课，又不是我一个人拖堂”<br>
-……………………………………………………………………<br>
-balabala讲了一大堆，接着上课<br>
-结果讲完了第八课，又开始讲练习册<br>
-这时，其他班已经放学了………………<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220631.png" alt="" loading="lazy"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220631.png" alt="" loading="lazy"><br>
-我的状况：认真听讲——》不耐烦——》听不下去，开始写初赛的题目——》写作业——》崩溃<br>
-<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220611.png" alt="" loading="lazy"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220611.png" alt="" loading="lazy"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220611.png" alt="" loading="lazy"><br>
-由于学校要举行打字比赛  <s>（突然感觉作为一个信竞生好幸福）</s>，所以开始练习打字QWQ<br>
-拼音：<br>
-<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200927191159.png" alt="" loading="lazy"></p>
-<p>英语：<br>
-<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200927191712.png" alt="" loading="lazy"><br>
-<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200927192821.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
