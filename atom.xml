@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingzeAKIOI</title>
-    <updated>2020-12-13T07:07:03.006Z</updated>
+    <updated>2020-12-13T12:55:23.511Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -107,14 +107,105 @@ int main() {
 }
 </code></pre>
 <p><a href="https://www.luogu.com.cn/record/43645939">AC link.</a></p>
-<h2 id=""></h2>
-<pre><code class="language-cpp">
+<h2 id="at3853-abc085c-otoshidama">AT3853 [ABC085C] Otoshidama</h2>
+<p>暴力枚举三个面值的张数，注意可能等于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，貌似要枚举多一点（大概到10000）</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define reg register int
+#define INF (1&lt;&lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&gt;='0' &amp;&amp; c&lt;='9')){ if(c=='-')fs=-1; c=getchar(); }
+	while(c&gt;='0' &amp;&amp; c&lt;='9')res=res*10+c-'0',c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&lt;0) { putchar('-'); x=-x;}
+    if(x&gt;9) print(x/10);
+    putchar(x%10+'0');
+}
+int n,cnt,m,a[5010],ans,tmp;
+int main() {
+	ios::sync_with_stdio(false);
+	cin&gt;&gt;n&gt;&gt;ans;
+	for(int i=0;i&lt;=10000;i++){
+		for(int j=0;j&lt;=10000;j++){
+			int k=n-i-j;
+				if(i+j+k==n&amp;&amp;i*10000+j*5000+k*1000==ans&amp;&amp;k&gt;=0){
+					cout&lt;&lt;i &lt;&lt;' '&lt;&lt;j&lt;&lt;' '&lt;&lt;k;
+					cout&lt;&lt;endl;
+					return 0;
+				} 
+		}
+	}
+	cout&lt;&lt;&quot;-1 -1 -1\n&quot;;
+    return 0;
+}
 </code></pre>
-<h2 id="-2"></h2>
-<pre><code class="language-cpp">
+<h2 id="at2653">AT2653</h2>
+<p>zz题。</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define reg register int
+#define INF (1&lt;&lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&gt;='0' &amp;&amp; c&lt;='9')){ if(c=='-')fs=-1; c=getchar(); }
+	while(c&gt;='0' &amp;&amp; c&lt;='9')res=res*10+c-'0',c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&lt;0) { putchar('-'); x=-x;}
+    if(x&gt;9) print(x/10);
+    putchar(x%10+'0');
+}
+int n,cnt,m,a[5010],ans,tmp;
+int main() {
+	ios::sync_with_stdio(false);
+	cin&gt;&gt;n&gt;&gt;m;
+	for(int i=1;i&lt;=n;i++) cin&gt;&gt;a[i];
+	sort(a+1,a+n+1);
+	for(int i=n;i&gt;=n-m+1;i--) ans+=a[i];
+	cout&lt;&lt;ans&lt;&lt;endl; 
+    return 0;
+}
 </code></pre>
-<h2 id="-3"></h2>
-<pre><code class="language-cpp">
+<h2 id="at2018-abc043b-バイナリハックイージー-unhappy-hacking-abc-edit">AT2018 [ABC043B] バイナリハックイージー / Unhappy Hacking (ABC Edit)</h2>
+<p>字符串模拟题，注意</p>
+<blockquote>
+<p>如果字符串是空的，什么都不会发生。</p>
+</blockquote>
+<p>不判断会<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mi>E</mi></mrow><annotation encoding="application/x-tex">RE</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span></span></span></span><br>
+<s>别问我怎么知道的</s></p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define reg register int
+#define INF (1&lt;&lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&gt;='0' &amp;&amp; c&lt;='9')){ if(c=='-')fs=-1; c=getchar(); }
+	while(c&gt;='0' &amp;&amp; c&lt;='9')res=res*10+c-'0',c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&lt;0) { putchar('-'); x=-x;}
+    if(x&gt;9) print(x/10);
+    putchar(x%10+'0');
+}
+int n,cnt,m,a[5010],ans,tmp;
+string s;
+int main() {
+	ios::sync_with_stdio(false);
+	char c;
+	while(cin&gt;&gt;c){
+		if(c=='0') s+='0';
+		if(c=='1') s+='1';
+		if(c=='B'&amp;&amp;!s.empty()) s.erase(s.size()-1,1);
+	}
+	cout&lt;&lt;s&lt;&lt;endl;
+    return 0;
+}
+
 </code></pre>
 ]]></content>
     </entry>

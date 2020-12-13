@@ -10,7 +10,7 @@
 houpingze 的小站">
 <meta name="theme-color" content="#000">
 <title>houpingzeAKIOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1607843211477">
+<link rel="shortcut icon" href="/favicon.ico?v=1607864113785">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -671,14 +671,105 @@ int main() {
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.luogu.com.cn/record/43645939&#34;&gt;AC link.&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;&#34;&gt;&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;
+&lt;h2 id=&#34;at3853-abc085c-otoshidama&#34;&gt;AT3853 [ABC085C] Otoshidama&lt;/h2&gt;
+&lt;p&gt;暴力枚举三个面值的张数，注意可能等于&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;0&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，貌似要枚举多一点（大概到10000）&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;bits/stdc++.h&amp;gt;
+#define reg register int
+#define INF (1&amp;lt;&amp;lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)){ if(c==&#39;-&#39;)fs=-1; c=getchar(); }
+	while(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)res=res*10+c-&#39;0&#39;,c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&amp;lt;0) { putchar(&#39;-&#39;); x=-x;}
+    if(x&amp;gt;9) print(x/10);
+    putchar(x%10+&#39;0&#39;);
+}
+int n,cnt,m,a[5010],ans,tmp;
+int main() {
+	ios::sync_with_stdio(false);
+	cin&amp;gt;&amp;gt;n&amp;gt;&amp;gt;ans;
+	for(int i=0;i&amp;lt;=10000;i++){
+		for(int j=0;j&amp;lt;=10000;j++){
+			int k=n-i-j;
+				if(i+j+k==n&amp;amp;&amp;amp;i*10000+j*5000+k*1000==ans&amp;amp;&amp;amp;k&amp;gt;=0){
+					cout&amp;lt;&amp;lt;i &amp;lt;&amp;lt;&#39; &#39;&amp;lt;&amp;lt;j&amp;lt;&amp;lt;&#39; &#39;&amp;lt;&amp;lt;k;
+					cout&amp;lt;&amp;lt;endl;
+					return 0;
+				} 
+		}
+	}
+	cout&amp;lt;&amp;lt;&amp;quot;-1 -1 -1\n&amp;quot;;
+    return 0;
+}
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;-2&#34;&gt;&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;
+&lt;h2 id=&#34;at2653&#34;&gt;AT2653&lt;/h2&gt;
+&lt;p&gt;zz题。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;bits/stdc++.h&amp;gt;
+#define reg register int
+#define INF (1&amp;lt;&amp;lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)){ if(c==&#39;-&#39;)fs=-1; c=getchar(); }
+	while(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)res=res*10+c-&#39;0&#39;,c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&amp;lt;0) { putchar(&#39;-&#39;); x=-x;}
+    if(x&amp;gt;9) print(x/10);
+    putchar(x%10+&#39;0&#39;);
+}
+int n,cnt,m,a[5010],ans,tmp;
+int main() {
+	ios::sync_with_stdio(false);
+	cin&amp;gt;&amp;gt;n&amp;gt;&amp;gt;m;
+	for(int i=1;i&amp;lt;=n;i++) cin&amp;gt;&amp;gt;a[i];
+	sort(a+1,a+n+1);
+	for(int i=n;i&amp;gt;=n-m+1;i--) ans+=a[i];
+	cout&amp;lt;&amp;lt;ans&amp;lt;&amp;lt;endl; 
+    return 0;
+}
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;-3&#34;&gt;&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;
+&lt;h2 id=&#34;at2018-abc043b-バイナリハックイージー-unhappy-hacking-abc-edit&#34;&gt;AT2018 [ABC043B] バイナリハックイージー / Unhappy Hacking (ABC Edit)&lt;/h2&gt;
+&lt;p&gt;字符串模拟题，注意&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果字符串是空的，什么都不会发生。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不判断会&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;RE&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.05764em;&#34;&gt;E&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;
+&lt;s&gt;别问我怎么知道的&lt;/s&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;bits/stdc++.h&amp;gt;
+#define reg register int
+#define INF (1&amp;lt;&amp;lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)){ if(c==&#39;-&#39;)fs=-1; c=getchar(); }
+	while(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)res=res*10+c-&#39;0&#39;,c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&amp;lt;0) { putchar(&#39;-&#39;); x=-x;}
+    if(x&amp;gt;9) print(x/10);
+    putchar(x%10+&#39;0&#39;);
+}
+int n,cnt,m,a[5010],ans,tmp;
+string s;
+int main() {
+	ios::sync_with_stdio(false);
+	char c;
+	while(cin&amp;gt;&amp;gt;c){
+		if(c==&#39;0&#39;) s+=&#39;0&#39;;
+		if(c==&#39;1&#39;) s+=&#39;1&#39;;
+		if(c==&#39;B&#39;&amp;amp;&amp;amp;!s.empty()) s.erase(s.size()-1,1);
+	}
+	cout&amp;lt;&amp;lt;s&amp;lt;&amp;lt;endl;
+    return 0;
+}
+
 &lt;/code&gt;&lt;/pre&gt;
 ">【长期置顶】刷题日记</a>
       </div>
