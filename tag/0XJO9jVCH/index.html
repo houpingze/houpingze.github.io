@@ -7,10 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新，可以AKIOI
-houpingze 的小站">
+houpingze 的小站
+&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=210049&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;">
 <meta name="theme-color" content="#000">
 <title>houpingzeAKIOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1607864113785">
+<link rel="shortcut icon" href="/favicon.ico?v=1611828492529">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -363,6 +364,7 @@ houpingze 的小站">
 <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 
       <h2 class="subTt">膜 hpz</h2>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=210049&auto=1&height=66"></iframe>
 
     </div>
   </footer>
@@ -748,6 +750,173 @@ int main() {
     return 0;
 }
 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;at360-雨上がり&#34;&gt;AT360 雨上がり&lt;/h2&gt;
+&lt;p&gt;dp。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;bits/stdc++.h&amp;gt;
+#define reg register int
+#define INF (1&amp;lt;&amp;lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)){ if(c==&#39;-&#39;)fs=-1; c=getchar(); }
+	while(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)res=res*10+c-&#39;0&#39;,c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&amp;lt;0) { putchar(&#39;-&#39;); x=-x;}
+    if(x&amp;gt;9) print(x/10);
+    putchar(x%10+&#39;0&#39;);
+}
+int n,cnt,m,a[5010],ans,tmp,f[114514];
+string s;
+int main() {
+	ios::sync_with_stdio(false);
+	cin&amp;gt;&amp;gt;n;
+	cin&amp;gt;&amp;gt;s;
+	f[1]=s[0]==&#39;X&#39;,f[2]=s[1]==&#39;X&#39;,f[3]=s[2]==&#39;X&#39;;//如果是水池，又增加了一个路过的（ 
+	for(int i=4;i&amp;lt;=n;i++){
+		if(s[i-1]==&#39;X&#39;) f[i]=1+min(f[i-1],min(f[i-2],f[i-3]));
+		else f[i]=min(f[i-1],min(f[i-2],f[i-3]));
+	}
+	cout&amp;lt;&amp;lt;f[n];
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;at3880-abc087b-coins&#34;&gt;AT3880 [ABC087B] Coins&lt;/h2&gt;
+&lt;p&gt;baoli题。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;bits/stdc++.h&amp;gt;
+#define reg register int
+#define INF (1&amp;lt;&amp;lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)){ if(c==&#39;-&#39;)fs=-1; c=getchar(); }
+	while(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)res=res*10+c-&#39;0&#39;,c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&amp;lt;0) { putchar(&#39;-&#39;); x=-x;}
+    if(x&amp;gt;9) print(x/10);
+    putchar(x%10+&#39;0&#39;);
+}
+int a,b,c,x,cnt;
+int main() {
+	ios::sync_with_stdio(false);
+	cin&amp;gt;&amp;gt;a&amp;gt;&amp;gt;b&amp;gt;&amp;gt;c&amp;gt;&amp;gt;x;
+	for(int A=0;A&amp;lt;=a;A++){
+		for(int B=0;B&amp;lt;=b;B++){
+			for(int C=0;C&amp;lt;=c;C++){
+				int ans=A*500+B*100+C*50;
+				if(ans==x) cnt++; 
+			}
+		}
+	}
+	cout&amp;lt;&amp;lt;cnt&amp;lt;&amp;lt;endl;
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;at2659-abc068b-break-number&#34;&gt;AT2659 [ABC068B] Break Number&lt;/h2&gt;
+&lt;p&gt;神仙做法就很艹&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;bits/stdc++.h&amp;gt;  
+double n;
+int main() { 
+	std::cin&amp;gt;&amp;gt;n;
+	std::cout&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(int)(log2(n))); 
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;at1979-agc001a-bbq-easy&#34;&gt;AT1979 [AGC001A] BBQ Easy&lt;/h2&gt;
+&lt;p&gt;排序题。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;bits/stdc++.h&amp;gt; 
+using namespace std; 
+int n,cnt,m,a[5010],ans,tmp;
+int main() {
+	ios::sync_with_stdio(false);
+	cin&amp;gt;&amp;gt;n;
+	n*=2;
+	for(int i=1;i&amp;lt;=n;i++) cin&amp;gt;&amp;gt;a[i];
+	sort(a+1,a+n+1);
+	for(int i=1;i&amp;lt;=n;i+=2){
+		ans+=min(a[i],a[i+1]);
+	} 
+	cout&amp;lt;&amp;lt;ans;
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;at4787-abc129c-typical-stairs&#34;&gt;AT4787 [ABC129C] Typical Stairs&lt;/h2&gt;
+&lt;p&gt;sb dp。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;/*
+边界：
+	f[0]=1,f[1]=1;
+递推式：
+	f[i]=(f[i-1]+f[i-2])%MOD;
+特殊情况：
+	如果此条路被破坏，解的总数为0 
+解：
+	f[n]  
+*/
+
+#include&amp;lt;bits/stdc++.h&amp;gt; 
+#define MOD 1000000007
+using namespace std; 
+int n,cnt,m,a[114514],ans,tmp;
+int f[1919810];
+/*
+	a[i]的值如果为1，表示此条路被破坏，走不通
+	否则，可以走通 
+*/
+int main() { 
+	cin&amp;gt;&amp;gt;n&amp;gt;&amp;gt;m;
+	while(m--) cin&amp;gt;&amp;gt;tmp,a[tmp]=1;//标记，tmp这条路被破坏 
+	if(!a[0]) f[0]=1;//注意判断第0条路是否被破坏 
+	if(!a[1]) f[1]=1;
+	for(int i=2;i&amp;lt;=n;i++) 
+		if(!a[i]) //!a[i]也就是a[i]==0，判断是否被破坏 
+			f[i]=(f[i-1]+f[i-2])%MOD; 
+	cout&amp;lt;&amp;lt;f[n]&amp;lt;&amp;lt;endl;//解就是f[n] 
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;at3725-arc087a-good-sequence&#34;&gt;AT3725 [ARC087A] Good Sequence&lt;/h2&gt;
+&lt;p&gt;就是没达到的部分全部剪掉，超过的部分剪掉超过的  &lt;s&gt;（混乱orz&lt;/s&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;bits/stdc++.h&amp;gt;
+#define reg register int
+#define INF (1&amp;lt;&amp;lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)){ if(c==&#39;-&#39;)fs=-1; c=getchar(); }
+	while(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)res=res*10+c-&#39;0&#39;,c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&amp;lt;0) { putchar(&#39;-&#39;); x=-x;}
+    if(x&amp;gt;9) print(x/10);
+    putchar(x%10+&#39;0&#39;);
+}
+int n,cnt,m,a[114514],ans,tmp;
+map&amp;lt;int,int&amp;gt;t,vis;
+int main() {
+	ios::sync_with_stdio(false);
+	cin&amp;gt;&amp;gt;n;
+	for(int i=1;i&amp;lt;=n;i++) cin&amp;gt;&amp;gt;a[i],t[a[i]]++;
+	for(int i=1;i&amp;lt;=n;i++){ 
+		if(t[a[i]]&amp;gt;=a[i]) ans+=t[a[i]]-a[i],t[a[i]]=a[i];
+		else if(t[a[i]]&amp;lt;a[i]) ans+=t[a[i]],t[a[i]]=0;
+	}
+	cout&amp;lt;&amp;lt;ans&amp;lt;&amp;lt;endl;
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;at1124-電卓ゲーム&#34;&gt;AT1124 電卓ゲーム&lt;/h2&gt;
+&lt;p&gt;把每种情况暴力一遍&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
 &lt;/code&gt;&lt;/pre&gt;
 ">【长期置顶】刷题日记</a>
       </div>
