@@ -11,7 +11,7 @@ houpingze 的小站
 &lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=210049&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;">
 <meta name="theme-color" content="#000">
 <title>【长期置顶】刷题日记 | houpingzeAKIOI</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1611828492529">
+<link rel="shortcut icon" href="/favicon.ico?v=1617161928264">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -230,7 +230,7 @@ houpingze 的小站
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">25</span>
+        <span class="site-item-stat-count">27</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -968,6 +968,10 @@ int main() {
   <div class="nav">
     <div class="nav-prev">
       
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="模板库" href="https://houpingze.github.io/post/模板/">模板库</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="模板库" href="https://houpingze.github.io/post/模板/">上一篇</a>
+      
     </div>
     <div class="nav-next">
       
@@ -1024,6 +1028,12 @@ int main() {
 
       <h2 class="subTt">膜 hpz</h2>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=210049&auto=1&height=66"></iframe>
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'nanmenxiaoxue/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
 
     </div>
   </footer>
@@ -1464,6 +1474,327 @@ int main() {
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://houpingze.github.io/post/93wJtKWfx/"" data-c="
+          &lt;p&gt;rt。&lt;br&gt;
+st表&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;bits/stdc++.h&amp;gt;
+#define reg register int
+#define INF (1&amp;lt;&amp;lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)){ if(c==&#39;-&#39;)fs=-1; c=getchar(); }
+	while(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)res=res*10+c-&#39;0&#39;,c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&amp;lt;0) { putchar(&#39;-&#39;); x=-x;}
+    if(x&amp;gt;9) print(x/10);
+    putchar(x%10+&#39;0&#39;);
+}
+int n,cnt,m,a[100010],ans,tmp,lg[101001],st[101011][40];
+int main() { 
+	cin&amp;gt;&amp;gt;n&amp;gt;&amp;gt;m;
+	for(int i=1;i&amp;lt;=n;i++){
+		// cin&amp;gt;&amp;gt;a[i]; 
+        a[i]=read();
+	}
+	lg[1]=0;
+	for(int i=2;i&amp;lt;=n;i++){
+		lg[i]=lg[i/2]+1;
+	}
+	for(int i=n;i&amp;gt;=1;i--){
+		for(int j=0;j&amp;lt;=log2(n);j++){
+			if(i+(1&amp;lt;&amp;lt;j-1)&amp;gt;n) break; 
+			if(j==0) st[i][0]=a[i];
+			else{
+				st[i][j]=max(st[i][j-1],st[i+(1&amp;lt;&amp;lt;(j-1))][j-1]);
+			}
+		}
+	}
+	while(m--){
+		int l,r;
+        l=read(),r=read();
+		int x=lg[r-l+1];
+		cout&amp;lt;&amp;lt;max(st[l][x],st[r-(1&amp;lt;&amp;lt;x)+1][x])&amp;lt;&amp;lt;&#39;\n&#39;;
+	}
+    return 0;
+}
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;01背包&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;/*writer:houpingze 绿√*/
+#include&amp;lt;bits/stdc++.h&amp;gt;
+#define reg register int
+#define INF (1&amp;lt;&amp;lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)){ if(c==&#39;-&#39;)fs=-1; c=getchar(); }
+	while(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)res=res*10+c-&#39;0&#39;,c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&amp;lt;0) { putchar(&#39;-&#39;); x=-x;}
+    if(x&amp;gt;9) print(x/10);
+    putchar(x%10+&#39;0&#39;);
+}
+int n,cnt,m,a,ans,tmp,w[101],v[101],f[111][1111];
+int main() {  
+	cin&amp;gt;&amp;gt;n&amp;gt;&amp;gt;m; 
+	for(int i=1;i&amp;lt;=n;i++) cin&amp;gt;&amp;gt;v[i]&amp;gt;&amp;gt;w[i]; 
+	for(int i=1;i&amp;lt;=n;i++){
+		for(int j=0;j&amp;lt;=m;j++){
+			if(j&amp;gt;=v[i]) f[i][j]=max(f[i-1][j],f[i-1][j-v[i]]+w[i]);
+			else f[i][j]=f[i-1][j];
+		}
+	} 
+	cout&amp;lt;&amp;lt;f[n][m];
+    return 0;
+}
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;快速排序&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;iostream&amp;gt;
+#include&amp;lt;bits/stdc++.h&amp;gt;
+#include &amp;lt;ctime&amp;gt; 
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+short a[5000*8000];
+bool cmp(int x,int y){return x&amp;lt;y;}
+void akioi(short a[],int l,int r){
+	int i=l,j=r,mid=a[(l+r)/2];
+	while(i&amp;lt;=j){
+		while(cmp(a[i],mid)) i++;
+		while(cmp(mid,a[j])) j--;
+		if(i&amp;lt;=j) swap(a[i],a[j]),i++,j--;
+	}
+	if(l&amp;lt;j) akioi(a,l,j);
+	if(i&amp;lt;r) akioi(a,i,r); 
+}
+int main(){
+	cin&amp;gt;&amp;gt;n;
+//	for(int i=1;i&amp;lt;=n;i++) a[i]=rand()%3892,srand(time(0)+i);
+//	cout&amp;lt;&amp;lt;&amp;quot;OK!\n&amp;quot;;
+	akioi(a,1,n);
+	for(int i=1;i&amp;lt;=n;i++) cout&amp;lt;&amp;lt;a[i]&amp;lt;&amp;lt;&#39; &#39;;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;线段树单点修改区间查询：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;bits/stdc++.h&amp;gt;
+#define reg register int
+#define INF (1&amp;lt;&amp;lt;30)
+#define int long long
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)){ if(c==&#39;-&#39;)fs=-1; c=getchar(); }
+	while(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)res=res*10+c-&#39;0&#39;,c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&amp;lt;0) { putchar(&#39;-&#39;); x=-x;}
+    if(x&amp;gt;9) print(x/10);
+    putchar(x%10+&#39;0&#39;);
+}
+int n,cnt,m,a[100010],ans,tmp;
+struct node{
+	int ans,x,y;
+}t[100005*4];
+void build(int p,int l,int r){
+	if(l==r){
+		t[p].ans=a[l];
+		return ;
+	}
+	t[p].x=l,t[p].y=r;
+	t[p*2].x=l,t[p*2].y=(l+r)/2;
+	t[p*2+1].x=(l+r)/2+1,t[p*2+1].y=r;
+	
+	build(p*2,l,(l+r)/2);
+	build(p*2+1,(l+r)/2+1,r);
+	t[p].ans=t[p*2].ans+t[p*2+1].ans;
+}
+void update(int p,int x,int l,int r,int id){ 
+	if(id&amp;lt;l||id&amp;gt;r) return ;
+	if(l==r){
+		t[p].ans+=x;
+		return ;
+	}
+	update(p*2,x,l,(l+r)/2,id);
+	update(p*2+1,x,(l+r)/2+1,r,id);
+	t[p].ans=t[p*2].ans+t[p*2+1].ans;
+}
+int query(int p,int l,int r,int x,int y){
+	if(r&amp;lt;x||l&amp;gt;y) return 0;
+	if(x&amp;lt;=l&amp;amp;&amp;amp;r&amp;lt;=y){
+		return t[p].ans;
+	} 
+	int m=(l+r)/2; 
+	return query(p*2,l,m,x,y)+query(p*2+1,m+1,r,x,y); 
+}
+signed main() {  
+	cin&amp;gt;&amp;gt;n&amp;gt;&amp;gt;m; 
+	build(1,1,n);
+	while(m--){
+		int x=read();
+		if(x==0){
+			int i=read(),xx=read();
+			update(1,xx,1,n,i);
+		}else{
+			int l=read(),r=read();
+			cout&amp;lt;&amp;lt;query(1,1,n,l,r)&amp;lt;&amp;lt;&#39;\n&#39;;
+		}
+	}
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;快速幂：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;iostream&amp;gt;
+typedef unsigned long long ull;
+using namespace std;
+ull n,cnt,m;
+int main(){
+    ull b,p,k;
+    ull x=1;
+    cin&amp;gt;&amp;gt;b&amp;gt;&amp;gt;p&amp;gt;&amp;gt;k;
+    cout&amp;lt;&amp;lt;b&amp;lt;&amp;lt;&amp;quot;^&amp;quot;&amp;lt;&amp;lt;p&amp;lt;&amp;lt;&amp;quot; mod &amp;quot;&amp;lt;&amp;lt;k&amp;lt;&amp;lt;&amp;quot;=&amp;quot;;
+    while(p){
+        if(p%2==0){
+            p/=2;
+            b=b*b%k;		
+        }else{
+            p/=2;
+            x*=(b%k);
+            x%=k; 
+            b=b*b%k;
+        }
+    }
+    cout&amp;lt;&amp;lt;x%k;
+}
+&lt;/code&gt;&lt;/pre&gt;
+">模板库</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://houpingze.github.io/post/模板/"" data-c="
+          &lt;p&gt;rt。&lt;br&gt;
+st表&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;bits/stdc++.h&amp;gt;
+#define reg register int
+#define INF (1&amp;lt;&amp;lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)){ if(c==&#39;-&#39;)fs=-1; c=getchar(); }
+	while(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)res=res*10+c-&#39;0&#39;,c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&amp;lt;0) { putchar(&#39;-&#39;); x=-x;}
+    if(x&amp;gt;9) print(x/10);
+    putchar(x%10+&#39;0&#39;);
+}
+int n,cnt,m,a[100010],ans,tmp,lg[101001],st[101011][40];
+int main() { 
+	cin&amp;gt;&amp;gt;n&amp;gt;&amp;gt;m;
+	for(int i=1;i&amp;lt;=n;i++){
+		// cin&amp;gt;&amp;gt;a[i]; 
+        a[i]=read();
+	}
+	lg[1]=0;
+	for(int i=2;i&amp;lt;=n;i++){
+		lg[i]=lg[i/2]+1;
+	}
+	for(int i=n;i&amp;gt;=1;i--){
+		for(int j=0;j&amp;lt;=log2(n);j++){
+			if(i+(1&amp;lt;&amp;lt;j-1)&amp;gt;n) break; 
+			if(j==0) st[i][0]=a[i];
+			else{
+				st[i][j]=max(st[i][j-1],st[i+(1&amp;lt;&amp;lt;(j-1))][j-1]);
+			}
+		}
+	}
+	while(m--){
+		int l,r;
+        l=read(),r=read();
+		int x=lg[r-l+1];
+		cout&amp;lt;&amp;lt;max(st[l][x],st[r-(1&amp;lt;&amp;lt;x)+1][x])&amp;lt;&amp;lt;&#39;\n&#39;;
+	}
+    return 0;
+}
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;01背包&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;/*writer:houpingze 绿√*/
+#include&amp;lt;bits/stdc++.h&amp;gt;
+#define reg register int
+#define INF (1&amp;lt;&amp;lt;30)
+using namespace std;
+int read(){
+	int res=0,fs=1; char c=getchar();
+	while(!(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)){ if(c==&#39;-&#39;)fs=-1; c=getchar(); }
+	while(c&amp;gt;=&#39;0&#39; &amp;amp;&amp;amp; c&amp;lt;=&#39;9&#39;)res=res*10+c-&#39;0&#39;,c=getchar();
+	return res*fs;
+}
+void print(int x){
+    if(x&amp;lt;0) { putchar(&#39;-&#39;); x=-x;}
+    if(x&amp;gt;9) print(x/10);
+    putchar(x%10+&#39;0&#39;);
+}
+int n,cnt,m,a,ans,tmp,w[101],v[101],f[111][1111];
+int main() {  
+	cin&amp;gt;&amp;gt;n&amp;gt;&amp;gt;m; 
+	for(int i=1;i&amp;lt;=n;i++) cin&amp;gt;&amp;gt;v[i]&amp;gt;&amp;gt;w[i]; 
+	for(int i=1;i&amp;lt;=n;i++){
+		for(int j=0;j&amp;lt;=m;j++){
+			if(j&amp;gt;=v[i]) f[i][j]=max(f[i-1][j],f[i-1][j-v[i]]+w[i]);
+			else f[i][j]=f[i-1][j];
+		}
+	} 
+	cout&amp;lt;&amp;lt;f[n][m];
+    return 0;
+}
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;快速排序&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;iostream&amp;gt;
+#include&amp;lt;bits/stdc++.h&amp;gt;
+#include &amp;lt;ctime&amp;gt; 
+typedef unsigned long long ull;
+using namespace std;
+int n,cnt,m;
+short a[5000*8000];
+bool cmp(int x,int y){return x&amp;lt;y;}
+void akioi(short a[],int l,int r){
+	int i=l,j=r,mid=a[(l+r)/2];
+	while(i&amp;lt;=j){
+		while(cmp(a[i],mid)) i++;
+		while(cmp(mid,a[j])) j--;
+		if(i&amp;lt;=j) swap(a[i],a[j]),i++,j--;
+	}
+	if(l&amp;lt;j) akioi(a,l,j);
+	if(i&amp;lt;r) akioi(a,i,r); 
+}
+int main(){
+	cin&amp;gt;&amp;gt;n;
+	for(int i=1;i&amp;lt;=n;i++) a[i]=rand()%3892,srand(time(0)+i);
+	cout&amp;lt;&amp;lt;&amp;quot;OK!\n&amp;quot;;
+	akioi(a,1,n);
+	for(int i=1;i&amp;lt;=n;i++) cout&amp;lt;&amp;lt;a[i]&amp;lt;&amp;lt;&#39; &#39;;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+">模板库</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://houpingze.github.io/post/UAb-a1AkT/"" data-c="
