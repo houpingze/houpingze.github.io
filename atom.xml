@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
-    <title>houpingzeAKIOI</title>
-    <updated>2021-05-21T09:06:21.013Z</updated>
+    <title>houpingze</title>
+    <updated>2021-05-21T09:07:34.051Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -11,7 +11,7 @@ houpingze 的小站
 &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/outchain/player?type=2&amp;id=210049&amp;auto=1&amp;height=66&quot;&gt;&lt;/iframe&gt;</subtitle>
     <logo>https://houpingze.github.io/images/avatar.png</logo>
     <icon>https://houpingze.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, houpingzeAKIOI</rights>
+    <rights>All rights reserved 2021, houpingze</rights>
     <entry>
         <title type="html"><![CDATA[模板库]]></title>
         <id>https://houpingze.github.io/post/93wJtKWfx/</id>
