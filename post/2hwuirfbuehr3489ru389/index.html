@@ -20,7 +20,7 @@ var _hmt = _hmt || [];
 houpingze 的小站
 &lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=210049&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;">
 <meta name="theme-color" content="#000">
-<title>其他递推 | houpingze</title>
+<title>日记0002 | houpingze</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1625544336017">
 <link rel="stylesheet" href="/media/css/muse.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -60,8 +60,8 @@ houpingze 的小站
 </script>
 
 
-  <meta name="description" content="其他递推" />
-  <meta name="keywords" content="" />
+  <meta name="description" content="日记0002" />
+  <meta name="keywords" content="日记" />
 </head>
 
 <body>
@@ -225,8 +225,7 @@ houpingze 的小站
       <div class="sidebar-body muse" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -260,196 +259,6 @@ houpingze 的小站
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#4514">4514</a></li>
-<li><a href="#4515">4515</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -537,8 +346,8 @@ houpingze 的小站
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/qi-ta-di-tui/">
-      其他递推
+    <a class="post-title-link" href="https://houpingze.github.io/post/2hwuirfbuehr3489ru389/">
+      日记0002
     </a>
   </h1>
   <div class="post-meta">
@@ -546,23 +355,36 @@ houpingze 的小站
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-08-08 10:46:57">2020-08-08</span>
+      <span class="publish-time" data-t="2020-09-27 18:18:52">2020-09-27</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show language" data-lan="category-in">分类于</span>
+      
+      
+      <a href="https://houpingze.github.io/tag/iQSU2zU7k/">
+        <span>日记</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>340<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>224<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/qi-ta-di-tui/" data-flag-title="其他递推" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/2hwuirfbuehr3489ru389/" data-flag-title="日记0002" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -571,53 +393,24 @@ houpingze 的小站
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <h2 id="4514">4514</h2>
-<p><img src="https://houpingze.github.io/post-images/1596855149009.png" alt="" loading="lazy"><br>
-f[i]表示i个椭圆最多可以把平面分成f[i]个地盘<br>
-<em><em>递推式：f[i]=f[i-1]+2</em>(i-1)(其中i-1表示前i-1个椭圆，2表示第i个椭圆会和每个椭圆相交2次，每相交一次会产生1个新的地盘)</em>*<br>
-边界：f[1]=2<br>
-解：f[n]<br>
-代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m;
-int main(){
-	cin&gt;&gt;n;
-	int f[26];
-	f[1]=2;
-	for(int i=2;i&lt;=n;i++){
-		f[i]=f[i-1]+2*(i-1);
-	} 
-	cout&lt;&lt;f[n];
-}
-</code></pre>
-<h2 id="4515">4515</h2>
-<p>小P最近搬进了新家，打算布置一番。现在小P有n本不同的书，想放进带有m个格子的书架上（m&lt;n）。要求每个格子至少有一本书。请你帮小P计算有多少种布置的方案。</p>
-<p>定义：f[i][j]表示前i本书放入j个格子的方案总数,（每个格子至少放1本书）<br>
-递推式：f[i][j]=f[i-1][j]*j+f[i-1][j-1]<br>
-边界：f[1][1]=1;<br>
-解：f[n][m]</p>
-<p>代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,f[100][100];
-int main(){
-	cin&gt;&gt;n&gt;&gt;m;
-	f[1][1]=1;
-	for(int i=1;i&lt;=n;i++){
-		for(int j=1;j&lt;=m;j++){
-			if(i==1&amp;&amp;j==1) continue;
-			f[i][j]=f[i-1][j]*j+f[i-1][j-1];
-		}
-	}
-	cout&lt;&lt;f[n][m];
-}
-
-</code></pre>
-<p>课后测：<br>
-<img src="https://houpingze.github.io/post-images/1596860600158.png" alt="" loading="lazy"></p>
+              <p>昨天作业写到9：00左右祭（bushi<br>
+作业是真的多/kel<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200926100211.png" alt="" loading="lazy"></p>
+<p>上午没什么好说的，就是下午，老师上完课还要再上，再上，再上<br>
+具体就是下课了，老师上了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>10</mn><mi>min</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">10\min</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66786em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">min</span></span></span></span>，结果就要下去排练什么东西<s>反正我没听进去</s>（bushi<br>
+然后回来老师要我们把语文书打开，我们一阵“哎”<br>
+结果老师说：“你们看别的班也都在上课，又不是我一个人拖堂”<br>
+……………………………………………………………………<br>
+balabala讲了一大堆，接着上课<br>
+结果讲完了第八课，又开始讲练习册<br>
+这时，其他班已经放学了………………<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220631.png" alt="" loading="lazy"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220631.png" alt="" loading="lazy"><br>
+我的状况：认真听讲——》不耐烦——》听不下去，开始写初赛的题目——》写作业——》崩溃<br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220611.png" alt="" loading="lazy"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220611.png" alt="" loading="lazy"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200921220611.png" alt="" loading="lazy"><br>
+由于学校要举行打字比赛  <s>（突然感觉作为一个信竞生好幸福）</s>，所以开始练习打字QWQ<br>
+拼音：<br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200927191159.png" alt="" loading="lazy"></p>
+<p>英语：<br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200927191712.png" alt="" loading="lazy"><br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20200927192821.png" alt="" loading="lazy"></p>
 
             </div>
             
@@ -634,7 +427,7 @@ int main(){
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://houpingze.github.io/post/qi-ta-di-tui/" title="其他递推">https://houpingze.github.io/post/qi-ta-di-tui/</a>
+      <a href="https://houpingze.github.io/post/2hwuirfbuehr3489ru389/" title="日记0002">https://houpingze.github.io/post/2hwuirfbuehr3489ru389/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -643,20 +436,14 @@ int main(){
   </ul>
   <div class="tags">
     
+      <a href="https://houpingze.github.io/tag/iQSU2zU7k/"># 日记</a>
+    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="4507 补充" href="https://houpingze.github.io/post/4507-bu-chong/">4507 补充</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="4507 补充" href="https://houpingze.github.io/post/4507-bu-chong/">上一篇</a>
-      
     </div>
     <div class="nav-next">
-      
-        <a class="nav-pc-next" title="暑假第11次课 过河卒" href="https://houpingze.github.io/post/shu-jia-di-11-ci-ke-guo-he-zu/">暑假第11次课 过河卒</a>
-        <a class="nav-mobile-next" title="暑假第11次课 过河卒" href="https://houpingze.github.io/post/shu-jia-di-11-ci-ke-guo-he-zu/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
