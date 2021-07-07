@@ -21,7 +21,7 @@ houpingze 的小站
 
 ">
 <meta name="theme-color" content="#000">
-<title>金牌冲刺6 | houpingze菜鸡</title>
+<title>语录 | houpingze菜鸡</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1625624854586">
 <link rel="stylesheet" href="/media/css/muse.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -61,8 +61,8 @@ houpingze 的小站
 </script>
 
 
-  <meta name="description" content="金牌冲刺6" />
-  <meta name="keywords" content="课堂笔记" />
+  <meta name="description" content="语录" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -226,8 +226,7 @@ houpingze 的小站
       <div class="sidebar-body muse" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -261,196 +260,6 @@ houpingze 的小站
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#1183">1183:</a></li>
-<li><a href="#1350">1350</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -538,8 +347,8 @@ houpingze 的小站
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://houpingze.github.io/post/hpz-uke-ioi/">
-      金牌冲刺6
+    <a class="post-title-link" href="https://houpingze.github.io/post/ZX9BxFUaM/">
+      语录
     </a>
   </h1>
   <div class="post-meta">
@@ -547,36 +356,23 @@ houpingze 的小站
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-03 19:00:47">2020-09-03</span>
+      <span class="publish-time" data-t="2021-07-07 10:27:16">2021-07-07</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://houpingze.github.io/tag/sF1N1vQzB/">
-        <span>课堂笔记</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3<span class="language" data-lan="minute">分钟</span></span>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>407<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>26<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/hpz-uke-ioi/" data-flag-title="金牌冲刺6" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/ZX9BxFUaM/" data-flag-title="语录" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -585,105 +381,55 @@ houpingze 的小站
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p><img src="https://houpingze.github.io/post-images/1599130901935.png" alt="" loading="lazy"><br>
-<img src="https://houpingze.github.io/post-images/1599131404879.png" alt="" loading="lazy"></p>
-<p>/fad</p>
-<h2 id="1183">1183:</h2>
-<p>题目：<br>
-聪明的卡卡西帮助工人师傅们解决了难题，师傅们为了表示感谢，带领他们到了附近的西瓜地，请他们吃西瓜，正好看到农民伯伯正在给每个西瓜称重，每个西瓜的重量都记录在纸上，农民伯伯想知道这遍地的西瓜哪个重量的西瓜最多。卡卡西眼前一亮，大声的说：伯伯，让我来帮你完成吧！</p>
-<p>代码：</p>
-<p>桶：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[10001],t;
-int main(){
-    cin&gt;&gt;n;
-    while(n--){
-        cin&gt;&gt;t;
-        a[t]++;	
-    }
-    for(int i=1;i&lt;=10000;i++){
-        if(a[i]&gt;m){
-            m=a[i];
-            cnt=i;
-        }
-    }
-    cout&lt;&lt;cnt;
-}
-
-</code></pre>
-<p>暴力：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[10001];
-int main(){
-    cin&gt;&gt;n;
-    for(int i=1;i&lt;=n;i++){
-        cin&gt;&gt;a[i];
-    }
-    for(int i=1;i&lt;=10000;i++){
-        int tmp=0;
-        for(int j=1;j&lt;=n;j++){
-            if(a[j]==i) tmp++;
-        }
-        if(m&lt;tmp){
-            m=tmp;
-            cnt=i;
-        }
-    }
-    cout&lt;&lt;cnt;
-}
-
-</code></pre>
-<h2 id="1350">1350</h2>
-<p>题目：<br>
-<img src="https://houpingze.github.io/post-images/1599134520033.png" alt="" loading="lazy"></p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m,a[100]{1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,4,1,2,3,1,2,3,4};
-int main(){
-	string s;
-	getline(cin,s)
-	;
-	for(int i=0;i&lt;s.size();i++){
-		if(s[i]!=' ') cnt+=a[s[i]-'a'];
-		else cnt++;  
-	} 
-	cout&lt;&lt;cnt;
-}
-
-</code></pre>
-<p>1631：</p>
-<figure data-type="image" tabindex="1"><img src="https://houpingze.github.io/post-images/1599136671819.png" alt="" loading="lazy"></figure>
-<p>代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-typedef unsigned long long ull;
-using namespace std;
-int n,cnt,m;
-bool b[20000000];
-int main(){
-	cin&gt;&gt;n;
-	for(int i=1;i&lt;=n;i++){
-		double a;
-		cin&gt;&gt;a&gt;&gt;m;
-		for(int j=1;j&lt;=m;j++){
-			b[(int)(a*j)]=!b[(int)(a*j)];
-		}
-	}
-	for(int i=1;;i++){
-		if(b[i]){
-			cout&lt;&lt;i;
-			return 0;
-		}
-	}
-}
-
-</code></pre>
-<figure data-type="image" tabindex="2"><img src="https://houpingze.github.io/post-images/1599138922872.png" alt="" loading="lazy"></figure>
-<p>😱😱😱😱😱😱😱😱😱😱😱😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥😥🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤😭😭🤐🤐🤐🤐😭😭😭😭😭😭😓😓😓😓😓😓😓😓😓😓😓😓😓😓😓😓😓😓😓😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😪😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😪😪😪😪😓😓😓😓😓😓😓😓😓😓😭😭😭😭😭🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤🤤</p>
+              <figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/06/05/NkX5mwegWuyHIdK.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210606214454.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210613195223.png" alt="" loading="lazy"></figure>
+<p>Q:如何评价zqs？</p>
+<p>A：<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210606211700.png" alt="" loading="lazy"></p>
+<p>Q：如何评价WA王子？</p>
+<p>A：<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210610201749.png" alt="" loading="lazy"></p>
+<p>Q：如何评价白兔之舞？</p>
+<p>A：<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210610213950.png" alt="" loading="lazy"></p>
+<figure data-type="image" tabindex="4"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210606214343.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2021/06/05/MJkoSa3QdUT5e4B.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2021/06/03/VDsLpNdcmCaFHPR.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2021/06/01/f8pRuHzbriW6xdP.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://i.loli.net/2021/06/02/2PIxpogWh1EwJXH.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://i.loli.net/2021/05/31/9NMofz8hkQUnmYe.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://i.loli.net/2021/05/30/tDJRy8PHvaV17fE.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://i.loli.net/2021/05/30/KDAOI4eakYzXlmF.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="12"><img src="https://i.loli.net/2021/05/29/5YJMyjXTuSK7E8W.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="13"><img src="https://i.loli.net/2021/05/28/S43twY8jEWFoZg6.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://i.loli.net/2021/05/25/oGz7rJeTCWhfMsj.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="15"><img src="https://i.loli.net/2021/05/23/TVqGXfD3zbHIQdv.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="16"><img src="https://i.loli.net/2021/05/24/DbT5FfGIoHqhRn3.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="17"><img src="https://i.loli.net/2021/05/21/zqLAGvMn5by9CYO.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="18"><img src="https://i.loli.net/2021/05/18/CgvtcVsdzYAuJWL.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="19"><img src="https://i.loli.net/2021/05/17/oywjnUEIQVK2Giq.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="20"><img src="https://i.loli.net/2021/05/15/XQDLivs2tSdWcjT.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="21"><img src="https://i.loli.net/2021/05/15/aM6fE9F5w3ODWlh.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="22"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210605193059.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="23"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210605193200.png" alt="" loading="lazy"></figure>
+<p><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210605193232.png" alt="" loading="lazy"><br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210605193248.png" alt="" loading="lazy"></p>
+<figure data-type="image" tabindex="24"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210605195434.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="25"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210605215931.png" alt="" loading="lazy"></figure>
+<p><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210613195053.png" alt="" loading="lazy"><br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210613193118.png" alt="" loading="lazy"><br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210613192422.png" alt="" loading="lazy"><br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210613180823.png" alt="" loading="lazy"><br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210613151951.png" alt="" loading="lazy"></p>
+<p><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210613195908.png" alt="" loading="lazy"><br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/6f1645ah.png" alt="" loading="lazy"></p>
+<figure data-type="image" tabindex="26"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210605220828.png" alt="" loading="lazy"></figure>
+<p><a href="https://gitee.com/houpingze/ak-ioi/raw/master/20210607211227.png"></a></p>
+<figure data-type="image" tabindex="27"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210607211242.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="28"><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210610200502.png" alt="" loading="lazy"></figure>
+<p><img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210612202334.png" alt="" loading="lazy"><br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210612121144.png" alt="" loading="lazy"><br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210610214448.png" alt="" loading="lazy"><br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210612192148.png" alt="" loading="lazy"><br>
+<img src="https://gitee.com/houpingze/ak-ioi/raw/master/20210612193024.png" alt="" loading="lazy"></p>
 
             </div>
             
@@ -700,7 +446,7 @@ int main(){
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://houpingze.github.io/post/hpz-uke-ioi/" title="金牌冲刺6">https://houpingze.github.io/post/hpz-uke-ioi/</a>
+      <a href="https://houpingze.github.io/post/ZX9BxFUaM/" title="语录">https://houpingze.github.io/post/ZX9BxFUaM/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -709,14 +455,16 @@ int main(){
   </ul>
   <div class="tags">
     
-      <a href="https://houpingze.github.io/tag/sF1N1vQzB/"># 课堂笔记</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="P3720 [AHOI2017初中组]guide题解" href="https://houpingze.github.io/post/35QIEHl4_/">P3720 [AHOI2017初中组]guide题解</a>
+        <a class="nav-mobile-next" title="P3720 [AHOI2017初中组]guide题解" href="https://houpingze.github.io/post/35QIEHl4_/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>

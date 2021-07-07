@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://houpingze.github.io</id>
     <title>houpingze菜鸡</title>
-    <updated>2021-07-07T02:25:53.648Z</updated>
+    <updated>2021-07-07T02:27:45.055Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://houpingze.github.io"/>
     <link rel="self" href="https://houpingze.github.io/atom.xml"/>
@@ -23,6 +23,13 @@ houpingze 的小站
     <logo>https://houpingze.github.io/images/avatar.png</logo>
     <icon>https://houpingze.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, houpingze菜鸡</rights>
+    <entry>
+        <title type="html"><![CDATA[语录]]></title>
+        <id>https://houpingze.github.io/post/ZX9BxFUaM/</id>
+        <link href="https://houpingze.github.io/post/ZX9BxFUaM/">
+        </link>
+        <updated>2021-07-07T02:27:16.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[P3720 [AHOI2017初中组]guide题解]]></title>
         <id>https://houpingze.github.io/post/35QIEHl4_/</id>
