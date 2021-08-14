@@ -95,6 +95,7 @@ int nxt(int val){
 	root=merge(x,y); 
 	return ret;
 }
+vector<int>v;
 signed main() {
 //	ios::sync_with_stdio(false);
 	cin>>n; 
@@ -104,8 +105,9 @@ signed main() {
 		int x;
 		cin>>x;
 		if(i==1) ans+=x;
-		else ans+=min(nxt(x)-x , x-pre(x));
-		insert(x);
+		else ans+=min(x-v.lower_bound(v.begin(),v.end(),x) ,v.upper_bound(v.begin(),v.end()-x);
+//		insert(x);
+		v.insert(lower_bound(v.begin(),v.end(),x),x);
 	}
 	cout<<ans;
     return 0;
