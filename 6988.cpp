@@ -91,7 +91,6 @@ int nxt(int val){
 	split(root,val,x,y);
 	int now=y;
 	while(fhq[now].l) now=fhq[now].l;
-	lst=fhq[now].val; 
 	int ret=fhq[now].val;
 	root=merge(x,y); 
 	return ret;
@@ -106,7 +105,7 @@ signed main() {
 		cin>>x;
 		if(i==1) ans+=x;
 		else
-		ans+=min(abs(pre(x)-x),abs(nxt(x)-x));
+		ans+=min(pre(x)-x,x-nxt(x));
 		insert(x);
 	}
 	cout<<ans;
