@@ -26,88 +26,27 @@ void print(int x){
     putchar(x%10+'0');
 }
 int n,cnt,m,a[5010],ans,tmp,k;
-typedef pair<int,int> P;
-//struct PROBLEM_SOLVER{
-//	   int n,m;
-//}solver;
-
-//signed main(){
-int N=100005;
-struct node{
-	int l,r,val,key,sz;
-}fhq[1500005];
-int root;
-std::mt19937 rnd(370);
-	int lst=0;
-int newnode(int val){
-	cnt++;
-	fhq[cnt].val=val;
-	fhq[cnt].key=rnd();
-	fhq[cnt].sz=1;
-	return cnt;
-} 
-void upd(int now){
-	fhq[now].sz=fhq[fhq[now].l].sz+1+fhq[fhq[now].r].sz;
-}
-void split(int now,int val,int &x,int &y){
-	if(now==0) x=y=0;
-	else{
-		if(fhq[now].val<=val) x=now,split(fhq[now].r,val,fhq[now].r,y);
-		else y=now,split(fhq[now].l,val,x,fhq[now].l);
-		upd(now);
-	}
-}
-int merge(int x,int y){
-	if(x==0||y==0) return x+y;
-	if(fhq[x].key>fhq[y].key){
-		fhq[x].r=merge(fhq[x].r,y);
-		upd(x);
-		return x;
-	}
-	
-		fhq[y].l=merge(x,fhq[y].l);
-		upd(y);
-		return y;
-}
-int x,y,z;
-int XOR;
-void insert(int val){
-	split(root,val,x,y);
-	root=merge(merge(x,newnode(val)),y);
-//	cout<<root; 
-}
-int pre(int val){
-	split(root,val-1,x,y);
-	int now=x;
-	while(fhq[now].r) now=fhq[now].r;
-	lst=fhq[now].val;
-	
-	int ret=fhq[now].val;
-//	cout<<fhq[now].val<<'\n';
-	root=merge(x,y); 
-	return ret;
-}
-int nxt(int val){
-	split(root,val,x,y);
-	int now=y;
-	while(fhq[now].l) now=fhq[now].l;//
-	int ret=fhq[now].val;
-	root=merge(x,y); 
-	return ret;
-}
+typedef pair<int,int> P; 
 vector<int>v;
 signed main() {
 //	ios::sync_with_stdio(false);
 	cin>>n; 
 //	int XOR;
 	int ans=0;
-	rep(i,1,n){
+	v.pb(-INF);
+	rep(i,1,n){//??????????????????????????
 		int x;
 		cin>>x;
 		if(i==1) ans+=x;
-		else ans+=min(x-v.lower_bound(v.begin(),v.end(),x) ,v.upper_bound(v.begin(),v.end()-x);
+		else {
+			int n1=*--lower_bound(v.begin(),v.end(),x);
+			int n2=*lower_bound(v.begin(),v.end(),x);
+			if(n1==-INF) ans+=abs(x-n2);
+			else ans+=min(abs(x-n1),abs(x-n2));	
+		}
 //		insert(x);
-		v.insert(lower_bound(v.begin(),v.end(),x),x);
+		v.insert(upper_bound(v.begin(),v.end(),x),x);
+        // cout<<(*lower_bound(v.begin(),v.end(),x));
 	}
 	cout<<ans;
     return 0;
