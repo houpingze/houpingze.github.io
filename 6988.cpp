@@ -10,7 +10,7 @@ Note:
 #define vc vector
 #define fst first
 #define scd second
-//#define int long long
+#define int long long
 #define rep(i,x,y) for(int i=x;i<=y;i++)
 #include<random>
 using namespace std;
@@ -76,41 +76,6 @@ void insert(int val){
 	root=merge(merge(x,newnode(val)),y);
 //	cout<<root; 
 }
-void del(int val){
-	split(root,val,x,z);
-	split(x,val-1,x,y);
-	y=merge(fhq[y].l,fhq[y].r);
-	root=merge(merge(x,y),z);
-}
-void rk(int val){
-	split(root,val-1,x,y);
-	lst=fhq[x].sz+1;
-	if(XOR==0) XOR=fhq[x].sz+1;
-	else XOR=XOR^fhq[x].sz+1;
-//	cout<<fhq[x].sz+1<<'\n';
-	root=merge(x,y);
-}
-void num(int rk){
-	int now=root;
-//	cout<<num<<endl;
-	while(now){
-//		cout<<now<<' '<<fhq[fhq[now].l].sz<<endl;
-		if(fhq[fhq[now].l].sz==rk-1){
-			break;
-		}else{
-			if(fhq[fhq[now].l].sz>=rk){
-				now=fhq[now].l;
-			}else{
-				rk-=fhq[fhq[now].l].sz+1;
-				now=fhq[now].r;
-			}
-		}
-	}
-	lst=fhq[now].val;
-	if(XOR==0) XOR=fhq[now].val;
-	else XOR=XOR^fhq[now].val;
-//	cout<<fhq[now].val<<'\n';
-}
 int pre(int val){
 	split(root,val-1,x,y);
 	int now=x;
@@ -131,7 +96,7 @@ int nxt(int val){
 	root=merge(x,y); 
 	return ret;
 }
-int main() {
+signed main() {
 //	ios::sync_with_stdio(false);
 	cin>>n; 
 //	int XOR;
@@ -139,6 +104,8 @@ int main() {
 	rep(i,1,n){
 		int x;
 		cin>>x;
+		if(i==1) ans+=x;
+		else
 		ans+=min(abs(pre(x)-x),abs(nxt(x)-x));
 		insert(x);
 	}
