@@ -90,7 +90,7 @@ int pre(int val){
 int nxt(int val){
 	split(root,val,x,y);
 	int now=y;
-	while(fhq[now].l) now=fhq[now].l;
+	while(fhq[now].l) now=fhq[now].l;//
 	int ret=fhq[now].val;
 	root=merge(x,y); 
 	return ret;
