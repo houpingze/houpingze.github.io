@@ -105,7 +105,7 @@ signed main() {
 		cin>>x;
 		if(i==1) ans+=x;
 		else
-		ans+=min(pre(x)-x,x-nxt(x));
+		ans+=min(pre(x)-x , x-nxt(x));
 		insert(x);
 	}
 	cout<<ans;
